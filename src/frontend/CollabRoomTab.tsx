@@ -16,25 +16,13 @@ import {
   Square,
   Users,
 } from "lucide-react";
-import { Button } from "@termix/plugin-sdk/ui";
 import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
+  Button,
+  InlineView,
+  Input,
+  PluginComponent,
+  useConfirm,
 } from "@termix/plugin-sdk/ui";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@termix/plugin-sdk/ui";
-import { Input, PluginComponent } from "@termix/plugin-sdk/ui";
 import { CollabMembersSidebar } from "./CollabMembersSidebar";
 import {
   RemoteDisplay,
@@ -78,10 +66,6 @@ type PresentDraft =
       token: string;
       guacamoleConnectionId: string;
     };
-type PresentChoice = {
-  host: SSHHostWithStatus;
-  protocol: "ssh" | "rdp" | "vnc" | "telnet";
-};
 
 export function CollabRoomTab({
   roomId,
@@ -119,16 +103,9 @@ export function CollabRoomTab({
   const presentLoading = !hostsLoaded;
   const [inviteOpen, setInviteOpen] = useState(false);
   const [membersOpen, setMembersOpen] = useState(true);
-  const [endOpen, setEndOpen] = useState(false);
-  const [deleteOpen, setDeleteOpen] = useState(false);
+  const confirm = useConfirm();
   const [deleting, setDeleting] = useState(false);
-  const [takeoverChoice, setTakeoverChoice] = useState<PresentChoice | null>(
-    null,
-  );
   const [guestLinkToken, setGuestLinkToken] = useState<string | null>(null);
-  const [guestLinkAction, setGuestLinkAction] = useState<
-    "disable" | "rotate" | null
-  >(null);
   const [hostSearch, setHostSearch] = useState("");
   const [inviteSearch, setInviteSearch] = useState("");
   const { hosts: shellHosts } = useHosts();
@@ -355,7 +332,14 @@ export function CollabRoomTab({
   ) {
     if (presenterUserId && !iAmPresenter) {
       setPresentOpen(false);
-      setTakeoverChoice({ host, protocol });
+      void confirm({
+        title: t("collab.takeOverConfirmTitle"),
+        description: t("collab.takeOverDescription", { name: presenterName }),
+        confirmLabel: t("collab.takeOver"),
+        destructive: false,
+      }).then((ok) => {
+        if (ok) void startPresent(host, protocol);
+      });
       return;
     }
     void startPresent(host, protocol);
@@ -424,6 +408,25 @@ export function CollabRoomTab({
     } catch (error) {
       toast.error(getErrorMessage(error));
     }
+  }
+
+  async function confirmGuestLink(action: "disable" | "rotate") {
+    const rotate = action === "rotate";
+    const ok = await confirm({
+      title: t(
+        rotate
+          ? "collab.rotateLinkConfirmTitle"
+          : "collab.disableLinkConfirmTitle",
+      ),
+      description: t(
+        rotate
+          ? "collab.rotateLinkDescription"
+          : "collab.disableLinkDescription",
+      ),
+      confirmLabel: t(rotate ? "collab.rotateLink" : "collab.disableLink"),
+      destructive: !rotate,
+    });
+    if (ok) void handleGuestLink(rotate);
   }
 
   async function handleEnd() {
@@ -635,7 +638,20 @@ export function CollabRoomTab({
               size="sm"
               variant="destructive"
               className="h-8 text-xs"
-              onClick={() => setEndOpen(true)}
+              onClick={() =>
+                void confirm({
+                  title: t("collab.endConfirmTitle"),
+                  description: t(
+                    detail?.room.persistent
+                      ? "collab.endPersistentDescription"
+                      : "collab.endDescription",
+                    { name: detail?.room.name },
+                  ),
+                  confirmLabel: t("collab.endRoom"),
+                }).then((ok) => {
+                  if (ok) void handleEnd();
+                })
+              }
             >
               {t("collab.endRoom")}
             </Button>
@@ -645,7 +661,18 @@ export function CollabRoomTab({
               size="sm"
               variant="destructive"
               className="h-8 text-xs"
-              onClick={() => setDeleteOpen(true)}
+              disabled={deleting}
+              onClick={() =>
+                void confirm({
+                  title: t("collab.deleteConfirmTitle"),
+                  description: t("collab.deleteDescription", {
+                    name: detail?.room.name,
+                  }),
+                  confirmLabel: t("collab.deleteRoom"),
+                }).then((ok) => {
+                  if (ok) void handleDelete();
+                })
+              }
             >
               {t("collab.deleteRoom")}
             </Button>
@@ -678,7 +705,7 @@ export function CollabRoomTab({
               size="sm"
               variant="outline"
               className="h-8 text-xs"
-              onClick={() => setGuestLinkAction("rotate")}
+              onClick={() => void confirmGuestLink("rotate")}
             >
               {t("collab.rotateLink")}
             </Button>
@@ -689,7 +716,7 @@ export function CollabRoomTab({
             className="h-8 text-xs"
             onClick={() =>
               detail?.room.guestLinkEnabled
-                ? setGuestLinkAction("disable")
+                ? void confirmGuestLink("disable")
                 : void handleGuestLink(true)
             }
           >
@@ -796,118 +823,63 @@ export function CollabRoomTab({
       </div>
 
       {/* Present dialog */}
-      <Dialog open={presentOpen} onOpenChange={setPresentOpen}>
-        <DialogContent className="max-h-[70vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>{t("collab.presentTitle")}</DialogTitle>
-          </DialogHeader>
-          <Input
-            aria-label={t("collab.searchHosts")}
-            placeholder={t("collab.searchHosts")}
-            value={hostSearch}
-            onChange={(event) => setHostSearch(event.target.value)}
-          />
-          <div className="flex flex-col gap-1">
-            {presentLoading && (
-              <div className="flex justify-center py-4">
-                <Loader2 className="size-4 animate-spin text-muted-foreground" />
+
+      <InlineView
+        open={presentOpen}
+        onOpenChange={setPresentOpen}
+        title={t("collab.presentTitle")}
+      >
+        <Input
+          aria-label={t("collab.searchHosts")}
+          placeholder={t("collab.searchHosts")}
+          value={hostSearch}
+          onChange={(event) => setHostSearch(event.target.value)}
+        />
+        <div className="flex flex-col gap-1">
+          {presentLoading && (
+            <div className="flex justify-center py-4">
+              <Loader2 className="size-4 animate-spin text-muted-foreground" />
+            </div>
+          )}
+          {!presentLoading && filteredHosts.length === 0 && (
+            <CenteredNote text={t("collab.noHostsFound")} />
+          )}
+          {filteredHosts.map((host) => {
+            const protocols = hostProtocols(
+              host as unknown as PluginHostRecord,
+            ).filter(isSharedProtocol);
+            if (protocols.length === 0) return null;
+            return (
+              <div
+                key={host.id}
+                className="flex items-center gap-2 px-2 py-1.5 border border-border"
+              >
+                <span className="flex-1 text-xs truncate">{host.name}</span>
+                {protocols.map((protocol) => (
+                  <Button
+                    key={protocol}
+                    size="sm"
+                    variant="outline"
+                    className="h-8 text-xs uppercase"
+                    onClick={() => choosePresent(host, protocol)}
+                  >
+                    {protocol}
+                  </Button>
+                ))}
               </div>
-            )}
-            {!presentLoading && filteredHosts.length === 0 && (
-              <CenteredNote text={t("collab.noHostsFound")} />
-            )}
-            {filteredHosts.map((host) => {
-              const protocols = hostProtocols(
-                host as unknown as PluginHostRecord,
-              ).filter(isSharedProtocol);
-              if (protocols.length === 0) return null;
-              return (
-                <div
-                  key={host.id}
-                  className="flex items-center gap-2 px-2 py-1.5 border border-border"
-                >
-                  <span className="flex-1 text-xs truncate">{host.name}</span>
-                  {protocols.map((protocol) => (
-                    <Button
-                      key={protocol}
-                      size="sm"
-                      variant="outline"
-                      className="h-8 text-xs uppercase"
-                      onClick={() => choosePresent(host, protocol)}
-                    >
-                      {protocol}
-                    </Button>
-                  ))}
-                </div>
-              );
-            })}
-          </div>
-        </DialogContent>
-      </Dialog>
+            );
+          })}
+        </div>
+      </InlineView>
 
       {/* Invite dialog */}
-      <Dialog open={inviteOpen} onOpenChange={setInviteOpen}>
-        <DialogContent className="max-h-[70vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>{t("collab.inviteTitle")}</DialogTitle>
-          </DialogHeader>
-          <Input
-            aria-label={t("collab.searchUsers")}
-            placeholder={t("collab.searchUsers")}
-            value={inviteSearch}
-            onChange={(event) => setInviteSearch(event.target.value)}
-          />
-          <div className="flex flex-col gap-1">
-            {roles.length > 0 && (
-              <span className="text-[9px] font-semibold uppercase tracking-widest text-muted-foreground">
-                {t("collab.roles")}
-              </span>
-            )}
-            {roles.map((role) => (
-              <label
-                key={role.id}
-                className="flex items-center gap-2 px-2 py-1.5 text-xs border border-border cursor-pointer"
-              >
-                <input
-                  type="checkbox"
-                  checked={roleSelection.has(role.id)}
-                  onChange={(e) => {
-                    setRoleSelection((prev) => {
-                      const next = new Set(prev);
-                      if (e.target.checked) next.add(role.id);
-                      else next.delete(role.id);
-                      return next;
-                    });
-                  }}
-                />
-                {role.displayName || role.name}
-              </label>
-            ))}
-            <span className="text-[9px] font-semibold uppercase tracking-widest text-muted-foreground">
-              {t("collab.users")}
-            </span>
-            {invitableUsers.map((user) => (
-              <label
-                key={user.id}
-                className="flex items-center gap-2 px-2 py-1.5 text-xs border border-border cursor-pointer"
-              >
-                <input
-                  type="checkbox"
-                  checked={inviteSelection.has(user.id)}
-                  onChange={(e) => {
-                    setInviteSelection((prev) => {
-                      const next = new Set(prev);
-                      if (e.target.checked) next.add(user.id);
-                      else next.delete(user.id);
-                      return next;
-                    });
-                  }}
-                />
-                {user.username}
-              </label>
-            ))}
-          </div>
-          <DialogFooter>
+
+      <InlineView
+        open={inviteOpen}
+        onOpenChange={setInviteOpen}
+        title={t("collab.inviteTitle")}
+        footer={
+          <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
             <Button variant="outline" onClick={() => setInviteOpen(false)}>
               {t("common.cancel")}
             </Button>
@@ -917,127 +889,66 @@ export function CollabRoomTab({
             >
               {t("collab.invite")}
             </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-
-      <AlertDialog open={endOpen} onOpenChange={setEndOpen}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>{t("collab.endConfirmTitle")}</AlertDialogTitle>
-            <AlertDialogDescription>
-              {t(
-                detail?.room.persistent
-                  ? "collab.endPersistentDescription"
-                  : "collab.endDescription",
-                { name: detail?.room.name },
-              )}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>{t("common.cancel")}</AlertDialogCancel>
-            <AlertDialogAction
-              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-              onClick={() => void handleEnd()}
-            >
-              {t("collab.endRoom")}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-
-      <AlertDialog open={deleteOpen} onOpenChange={setDeleteOpen}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>
-              {t("collab.deleteConfirmTitle")}
-            </AlertDialogTitle>
-            <AlertDialogDescription>
-              {t("collab.deleteDescription", { name: detail?.room.name })}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel disabled={deleting}>
-              {t("common.cancel")}
-            </AlertDialogCancel>
-            <AlertDialogAction
-              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-              disabled={deleting}
-              onClick={() => void handleDelete()}
-            >
-              {t("collab.deleteRoom")}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-
-      <AlertDialog
-        open={Boolean(takeoverChoice)}
-        onOpenChange={(open) => !open && setTakeoverChoice(null)}
+          </div>
+        }
       >
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>
-              {t("collab.takeOverConfirmTitle")}
-            </AlertDialogTitle>
-            <AlertDialogDescription>
-              {t("collab.takeOverDescription", { name: presenterName })}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>{t("common.cancel")}</AlertDialogCancel>
-            <AlertDialogAction
-              onClick={() => {
-                const choice = takeoverChoice;
-                setTakeoverChoice(null);
-                if (choice) void startPresent(choice.host, choice.protocol);
-              }}
+        <Input
+          aria-label={t("collab.searchUsers")}
+          placeholder={t("collab.searchUsers")}
+          value={inviteSearch}
+          onChange={(event) => setInviteSearch(event.target.value)}
+        />
+        <div className="flex flex-col gap-1">
+          {roles.length > 0 && (
+            <span className="text-[9px] font-semibold uppercase tracking-widest text-muted-foreground">
+              {t("collab.roles")}
+            </span>
+          )}
+          {roles.map((role) => (
+            <label
+              key={role.id}
+              className="flex items-center gap-2 px-2 py-1.5 text-xs border border-border cursor-pointer"
             >
-              {t("collab.takeOver")}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-
-      <AlertDialog
-        open={Boolean(guestLinkAction)}
-        onOpenChange={(open) => !open && setGuestLinkAction(null)}
-      >
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>
-              {t(
-                guestLinkAction === "rotate"
-                  ? "collab.rotateLinkConfirmTitle"
-                  : "collab.disableLinkConfirmTitle",
-              )}
-            </AlertDialogTitle>
-            <AlertDialogDescription>
-              {t(
-                guestLinkAction === "rotate"
-                  ? "collab.rotateLinkDescription"
-                  : "collab.disableLinkDescription",
-              )}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>{t("common.cancel")}</AlertDialogCancel>
-            <AlertDialogAction
-              onClick={() => {
-                const enabled = guestLinkAction === "rotate";
-                setGuestLinkAction(null);
-                void handleGuestLink(enabled);
-              }}
+              <input
+                type="checkbox"
+                checked={roleSelection.has(role.id)}
+                onChange={(e) => {
+                  setRoleSelection((prev) => {
+                    const next = new Set(prev);
+                    if (e.target.checked) next.add(role.id);
+                    else next.delete(role.id);
+                    return next;
+                  });
+                }}
+              />
+              {role.displayName || role.name}
+            </label>
+          ))}
+          <span className="text-[9px] font-semibold uppercase tracking-widest text-muted-foreground">
+            {t("collab.users")}
+          </span>
+          {invitableUsers.map((user) => (
+            <label
+              key={user.id}
+              className="flex items-center gap-2 px-2 py-1.5 text-xs border border-border cursor-pointer"
             >
-              {t(
-                guestLinkAction === "rotate"
-                  ? "collab.rotateLink"
-                  : "collab.disableLink",
-              )}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+              <input
+                type="checkbox"
+                checked={inviteSelection.has(user.id)}
+                onChange={(e) => {
+                  setInviteSelection((prev) => {
+                    const next = new Set(prev);
+                    if (e.target.checked) next.add(user.id);
+                    else next.delete(user.id);
+                    return next;
+                  });
+                }}
+              />
+              {user.username}
+            </label>
+          ))}
+        </div>
+      </InlineView>
     </div>
   );
 }

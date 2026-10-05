@@ -1,6 +1,7 @@
+import { ConnectionScreen } from "@termix/plugin-sdk/ui";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "@termix/plugin-sdk/frontend";
-import { AlertCircle, Eye, Presentation } from "lucide-react";
+import { Eye, Presentation } from "lucide-react";
 import { RemoteDisplay } from "./shared";
 import { GuestTerminalView } from "./SharedSessionView";
 import { resolveCollabGuestStage, type CollabGuestStage } from "./api";
@@ -69,7 +70,7 @@ export default function CollabGuestView() {
       </div>
       <div className="relative flex-1 min-h-0">
         {error ? (
-          <Note icon={<AlertCircle className="size-8" />} text={error} />
+          <ConnectionScreen status="error" unavailable={{ title: error }} />
         ) : !stage ? (
           <Note
             icon={<Presentation className="size-8" />}

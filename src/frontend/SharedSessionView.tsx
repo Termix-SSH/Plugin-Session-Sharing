@@ -2,13 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "@termix/plugin-sdk/frontend";
 import { useXTerm } from "react-xtermjs";
 import { FitAddon } from "@xterm/addon-fit";
-import { AlertCircle, Eye, Users } from "lucide-react";
+import { Eye, Users } from "lucide-react";
 import {
   resolveShareLink,
   type ResolvedShareLink,
   type ShareLinkErrorKind,
 } from "./api";
 import { Loader, RemoteDisplay, wsUrlForPath } from "./shared";
+import { ConnectionScreen } from "@termix/plugin-sdk/ui";
 
 const PING_INTERVAL_MS = 30000;
 
@@ -78,27 +79,8 @@ function ReadOnlyBadge({ label }: { label: string }) {
   );
 }
 
-function CenteredMessage({
-  icon,
-  message,
-}: {
-  icon: React.ReactNode;
-  message: string;
-}) {
-  return (
-    <div
-      className="flex flex-col items-center justify-center h-full gap-4 w-full"
-      style={{ backgroundColor: "var(--bg-base)" }}
-    >
-      {icon}
-      <p
-        className="text-sm font-semibold text-center max-w-xs"
-        style={{ color: "var(--foreground)" }}
-      >
-        {message}
-      </p>
-    </div>
-  );
+function CenteredMessage({ message }: { message: string }) {
+  return <ConnectionScreen status="error" unavailable={{ title: message }} />;
 }
 
 export function GuestTerminalView({
@@ -246,15 +228,7 @@ export function GuestTerminalView({
           className="absolute inset-0 z-30 flex items-center justify-center"
           style={{ backgroundColor: "var(--bg-base)" }}
         >
-          <CenteredMessage
-            icon={
-              <AlertCircle
-                className="size-10"
-                style={{ color: "var(--foreground)" }}
-              />
-            }
-            message={ended}
-          />
+          <CenteredMessage message={ended} />
         </div>
       )}
       <div ref={xtermRef} className="w-full h-full" />
@@ -268,15 +242,7 @@ function GuestGuacamoleView({ share }: { share: ResolvedShareLink }) {
 
   if (!share.connectParams?.token) {
     return (
-      <CenteredMessage
-        icon={
-          <AlertCircle
-            className="size-10"
-            style={{ color: "var(--foreground)" }}
-          />
-        }
-        message={t("sessionSharing.guestView.linkInvalid")}
-      />
+      <CenteredMessage message={t("sessionSharing.guestView.linkInvalid")} />
     );
   }
 
@@ -290,15 +256,7 @@ function GuestGuacamoleView({ share }: { share: ResolvedShareLink }) {
           className="absolute inset-0 z-30 flex items-center justify-center"
           style={{ backgroundColor: "var(--bg-base)" }}
         >
-          <CenteredMessage
-            icon={
-              <AlertCircle
-                className="size-10"
-                style={{ color: "var(--foreground)" }}
-              />
-            }
-            message={connectionError}
-          />
+          <CenteredMessage message={connectionError} />
         </div>
       )}
       <RemoteDisplay
@@ -348,17 +306,7 @@ export default function SharedSessionView() {
     >
       <div className="relative flex-1 min-h-0">
         {loading && <Loader message={t("sessionSharing.guestView.loading")} />}
-        {!loading && error && (
-          <CenteredMessage
-            icon={
-              <AlertCircle
-                className="size-10"
-                style={{ color: "var(--foreground)" }}
-              />
-            }
-            message={error}
-          />
-        )}
+        {!loading && error && <CenteredMessage message={error} />}
         {!loading &&
           !error &&
           share &&

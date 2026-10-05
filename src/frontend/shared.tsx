@@ -1,3 +1,4 @@
+import { ConnectionScreen } from "@termix/plugin-sdk/ui";
 import { useMemo } from "react";
 import {
   invokeAction,
@@ -94,9 +95,6 @@ export function getErrorMessage(error: unknown): string {
 
 export function Loader({ message }: { message: string }) {
   return (
-    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-background">
-      <div className="size-5 animate-spin rounded-full border-2 border-primary border-t-transparent" />
-      <p className="text-sm text-muted-foreground">{message}</p>
-    </div>
+    <ConnectionScreen status="connecting" message={message} className="z-10" />
   );
 }

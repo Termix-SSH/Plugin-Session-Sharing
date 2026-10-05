@@ -2,16 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "@termix/plugin-sdk/frontend";
 import { toast } from "sonner";
 import { Loader2, Plus, Presentation, RefreshCw } from "lucide-react";
-import { Button } from "@termix/plugin-sdk/ui";
-import { Input } from "@termix/plugin-sdk/ui";
-import { Badge } from "@termix/plugin-sdk/ui";
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@termix/plugin-sdk/ui";
+import { Badge, Button, InlineView, Input } from "@termix/plugin-sdk/ui";
 import type { CollabRoom } from "./api";
 import type { MeetingBackend } from "./meeting-backend";
 import { getErrorMessage } from "./shared";
@@ -127,43 +118,12 @@ export function CollabPanel({
         </div>
       )}
 
-      <Dialog open={createOpen} onOpenChange={setCreateOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{t("collab.createRoom")}</DialogTitle>
-          </DialogHeader>
-          <div className="flex flex-col gap-3">
-            <label htmlFor="collab-room-name" className="text-xs font-medium">
-              {t("collab.roomName")}
-            </label>
-            <Input
-              id="collab-room-name"
-              placeholder={t("collab.roomName")}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") void handleCreate();
-              }}
-            />
-            <label className="flex items-start gap-2 text-xs cursor-pointer">
-              <input
-                type="checkbox"
-                className="mt-0.5"
-                checked={persistent}
-                onChange={(e) => setPersistent(e.target.checked)}
-              />
-              <span>
-                <span className="font-medium">
-                  {t("collab.persistentRoom")}
-                </span>
-                <br />
-                <span className="text-muted-foreground">
-                  {t("collab.persistentRoomHint")}
-                </span>
-              </span>
-            </label>
-          </div>
-          <DialogFooter>
+      <InlineView
+        open={createOpen}
+        onOpenChange={setCreateOpen}
+        title={t("collab.createRoom")}
+        footer={
+          <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
             <Button
               variant="outline"
               onClick={() => setCreateOpen(false)}
@@ -178,9 +138,39 @@ export function CollabPanel({
               {creating && <Loader2 className="size-3.5 mr-1 animate-spin" />}
               {t("common.create")}
             </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+          </div>
+        }
+      >
+        <div className="flex flex-col gap-3">
+          <label htmlFor="collab-room-name" className="text-xs font-medium">
+            {t("collab.roomName")}
+          </label>
+          <Input
+            id="collab-room-name"
+            placeholder={t("collab.roomName")}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") void handleCreate();
+            }}
+          />
+          <label className="flex items-start gap-2 text-xs cursor-pointer">
+            <input
+              type="checkbox"
+              className="mt-0.5"
+              checked={persistent}
+              onChange={(e) => setPersistent(e.target.checked)}
+            />
+            <span>
+              <span className="font-medium">{t("collab.persistentRoom")}</span>
+              <br />
+              <span className="text-muted-foreground">
+                {t("collab.persistentRoomHint")}
+              </span>
+            </span>
+          </label>
+        </div>
+      </InlineView>
     </div>
   );
 }

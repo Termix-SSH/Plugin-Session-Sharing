@@ -12,17 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { Badge } from "@termix/plugin-sdk/ui";
-import { Button } from "@termix/plugin-sdk/ui";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@termix/plugin-sdk/ui";
+import { Button, useConfirm } from "@termix/plugin-sdk/ui";
 import type { CollabControlRequest, CollabRoomDetail } from "./api";
 
 interface CollabMembersSidebarProps {
@@ -45,10 +35,7 @@ export function CollabMembersSidebar({
   onRemoveGuests,
 }: CollabMembersSidebarProps) {
   const { t } = useTranslation();
-  const [removing, setRemoving] = useState<{
-    userId: string;
-    username: string;
-  } | null>(null);
+  const confirm = useConfirm();
   const [busyUserId, setBusyUserId] = useState<string | null>(null);
   const guests = detail.guests ?? [];
   const onlineIds = new Set(detail.online.map((user) => user.userId));
@@ -243,9 +230,14 @@ export function CollabMembersSidebar({
                       name: member.username,
                     })}
                     onClick={() =>
-                      setRemoving({
-                        userId: member.userId,
-                        username: member.username,
+                      void confirm({
+                        title: t("collab.removeMemberTitle"),
+                        description: t("collab.removeMemberDescription", {
+                          name: member.username,
+                        }),
+                        confirmLabel: t("collab.deleteMember"),
+                      }).then((ok) => {
+                        if (ok) void onRemoveMember(member.userId);
                       })
                     }
                   >
@@ -291,35 +283,6 @@ export function CollabMembersSidebar({
           </div>
         )}
       </section>
-
-      <AlertDialog
-        open={Boolean(removing)}
-        onOpenChange={(open) => {
-          if (!open) setRemoving(null);
-        }}
-      >
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>{t("collab.removeMemberTitle")}</AlertDialogTitle>
-            <AlertDialogDescription>
-              {t("collab.removeMemberDescription", {
-                name: removing?.username,
-              })}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>{t("common.cancel")}</AlertDialogCancel>
-            <AlertDialogAction
-              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-              onClick={() => {
-                if (removing) void onRemoveMember(removing.userId);
-              }}
-            >
-              {t("collab.deleteMember")}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </aside>
   );
 }
