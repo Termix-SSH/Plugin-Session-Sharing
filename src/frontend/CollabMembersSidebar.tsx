@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTranslation } from "@termix/plugin-sdk/frontend";
+import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import {
   Check,
   Crown,
@@ -11,8 +11,8 @@ import {
   Users,
   X,
 } from "lucide-react";
-import { Badge } from "@termix/plugin-sdk/ui";
-import { Button, useConfirm } from "@termix/plugin-sdk/ui";
+import { Badge } from "@termix-ssh/plugin-sdk/ui";
+import { Button, useConfirm } from "@termix-ssh/plugin-sdk/ui";
 import type { CollabControlRequest, CollabRoomDetail } from "./api";
 
 interface CollabMembersSidebarProps {

@@ -1,13 +1,13 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import type { ComponentType } from "react";
-import type { PluginApiClient } from "@termix/plugin-sdk/frontend";
+import type { PluginApiClient } from "@termix-ssh/plugin-sdk/frontend";
 import {
   renderWithApp,
   type RenderedPluginApp,
-} from "@termix/plugin-sdk/testing";
-import { PluginComponent } from "@termix/plugin-sdk/ui";
-import type { PluginManifest } from "@termix/plugin-sdk/manifest";
+} from "@termix-ssh/plugin-sdk/testing";
+import { PluginComponent } from "@termix-ssh/plugin-sdk/ui";
+import type { PluginManifest } from "@termix-ssh/plugin-sdk/manifest";
 import * as plugin from "../../src/frontend/index";
 import SharedSessionView from "../../src/frontend/SharedSessionView";
 import manifestJson from "../../manifest.json";

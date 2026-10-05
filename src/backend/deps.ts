@@ -1,4 +1,4 @@
-import type { PluginContext } from "@termix/plugin-sdk/backend";
+import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 import type { LiveSessions } from "./live.js";
 import type { RateLimiter } from "./rate-limit.js";
 import type {

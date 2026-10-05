@@ -10,8 +10,8 @@ const sdk = vi.hoisted(() => ({
 }));
 
 vi.mock("../../src/frontend/api", () => api);
-vi.mock("@termix/plugin-sdk/frontend", async (importActual) => ({
-  ...(await importActual<typeof import("@termix/plugin-sdk/frontend")>()),
+vi.mock("@termix-ssh/plugin-sdk/frontend", async (importActual) => ({
+  ...(await importActual<typeof import("@termix-ssh/plugin-sdk/frontend")>()),
   invokeAction: sdk.invokeAction,
   usePermission: () => sdk.allowed,
   useHosts: () => ({ hosts: [], loaded: true }),

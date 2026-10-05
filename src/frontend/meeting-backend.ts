@@ -1,4 +1,4 @@
-import type { TermixApp } from "@termix/plugin-sdk/frontend";
+import type { TermixApp } from "@termix-ssh/plugin-sdk/frontend";
 import { createMeetingApi } from "./meeting-api";
 
 export type MeetingBackend = Awaited<ReturnType<typeof connectMeetings>>;

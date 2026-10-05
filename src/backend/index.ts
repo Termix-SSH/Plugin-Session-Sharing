@@ -1,5 +1,5 @@
 import type { Router } from "express";
-import type { PluginContext } from "@termix/plugin-sdk/backend";
+import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 import type { SharingDeps } from "./deps.js";
 import { createLiveSessions, isSharingEnabledForHost } from "./live.js";
 import { createRateLimiter } from "./rate-limit.js";

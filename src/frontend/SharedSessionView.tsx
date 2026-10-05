@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useTranslation } from "@termix/plugin-sdk/frontend";
+import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { useXTerm } from "react-xtermjs";
 import { FitAddon } from "@xterm/addon-fit";
 import { Eye, Users } from "lucide-react";
@@ -9,7 +9,7 @@ import {
   type ShareLinkErrorKind,
 } from "./api";
 import { Loader, RemoteDisplay, wsUrlForPath } from "./shared";
-import { ConnectionScreen } from "@termix/plugin-sdk/ui";
+import { ConnectionScreen } from "@termix-ssh/plugin-sdk/ui";
 
 const PING_INTERVAL_MS = 30000;
 

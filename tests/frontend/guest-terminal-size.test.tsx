@@ -15,7 +15,7 @@ const f = vi.hoisted(() => ({
   fit: vi.fn(),
   onResize: null as (() => void) | null,
 }));
-vi.mock("@termix/plugin-sdk/frontend", () => ({
+vi.mock("@termix-ssh/plugin-sdk/frontend", () => ({
   useTranslation: () => ({ t: (key: string) => key }),
 }));
 vi.mock("react-xtermjs", () => ({

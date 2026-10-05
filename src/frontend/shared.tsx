@@ -1,11 +1,11 @@
-import { ConnectionScreen } from "@termix/plugin-sdk/ui";
+import { ConnectionScreen } from "@termix-ssh/plugin-sdk/ui";
 import { useMemo } from "react";
 import {
   invokeAction,
   useSlotContributions,
   useTranslation,
-} from "@termix/plugin-sdk/frontend";
-import { pluginWsUrl } from "@termix/plugin-sdk/ui";
+} from "@termix-ssh/plugin-sdk/frontend";
+import { pluginWsUrl } from "@termix-ssh/plugin-sdk/ui";
 
 /**
  * A remote desktop stream drawn by whichever plugin provides one. Rooms and

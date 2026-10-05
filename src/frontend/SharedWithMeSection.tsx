@@ -6,8 +6,8 @@ import {
   usePermission,
   useTranslation,
   type PluginHostRecord,
-} from "@termix/plugin-sdk/frontend";
-import { Badge, Button } from "@termix/plugin-sdk/ui";
+} from "@termix-ssh/plugin-sdk/frontend";
+import { Badge, Button } from "@termix-ssh/plugin-sdk/ui";
 import { getSharedWithMe } from "./api";
 
 const POLL_MS = 15_000;

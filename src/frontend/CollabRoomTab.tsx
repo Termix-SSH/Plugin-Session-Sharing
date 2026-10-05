@@ -4,7 +4,7 @@ import {
   useHosts,
   useTranslation,
   type PluginHostRecord,
-} from "@termix/plugin-sdk/frontend";
+} from "@termix-ssh/plugin-sdk/frontend";
 import { toast } from "sonner";
 import {
   AlertCircle,
@@ -22,7 +22,7 @@ import {
   Input,
   PluginComponent,
   useConfirm,
-} from "@termix/plugin-sdk/ui";
+} from "@termix-ssh/plugin-sdk/ui";
 import { CollabMembersSidebar } from "./CollabMembersSidebar";
 import {
   RemoteDisplay,

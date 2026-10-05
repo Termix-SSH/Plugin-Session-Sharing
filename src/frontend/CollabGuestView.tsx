@@ -1,6 +1,6 @@
-import { ConnectionScreen } from "@termix/plugin-sdk/ui";
+import { ConnectionScreen } from "@termix-ssh/plugin-sdk/ui";
 import { useEffect, useRef, useState } from "react";
-import { useTranslation } from "@termix/plugin-sdk/frontend";
+import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { Eye, Presentation } from "lucide-react";
 import { RemoteDisplay } from "./shared";
 import { GuestTerminalView } from "./SharedSessionView";

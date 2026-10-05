@@ -9,7 +9,7 @@ import {
   text,
   timestamp,
   varchar,
-} from "@termix/plugin-sdk/db";
+} from "@termix-ssh/plugin-sdk/db";
 
 /*
  * Adopted from core's session_shares, session_share_participants,

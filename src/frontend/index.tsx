@@ -16,7 +16,7 @@ import {
   type StandaloneViewProps,
   type TabProps,
   type TermixApp,
-} from "@termix/plugin-sdk/frontend";
+} from "@termix-ssh/plugin-sdk/frontend";
 import { bindApi } from "./api";
 import { SharedWithMeSection } from "./SharedWithMeSection";
 import CollabGuestView from "./CollabGuestView";

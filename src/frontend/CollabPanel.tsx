@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import { useTranslation } from "@termix/plugin-sdk/frontend";
+import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { toast } from "sonner";
 import { Loader2, Plus, Presentation, RefreshCw } from "lucide-react";
-import { Badge, Button, InlineView, Input } from "@termix/plugin-sdk/ui";
+import { Badge, Button, InlineView, Input } from "@termix-ssh/plugin-sdk/ui";
 import type { CollabRoom } from "./api";
 import type { MeetingBackend } from "./meeting-backend";
 import { getErrorMessage } from "./shared";

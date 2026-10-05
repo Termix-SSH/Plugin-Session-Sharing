@@ -1,4 +1,4 @@
-import type { PluginContext } from "@termix/plugin-sdk/backend";
+import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 import type { LiveProtocol } from "./repositories.js";
 
 export const LIVE_SESSIONS_SERVICE = "sessions.live";

@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from "react";
-import type { TermixApp } from "@termix/plugin-sdk/frontend";
+import type { TermixApp } from "@termix-ssh/plugin-sdk/frontend";
 import { ShareSessionModal } from "./ShareSessionModal";
 import type { SessionShareProtocol } from "./api";
 import { sessionPublicUrl } from "./meeting-backend";

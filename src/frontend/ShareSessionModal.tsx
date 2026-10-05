@@ -1,22 +1,22 @@
 import { useEffect, useMemo, useState } from "react";
-import { useTranslation } from "@termix/plugin-sdk/frontend";
+import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { Check, Copy, Link2, Search, Shield, User, Users } from "lucide-react";
 import { toast } from "sonner";
-import { Button } from "@termix/plugin-sdk/ui";
-import { Input } from "@termix/plugin-sdk/ui";
+import { Button } from "@termix-ssh/plugin-sdk/ui";
+import { Input } from "@termix-ssh/plugin-sdk/ui";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@termix/plugin-sdk/ui";
+} from "@termix-ssh/plugin-sdk/ui";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@termix/plugin-sdk/ui";
+} from "@termix-ssh/plugin-sdk/ui";
 import {
   createSessionShare,
   getActiveSessionShares,

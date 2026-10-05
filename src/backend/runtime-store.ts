@@ -1,6 +1,6 @@
 import crypto from "node:crypto";
 import { createClient } from "redis";
-import type { PluginLogger } from "@termix/plugin-sdk/backend";
+import type { PluginLogger } from "@termix-ssh/plugin-sdk/backend";
 
 export interface CollabControlRequest {
   userId: string;

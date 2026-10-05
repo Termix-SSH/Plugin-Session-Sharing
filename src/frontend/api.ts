@@ -1,4 +1,4 @@
-import type { PluginApiClient } from "@termix/plugin-sdk/frontend";
+import type { PluginApiClient } from "@termix-ssh/plugin-sdk/frontend";
 
 /**
  * The plugin's own /plugin-api/session-sharing client, bound in activate.

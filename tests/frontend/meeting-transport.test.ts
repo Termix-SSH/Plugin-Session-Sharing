@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 
 const { pluginWsUrl } = vi.hoisted(() => ({ pluginWsUrl: vi.fn() }));
-vi.mock("@termix/plugin-sdk/ui", () => ({ pluginWsUrl }));
+vi.mock("@termix-ssh/plugin-sdk/ui", () => ({ pluginWsUrl }));
 import { wsTargetForPath } from "../../src/frontend/shared";
 
 describe("meeting event transport", () => {

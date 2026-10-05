@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import type { PluginApiClient, TermixApp } from "@termix/plugin-sdk/frontend";
+import type { PluginApiClient, TermixApp } from "@termix-ssh/plugin-sdk/frontend";
 import {
   connectMeetings,
   meetingGuestUrl,

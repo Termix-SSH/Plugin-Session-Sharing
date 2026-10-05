@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { TermixApp } from "@termix/plugin-sdk/frontend";
+import type { TermixApp } from "@termix-ssh/plugin-sdk/frontend";
 import {
   guestViewUrl,
   sessionPublicUrl,
