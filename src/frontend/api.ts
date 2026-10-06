@@ -61,7 +61,7 @@ export interface ResolvedShareLink {
 
 export type ShareLinkErrorKind = "not-found" | "rate-limited" | "unknown";
 
-export class ShareLinkError extends Error {
+class ShareLinkError extends Error {
   constructor(
     message: string,
     public readonly kind: ShareLinkErrorKind,
@@ -102,7 +102,7 @@ export async function resolveShareLink(
 // ---------------------------------------------------------------------------
 
 export type SessionShareProtocol = "ssh" | "rdp" | "vnc" | "telnet";
-export type SessionShareType = "link" | "user";
+type SessionShareType = "link" | "user";
 export type SessionSharePermissionLevel = "read-only" | "read-write";
 
 export interface SessionShareRecord {
@@ -224,14 +224,14 @@ export interface CollabRoom {
   endedAt: string | null;
 }
 
-export interface CollabRoomMember {
+interface CollabRoomMember {
   userId: string;
   username: string;
   roomRole: string;
   createdAt: string;
 }
 
-export interface CollabOnlineUser {
+interface CollabOnlineUser {
   userId: string;
   username: string;
 }

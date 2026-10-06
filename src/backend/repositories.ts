@@ -8,7 +8,7 @@ type Table = any;
 type Drizzle = any;
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
-export type ShareType = "link" | "user" | "room";
+type ShareType = "link" | "user" | "room";
 export type PermissionLevel = "read-only" | "read-write";
 export type LiveProtocol = "ssh" | "rdp" | "vnc" | "telnet";
 

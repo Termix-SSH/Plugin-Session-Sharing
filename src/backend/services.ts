@@ -6,7 +6,7 @@ import type { ShareRecord } from "./repositories.js";
  * What the terminal consumes. The shapes match
  * plugins/ssh-terminal/src/backend/services.ts, which is the consumer's copy.
  */
-export interface SharedSessionRef {
+interface SharedSessionRef {
   id: string;
   sessionId: string;
   permissionLevel: "read-write" | "read-only";

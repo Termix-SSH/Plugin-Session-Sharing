@@ -1,7 +1,7 @@
 import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 import type { LiveProtocol } from "./repositories.js";
 
-export const LIVE_SESSIONS_SERVICE = "sessions.live";
+const LIVE_SESSIONS_SERVICE = "sessions.live";
 
 /** What every sessions.live provider reports about one session. */
 export interface LiveSessionInfo {

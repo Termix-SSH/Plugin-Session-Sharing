@@ -14,7 +14,7 @@ import { pluginWsUrl } from "@termix-ssh/plugin-sdk/ui";
  * action below.
  */
 export const REMOTE_DISPLAY_SLOT = "session.remoteDisplay";
-export const REMOTE_SESSION_TOKEN_ACTION = "session.remoteDisplay.token";
+const REMOTE_SESSION_TOKEN_ACTION = "session.remoteDisplay.token";
 
 export interface RemoteDisplayProps {
   token: string;
