@@ -55,6 +55,8 @@
   },
   "collab": {
     "createRoom": "New room",
+    "roomCount_one": "{{count}} room",
+    "roomCount_other": "{{count}} rooms",
     "roomName": "Room name",
     "persistentRoom": "Persistent room",
     "persistentRoomHint": "Persistent rooms stay listed after the meeting ends and can be reused.",

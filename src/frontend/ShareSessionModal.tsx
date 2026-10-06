@@ -2,7 +2,12 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { Check, Copy, Link2, Search, Shield, User, Users } from "lucide-react";
 import { toast } from "sonner";
-import { Button } from "@termix-ssh/plugin-sdk/ui";
+import {
+  Button,
+  Checkbox,
+  Select2,
+  PanelSearch,
+} from "@termix-ssh/plugin-sdk/ui";
 import { Input } from "@termix-ssh/plugin-sdk/ui";
 import {
   Dialog,
@@ -235,15 +240,12 @@ export function ShareSessionModal({
 
           {mode === "user" && (
             <>
-              <div className="relative">
-                <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground/50" />
-                <Input
-                  placeholder={t("sessionSharing.searchUsersPlaceholder")}
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className="pl-8"
-                />
-              </div>
+              <PanelSearch
+                value={search}
+                onChange={setSearch}
+                placeholder={t("sessionSharing.searchUsersPlaceholder")}
+                fill
+              />
               <div className="flex flex-col border border-border h-28 overflow-y-auto">
                 {filteredUsers.length === 0 ? (
                   <div className="px-3 py-4 text-xs text-muted-foreground/50 text-center">
@@ -258,13 +260,11 @@ export function ShareSessionModal({
                         onClick={() => setSelectedUserId(user.id)}
                         className={`flex items-center gap-2 px-2.5 py-1.5 text-xs text-left border-b border-border/50 last:border-0 transition-colors shrink-0 ${isSelected ? "bg-accent-brand/10 text-accent-brand" : "hover:bg-muted/40"}`}
                       >
-                        <div
-                          className={`size-3.5 border flex items-center justify-center shrink-0 transition-colors ${isSelected ? "border-accent-brand bg-accent-brand" : "border-border bg-background"}`}
-                        >
-                          {isSelected && (
-                            <Check className="size-2.5 text-background" />
-                          )}
-                        </div>
+                        <Checkbox
+                          checked={isSelected}
+                          tabIndex={-1}
+                          className="pointer-events-none"
+                        />
                         <User className="size-3 text-muted-foreground shrink-0" />
                         <span className="truncate">{user.username}</span>
                       </button>
@@ -280,14 +280,14 @@ export function ShareSessionModal({
               <span className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
                 {t("sessionSharing.permissionLevel.label")}
               </span>
-              <select
+              <Select2
                 value={permissionLevel}
                 onChange={(e) =>
                   setPermissionLevel(
                     e.target.value as SessionSharePermissionLevel,
                   )
                 }
-                className="h-8 w-full px-2.5 text-xs border border-border bg-background hover:bg-muted/40 transition-colors"
+                className="h-8 w-full text-xs"
               >
                 <option value="read-only">
                   {t("sessionSharing.permissionLevel.readOnly")}
@@ -295,7 +295,7 @@ export function ShareSessionModal({
                 <option value="read-write">
                   {t("sessionSharing.permissionLevel.readWrite")}
                 </option>
-              </select>
+              </Select2>
             </div>
 
             <DropdownMenu>

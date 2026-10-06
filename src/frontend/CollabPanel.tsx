@@ -1,8 +1,19 @@
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { toast } from "sonner";
-import { Loader2, Plus, Presentation, RefreshCw } from "lucide-react";
-import { Badge, Button, InlineView, Input } from "@termix-ssh/plugin-sdk/ui";
+import { Loader2, Presentation, RefreshCw } from "lucide-react";
+import {
+  AddButton,
+  Button,
+  Checkbox,
+  EmptyState,
+  FormFooter,
+  InlineView,
+  ListBadge,
+  ListRow,
+  PanelList,
+  TextField,
+} from "@termix-ssh/plugin-sdk/ui";
 import type { CollabRoom } from "./api";
 import type { MeetingBackend } from "./meeting-backend";
 import { getErrorMessage } from "./shared";
@@ -59,117 +70,96 @@ export function CollabPanel({
   }
 
   return (
-    <div className="flex flex-col gap-2 p-2">
-      <div className="flex items-center gap-1.5">
+    <div className="flex min-h-0 flex-1 flex-col">
+      <div className="flex shrink-0 items-center gap-2 border-b border-border px-3 py-2">
+        <span className="min-w-0 flex-1 truncate text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+          {t("collab.roomCount", { count: rooms.length })}
+        </span>
         <Button
-          size="sm"
-          className="h-8 text-xs flex-1 border border-accent-brand/40 bg-accent-brand/10 text-accent-brand font-semibold hover:bg-accent-brand/20"
-          onClick={() => setCreateOpen(true)}
-        >
-          <Plus className="size-3.5 mr-1" />
-          {t("collab.createRoom")}
-        </Button>
-        <Button
-          size="sm"
           variant="outline"
-          className="h-8 px-2"
+          size="icon"
           onClick={() => void refresh()}
           aria-label={t("common.refresh")}
           title={t("common.refresh")}
         >
           <RefreshCw className="size-3.5" />
         </Button>
+        <AddButton
+          label={t("collab.createRoom")}
+          onClick={() => setCreateOpen(true)}
+        />
       </div>
 
-      {loading ? (
-        <div className="flex justify-center py-6">
-          <Loader2 className="size-4 animate-spin text-muted-foreground" />
-        </div>
-      ) : rooms.length === 0 ? (
-        <p className="text-xs text-muted-foreground px-1 py-4 text-center">
-          {t("collab.noRooms")}
-        </p>
-      ) : (
-        <div className="flex flex-col gap-1">
-          {rooms.map((room) => (
-            <button
+      <PanelList
+        empty={
+          loading ? (
+            <div className="flex justify-center py-6">
+              <Loader2 className="size-4 animate-spin text-muted-foreground" />
+            </div>
+          ) : (
+            <EmptyState icon={Presentation} title={t("collab.noRooms")} />
+          )
+        }
+      >
+        {!loading &&
+          rooms.map((room, index) => (
+            <ListRow
               key={room.id}
-              type="button"
+              stripe={index}
+              tone={room.presenterUserId ? "destructive" : "brand"}
+              icon={<Presentation />}
+              title={room.name}
               onClick={() => onOpenRoom(room)}
-              className="flex items-center gap-2 px-2 py-1.5 text-left border border-border hover:bg-muted/50"
-            >
-              <Presentation className="size-3.5 shrink-0 text-muted-foreground" />
-              <span className="flex-1 text-xs truncate">{room.name}</span>
-              {room.presenterUserId && (
-                <span
-                  className="size-1.5 rounded-full bg-red-500 shrink-0"
-                  role="img"
-                  aria-label={t("collab.presenterBadge")}
-                  title={t("collab.presenterBadge")}
-                />
-              )}
-              {room.persistent && (
-                <Badge variant="outline" className="text-[9px] px-1 py-0">
-                  {t("collab.persistentRoom")}
-                </Badge>
-              )}
-            </button>
+              badges={
+                <>
+                  {room.presenterUserId && (
+                    <ListBadge tone="destructive">
+                      {t("collab.presenterBadge")}
+                    </ListBadge>
+                  )}
+                  {room.persistent && (
+                    <ListBadge>{t("collab.persistentRoom")}</ListBadge>
+                  )}
+                </>
+              }
+            />
           ))}
-        </div>
-      )}
+      </PanelList>
 
       <InlineView
         open={createOpen}
         onOpenChange={setCreateOpen}
+        icon={<Presentation className="size-4" />}
         title={t("collab.createRoom")}
         footer={
-          <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
-            <Button
-              variant="outline"
-              onClick={() => setCreateOpen(false)}
-              disabled={creating}
-            >
-              {t("common.cancel")}
-            </Button>
-            <Button
-              onClick={() => void handleCreate()}
-              disabled={creating || !name.trim()}
-            >
-              {creating && <Loader2 className="size-3.5 mr-1 animate-spin" />}
-              {t("common.create")}
-            </Button>
-          </div>
+          <FormFooter
+            saving={creating}
+            disabled={!name.trim()}
+            onCancel={() => setCreateOpen(false)}
+            onSave={() => void handleCreate()}
+            saveLabel={t("common.create")}
+          />
         }
       >
-        <div className="flex flex-col gap-3">
-          <label htmlFor="collab-room-name" className="text-xs font-medium">
-            {t("collab.roomName")}
-          </label>
-          <Input
-            id="collab-room-name"
-            placeholder={t("collab.roomName")}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") void handleCreate();
-            }}
+        <TextField
+          label={t("collab.roomName")}
+          value={name}
+          onChange={setName}
+          placeholder={t("collab.roomName")}
+        />
+        <label className="flex cursor-pointer items-start gap-2.5 border border-border p-2.5 text-xs">
+          <Checkbox
+            checked={persistent}
+            onCheckedChange={(v) => setPersistent(v === true)}
+            className="mt-0.5"
           />
-          <label className="flex items-start gap-2 text-xs cursor-pointer">
-            <input
-              type="checkbox"
-              className="mt-0.5"
-              checked={persistent}
-              onChange={(e) => setPersistent(e.target.checked)}
-            />
-            <span>
-              <span className="font-medium">{t("collab.persistentRoom")}</span>
-              <br />
-              <span className="text-muted-foreground">
-                {t("collab.persistentRoomHint")}
-              </span>
+          <span className="flex flex-col gap-0.5">
+            <span className="font-medium">{t("collab.persistentRoom")}</span>
+            <span className="text-muted-foreground">
+              {t("collab.persistentRoomHint")}
             </span>
-          </label>
-        </div>
+          </span>
+        </label>
       </InlineView>
     </div>
   );

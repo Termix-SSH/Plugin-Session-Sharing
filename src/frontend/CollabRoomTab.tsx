@@ -18,10 +18,12 @@ import {
 } from "lucide-react";
 import {
   Button,
+  Checkbox,
   InlineView,
   Input,
   PluginComponent,
   useConfirm,
+  FormFooter,
 } from "@termix-ssh/plugin-sdk/ui";
 import { CollabMembersSidebar } from "./CollabMembersSidebar";
 import {
@@ -624,8 +626,9 @@ export function CollabRoomTab({
             {(detail?.members.length ?? 0) + (detail?.guests?.length ?? 0)}
           </Button>
           <Button
+            variant="outline"
             size="sm"
-            className="h-8 text-xs"
+            className="h-8 text-xs border-accent-brand/40 text-accent-brand hover:bg-accent-brand/10 hover:text-accent-brand dark:border-accent-brand/40 dark:bg-transparent dark:hover:bg-accent-brand/10"
             onClick={() => void openPresentDialog()}
           >
             <MonitorUp className="size-3.5 mr-1" />
@@ -879,17 +882,12 @@ export function CollabRoomTab({
         onOpenChange={setInviteOpen}
         title={t("collab.inviteTitle")}
         footer={
-          <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
-            <Button variant="outline" onClick={() => setInviteOpen(false)}>
-              {t("common.cancel")}
-            </Button>
-            <Button
-              onClick={() => void handleInvite()}
-              disabled={inviteSelection.size === 0 && roleSelection.size === 0}
-            >
-              {t("collab.invite")}
-            </Button>
-          </div>
+          <FormFooter
+            onCancel={() => setInviteOpen(false)}
+            onSave={() => void handleInvite()}
+            saveLabel={t("collab.invite")}
+            disabled={inviteSelection.size === 0 && roleSelection.size === 0}
+          />
         }
       >
         <Input
@@ -907,15 +905,14 @@ export function CollabRoomTab({
           {roles.map((role) => (
             <label
               key={role.id}
-              className="flex items-center gap-2 px-2 py-1.5 text-xs border border-border cursor-pointer"
+              className="flex cursor-pointer items-center gap-2 border border-border px-2 py-1.5 text-xs hover:bg-muted/40"
             >
-              <input
-                type="checkbox"
+              <Checkbox
                 checked={roleSelection.has(role.id)}
-                onChange={(e) => {
+                onCheckedChange={(checked) => {
                   setRoleSelection((prev) => {
                     const next = new Set(prev);
-                    if (e.target.checked) next.add(role.id);
+                    if (checked === true) next.add(role.id);
                     else next.delete(role.id);
                     return next;
                   });
@@ -930,15 +927,14 @@ export function CollabRoomTab({
           {invitableUsers.map((user) => (
             <label
               key={user.id}
-              className="flex items-center gap-2 px-2 py-1.5 text-xs border border-border cursor-pointer"
+              className="flex cursor-pointer items-center gap-2 border border-border px-2 py-1.5 text-xs hover:bg-muted/40"
             >
-              <input
-                type="checkbox"
+              <Checkbox
                 checked={inviteSelection.has(user.id)}
-                onChange={(e) => {
+                onCheckedChange={(checked) => {
                   setInviteSelection((prev) => {
                     const next = new Set(prev);
-                    if (e.target.checked) next.add(user.id);
+                    if (checked === true) next.add(user.id);
                     else next.delete(user.id);
                     return next;
                   });
