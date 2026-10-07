@@ -23,3 +23,13 @@ npm run format     # format the code with Prettier
 ## Permissions
 
 - `session-sharing.use`: share sessions and create and join meeting rooms. Admins and users have it by default.
+
+## Services
+
+Provides to other plugins:
+
+- `sessions.sharing`: join a shared session or room from the terminal
+
+Uses from other plugins:
+
+- `sessions.live` to reach live SSH, RDP, VNC and Telnet sessions

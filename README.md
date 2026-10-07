@@ -27,18 +27,6 @@ Session Sharing lets you share a live terminal or remote desktop session with so
 
 <br />
 
-## Services
-
-Provides to other plugins:
-
-- `sessions.sharing`: join a shared session or room from the terminal
-
-Uses from other plugins:
-
-- `sessions.live` to reach live SSH, RDP, VNC and Telnet sessions
-
-<br />
-
 ## Sponsors
 
 Interested in a paid placement to support development? Email [mail@termix.site](mailto:mail@termix.site).
