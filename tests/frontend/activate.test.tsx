@@ -60,9 +60,7 @@ describe("session-sharing activate", () => {
     ]);
     expect(rendered.registered.panels()).toEqual(["collab"]);
     expect(rendered.registered.tabs()).toEqual(["collab"]);
-    expect(rendered.registered.slot("terminal.toolbar")).toEqual([
-      "session-sharing.share",
-    ]);
+    expect(rendered.registered.slot("terminal.toolbar")).toEqual([]);
     expect(rendered.registered.slot("remote-desktop.toolbar")).toEqual([
       "session-sharing.share",
     ]);
@@ -227,7 +225,7 @@ describe("session-sharing activate", () => {
     await app.deactivate();
     expect(app.registered.tabs()).toEqual([]);
     expect(app.registered.panels()).toEqual([]);
-    expect(app.registered.slot("terminal.toolbar")).toEqual([]);
+    expect(app.registered.slot("remote-desktop.toolbar")).toEqual([]);
     expect(app.registered.actions()).toEqual([]);
   });
 });

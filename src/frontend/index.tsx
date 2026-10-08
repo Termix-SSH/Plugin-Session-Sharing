@@ -296,16 +296,15 @@ export function activate(app: TermixApp): void {
     },
     { permission: "use" },
   );
-  for (const slot of ["terminal.toolbar", "remote-desktop.toolbar"]) {
-    app.registerSlotContribution(slot, {
-      actionId: SHARE_ACTION,
-      titleKey: "sessionSharing.shareButton",
-      icon: Share2,
-      kind: "button",
-    });
-  }
+  // A terminal shares from its tab, so its toolbar stays for host tools.
+  app.registerSlotContribution("remote-desktop.toolbar", {
+    actionId: SHARE_ACTION,
+    titleKey: "sessionSharing.shareButton",
+    icon: Share2,
+    kind: "button",
+  });
 
-  // The tab bar's right-click menu, for a terminal whose toolbar is hidden.
+  // The tab bar's right-click menu.
   app.registerSlotContribution("tab.menu", {
     actionId: SHARE_ACTION,
     titleKey: "sessionSharing.shareButton",
