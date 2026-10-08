@@ -14,6 +14,8 @@
 
 Session Sharing lets you share a live terminal or remote desktop session with someone else, and present sessions to a group in meeting rooms.
 
+Read the [docs](https://docs.termix.site/plugins/session-sharing) to set it up and use it.
+
 <br />
 
 ## Features

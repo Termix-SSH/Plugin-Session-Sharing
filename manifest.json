@@ -8,6 +8,7 @@
   },
   "license": "Apache-2.0",
   "repository": "https://github.com/Termix-SSH/Plugin-Session-Sharing",
+  "docs": "https://docs.termix.site/plugins/session-sharing",
   "category": "Productivity",
   "icon": "Presentation",
   "features": [
@@ -18,9 +19,20 @@
     "Meeting rooms where a presenter shows a session and can hand over control",
     "Guest links for people without an account"
   ],
+  "env": [
+    {
+      "name": "REDIS_URL",
+      "description": "Redis that several Termix servers share for meeting rooms, like redis://redis:6379. Not needed with one server."
+    },
+    {
+      "name": "TERMIX_REDIS_PREFIX",
+      "description": "Prefix for the keys it writes in Redis.",
+      "default": "termix:collab"
+    }
+  ],
   "engine": {
     "termix": ">=26.10.0",
-    "api": "1"
+    "api": "^1.2"
   },
   "capabilities": [
     "hosts:read",

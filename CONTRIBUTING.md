@@ -10,26 +10,6 @@ npm run validate   # check manifest.json
 npm run format     # format the code with Prettier
 ```
 
-## Settings
+## Docs
 
-### Admin
-
-- **Allow Session Sharing:** turn sharing on or off for everyone. When off, it overrides every host setting
-
-### Host
-
-- **Allow Session Sharing:** allow sharing sessions on this host
-
-## Permissions
-
-- `session-sharing.use`: share sessions and create and join meeting rooms. Admins and users have it by default.
-
-## Services
-
-Provides to other plugins:
-
-- `sessions.sharing`: join a shared session or room from the terminal
-
-Uses from other plugins:
-
-- `sessions.live` to reach live SSH, RDP, VNC and Telnet sessions
+The docs for this plugin are in [docs/](docs/) and are published at https://docs.termix.site/plugins/session-sharing. Settings, permissions, services, environment variables and the API reference are made from `manifest.json` and the `@openapi` comments in the code, so keep those up to date instead of writing them by hand. See [writing docs](https://docs.termix.site/develop/docs).
