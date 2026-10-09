@@ -60,6 +60,8 @@ export function createSessionSharingService(
       if (!userId) return null;
       const share = await shares.findActiveById(shareId);
       if (!share || share.protocol !== "ssh") return null;
+      // Turning sharing off stops member joins too, not just new links.
+      if (!(await deps.isSharingEnabledForHost(share.hostId))) return null;
 
       if (share.shareType === "user") {
         // A user share needs its target, who can still reach the host.

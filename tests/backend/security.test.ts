@@ -253,6 +253,18 @@ describe("member joins", () => {
     ).toBeNull();
   });
 
+  it("refuses the target once sharing is switched off", async () => {
+    server = await startServer();
+    const { shareId } = await createShare(server, {
+      shareType: "user",
+      targetUserId: "bob",
+    });
+    await server.mock.ctx.settings.set("globallyEnabled", false);
+    expect(
+      await asUser(server, "bob", () => server!.sharing.authorizeJoin(shareId)),
+    ).toBeNull();
+  });
+
   it("refuses the target once they lose access to the host", async () => {
     server = await startServer({ accessibleHostIds: [2] });
     server.live.addSession("sess-1", "alice", 1);
