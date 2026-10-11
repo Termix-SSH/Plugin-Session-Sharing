@@ -1,7 +1,7 @@
 {
   "id": "session-sharing",
   "name": "Session Sharing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Share live sessions by link or with another user, and present sessions to a group in meeting rooms.",
   "author": {
     "name": "Termix"
@@ -63,13 +63,18 @@
   ],
   "contributes": {
     "guest": true,
-    "guestViews": ["shared", "collab-guest"],
+    "guestViews": [
+      "shared",
+      "collab-guest"
+    ],
     "tabs": [
       {
         "id": "collab",
         "titleKey": "nav.collab",
         "icon": "Presentation",
-        "openFrom": ["rail"]
+        "openFrom": [
+          "rail"
+        ]
       }
     ],
     "actions": [
@@ -89,7 +94,9 @@
     "actionSlots": [
       {
         "id": "session.remoteDisplay",
-        "accepts": ["component"]
+        "accepts": [
+          "component"
+        ]
       }
     ],
     "permissions": [
@@ -97,7 +104,10 @@
         "name": "use",
         "titleKey": "permissions.use.title",
         "descriptionKey": "permissions.use.description",
-        "defaultRoles": ["admin", "user"]
+        "defaultRoles": [
+          "admin",
+          "user"
+        ]
       }
     ],
     "settings": {
@@ -124,8 +134,16 @@
         ]
       }
     },
-    "uses": ["session.remoteDisplay.token", "terminal.open", "terminal.overlay"]
+    "uses": [
+      "session.remoteDisplay.token",
+      "terminal.open",
+      "terminal.overlay"
+    ]
   },
   "locales": "locales",
-  "platforms": ["linux", "win32", "darwin"]
+  "platforms": [
+    "linux",
+    "win32",
+    "darwin"
+  ]
 }
