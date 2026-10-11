@@ -1,0 +1,192 @@
+{
+  "sessionSharing": {
+    "guestView": {
+      "loading": "Jungiamasi į bendrinamą sesiją...",
+      "linkInvalid": "Ši bendrinimo nuoroda yra neteisinga, pasibaigusi arba atšaukta",
+      "rateLimited": "Per daug bandymų, bandykite vėl po kurio laiko",
+      "sessionEnded": "Ši sesija baigėsi",
+      "readOnlyBadge": "Tik peržiūra",
+      "ownerLabel": "Sesijos savininkas"
+    },
+    "modalTitle": "Bendrinti sesiją",
+    "shareButton": "Bendrinti",
+    "notReadyToShare": "Sesija dar nėra paruošta bendrinimui",
+    "modeTab": {
+      "link": "Nuoroda",
+      "user": "Naudotojas"
+    },
+    "linkModeDescription": "Bet kas, turintis šią nuorodą, gali prisijungti, paskyros nereikia.",
+    "userModeDescription": "Bendrinkite su konkrečiu naudotoju, kuris jau turi prieigą prie šio serverio. Jei jis dar neturi prieigos, pirmiausia bendrinkite su juo šį serverį arba naudokite nuorodą. Pasidalijus, sesija atsiras jų „Ryšiai“ skirtuke.",
+    "permissionLevel": {
+      "label": "Leidimų lygis",
+      "readOnly": "Tik skaitymui",
+      "readOnlyDescription": "Gali stebėti sesiją tiesiogiai, bet negali rašyti ar sąveikauti.",
+      "readWrite": "Skaitymas ir rašymas",
+      "readWriteDescription": "Gali rašyti ir sąveikauti su sesija taip pat, kaip ir savininkas."
+    },
+    "expiryLabel": "Nuorodos galiojimo pabaiga",
+    "createLinkButton": "Sukurti nuorodą",
+    "createShareButton": "Bendrinti su naudotoju",
+    "searchUsersPlaceholder": "Ieškoti naudotojų...",
+    "noUsersFound": "Naudotojų nerasta",
+    "linkCreated": "Bendrinimo nuoroda sukurta",
+    "linkNeedsServer": "Bendrinimo nuorodos veikia tik sesijoms, esančioms Termix serveryje. Prijunkite šį serverį per susietą serverį, kad galėtumėte jį bendrinti nuoroda.",
+    "linkCopied": "Nuoroda nukopijuota į iškarpinę",
+    "copyLink": "Kopijuoti nuorodą",
+    "shareCreated": "Sesija pasidalinta. Ji atsiras jų „Ryšiai“ skirtuke.",
+    "shareFailed": "Nepavyko sukurti bendrinimo",
+    "userLacksHostAccess": "Šis naudotojas dar neturi prieigos prie šio serverio. Pirmiausia bendrinkite su juo šį serverį arba naudokite nuorodą.",
+    "activeShares": "Aktyvūs bendrinimai",
+    "noActiveShares": "Šiai sesijai nėra aktyvių bendrinimų",
+    "revoke": "Atšaukti",
+    "revoked": "Bendrinimas atšauktas",
+    "revokeFailed": "Nepavyko atšaukti bendrinimo",
+    "joinCount": {
+      "one": "{{count}} prisijungimas",
+      "few": "{{count}} prisijungimai",
+      "many": "{{count}} prisijungimų",
+      "other": "{{count}} prisijungimų"
+    },
+    "joinCount_one": "{{count}} prisijungimas",
+    "joinCount_few": "{{count}} prisijungimai",
+    "joinCount_many": "{{count}} prisijungimų",
+    "joinCount_other": "{{count}} prisijungimų",
+    "expiresAt": "Galioja iki {{date}}",
+    "linkShareBadge": "Nuoroda",
+    "userShareBadge": "Naudotojas: {{username}}",
+    "remoteDisplayUnavailable": "Nuotolinis darbalaukis šiuo metu nepasiekiamas.",
+    "sharedWithMe": "Man pasidalintos sesijos",
+    "customHoursPlaceholder": "Valandos, kol baigsis prieiga"
+  },
+  "collab": {
+    "createRoom": "Nauja kambarėlis",
+    "roomCount_one": "{{count}} kambarėlis",
+    "roomCount_few": "{{count}} kambarėliai",
+    "roomCount_many": "{{count}} kambarėlių",
+    "roomCount_other": "{{count}} kambarėlių",
+    "roomName": "Kambarėlio pavadinimas",
+    "persistentRoom": "Pastovus kambarėlis",
+    "persistentRoomHint": "Pastovūs kambarėliai išlieka sąraše po susitikimo pabaigos ir gali būti naudojami pakartotinai.",
+    "noRooms": "Dar nėra kambarėlių. Sukurkite vieną, kad pradėtumėte susitikimą.",
+    "openRoom": "Atidaryti",
+    "endRoom": "Baigti susitikimą",
+    "deleteMember": "Pašalinti",
+    "removeMember": "Pašalinti {{name}}",
+    "removeMemberTitle": "Pašalinti šį narį?",
+    "removeMemberDescription": "{{name}} iškart praras prieigą prie šio kambarėlio. Bet koks aktyvus SSH peržiūrėtojas bus atjungtas.",
+    "invite": "Pakviesti",
+    "inviteTitle": "Pakviesti narius",
+    "members": "Nariai",
+    "membersPanel": "Kambarėlio nariai ir valdymo prašymai",
+    "membersWithCount": "Nariai ({{count}})",
+    "guestsWithCount": "Svečiai ({{count}})",
+    "removeGuests": "Pašalinti svečius",
+    "anonymousGuest": "Svečias",
+    "online": "prisijungęs",
+    "offline": "neprisijungęs",
+    "you": "(jūs)",
+    "hostBadge": "Savininkas",
+    "presenterBadge": "Prezentuoja",
+    "present": "Prezentuoti",
+    "presentTitle": "Perimti sceną",
+    "searchHosts": "Ieškoti serverių",
+    "noHostsFound": "Nerasta jokių laisvų serverių.",
+    "stopPresenting": "Nustoti prezentuoti",
+    "takeOver": "Perimti",
+    "takeOverConfirmTitle": "Pakeisti dabartinę prezentaciją?",
+    "takeOverDescription": "Šiuo metu prezentuoja {{name}}. Perėmimas atjungtus visus nuo šios scenos.",
+    "emptyStage": "Niekas neprezentuoja. Perimkite sceną, kad dalintumėtės sesija.",
+    "stageLoading": "Jungiamasi prie scenos...",
+    "roomEnded": "Šis susitikimas baigtas",
+    "presenterLabel": "{{name}} prezentuoja",
+    "guestLink": "Svečio nuoroda",
+    "guestLinkOn": "Svečio nuoroda įjungta. Bet kas, turintis nuorodą, gali stebėti sceną.",
+    "guestLinkOff": "Svečio nuoroda išjungta.",
+    "copyLink": "Kopijuoti nuorodą",
+    "rotateLink": "Pakeisti nuorodą",
+    "disableLink": "Išjungti nuorodą",
+    "rotateLinkConfirmTitle": "Pakeisti svečio nuorodą?",
+    "rotateLinkDescription": "Dabartinė nuoroda nedelsiant nustos veikti. Prisijungę SSH svečiai bus atjungti.",
+    "disableLinkConfirmTitle": "Išjungti svečio nuorodą?",
+    "disableLinkDescription": "Anoniminiai SSH žiūrovai bus nedelsiant atjungti, o dabartinė nuoroda nustos veikti.",
+    "linkCopied": "Nuoroda nukopijuota",
+    "roles": "Vaidmenys",
+    "users": "Naudotojai",
+    "searchUsers": "Ieškoti naudotojų",
+    "endConfirmTitle": "Baigti šį susitikimą?",
+    "endDescription": "{{name}} bus baigtas visiems ir jo nebus galima atidaryti iš naujo.",
+    "endPersistentDescription": "Aktyvi prezentacija kambaryje „{{name}}“ bus sustabdyta. Kambarys lieka prieinamas vartoti iš naujo.",
+    "deleteRoom": "Ištrinti kambarį",
+    "deleteConfirmTitle": "Ištrinti šį kambarį?",
+    "deleteDescription": "{{name}} bus visam laikui ištrintas visiems ir šio veiksmo nebus galima atšaukti.",
+    "invitedTo": "Jūs buvote pakviesti į „{{name}}“",
+    "guest": {
+      "title": "Susitikimas",
+      "waiting": "Laukiama prezentuotojo...",
+      "linkInvalid": "Ši svečio nuoroda neteisinga arba susitikimas baigtas"
+    },
+    "reopenFromPanel": "Šis susitikimo skirtukas pasibaigė. Atidarykite kambarį iš Susitikimų skydelio.",
+    "retry": "Bandyti dar kartą",
+    "requestControl": "Prašyti valdymo",
+    "cancelControlRequest": "Atšaukti prašymą",
+    "controlQueue": "Valdymo prašymai",
+    "noControlRequests": "Nėra laukiančių prašymų.",
+    "grantControlTo": "Suteikti valdymą {{name}}",
+    "dismissControlRequest": "Atmesti {{name}} valdymo prašymą",
+    "releaseControl": "Atleisti valdymą",
+    "grantControl": "Suteikti valdymą",
+    "revokeControl": "Atimti valdymą",
+    "grant": "Suteikti",
+    "controlBadge": "Valdo",
+    "youArePresenting": "Jūs prezentuojate kitame skirtuke. Nustokite prezentuoti, kad perleistumėte sceną.",
+    "created": "Kambarys sukurtas",
+    "invited": "Nariai pakviesti",
+    "serverChanged": "Susitikimo serveris pasikeitė. Atidarykite šį susitikimą iš naujo per „Susitikimų“ skydelį.",
+    "hostNotSynced": "Prieš pristatydami, sinchronizuokite šį hostą su susitikimų serveriu.",
+    "linkRequiresServer": "Norėdami pasidalinti nuoroda, susiekite šį darbalaukį su Termix serveriu ir ten sukurkite susitikimą."
+  },
+  "nav": {
+    "collab": "Susitikimai"
+  },
+  "settings": {
+    "admin": {
+      "globallyEnabled": {
+        "label": "Leisti sesijų dalinimąsi",
+        "description": "Leisti dalintis gyvomis terminalo, RDP, VNC ir Telnet sesijomis visoje instancijoje. Jei išjungta, perrašo visus individualius hosto dalinimosi jungiklius."
+      }
+    },
+    "host": {
+      "allowSessionSharing": {
+        "label": "Leisti sesijų dalinimąsi",
+        "description": "Leisti dalintis šio hosto gyvomis sesijomis per nuorodą arba su kitais vartotojais"
+      }
+    }
+  },
+  "permissions": {
+    "use": {
+      "title": "Dalintis sesijomis ir prisijungti prie kambarių",
+      "description": "Dalintis gyvomis sesijomis per nuorodą arba su kitais vartotojais, taip pat kurti ir prisijungti prie bendradarbiavimo kambarių."
+    }
+  },
+  "hosts": {
+    "sharing": {
+      "expiry": {
+        "never": "Niekada",
+        "oneHour": "1 valanda",
+        "oneDay": "24 valandos",
+        "sevenDays": "7 dienos",
+        "thirtyDays": "30 dienų",
+        "custom": "Pasirinktinai"
+      }
+    }
+  },
+  "connections": {
+    "sectionSharedWithMe": "Pasidalinta su manimi",
+    "sharedBy": "Pasidalinta vartotojo {{username}}",
+    "join": "Prisijungti",
+    "sharedSessionLabel": "{{hostName}} (pasidalinta)"
+  },
+  "plugin": {
+    "name": "Sesijų dalinimasis"
+  }
+}

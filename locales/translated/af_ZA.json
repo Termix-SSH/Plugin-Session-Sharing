@@ -2,10 +2,10 @@
   "sessionSharing": {
     "guestView": {
       "loading": "Verbind met gedeelde sessie...",
-      "linkInvalid": "Hierdie deelskakel is ongeldig, het verval of is herroep",
+      "linkInvalid": "Hierdie deel-skakel is ongeldig, het verval, of is herroep",
       "rateLimited": "Te veel pogings, probeer asseblief weer binnekort",
-      "sessionEnded": "Hierdie sessie is verby",
-      "readOnlyBadge": "Slegs kyk",
+      "sessionEnded": "Hierdie sessie het geëindig",
+      "readOnlyBadge": "Slegs lees",
       "ownerLabel": "Gasheer-eienaar"
     },
     "modalTitle": "Deel sessie",
@@ -15,132 +15,129 @@
       "link": "Skakel",
       "user": "Gebruiker"
     },
-    "linkModeDescription": "Enigiemand met hierdie skakel kan aansluit, geen rekening nodig nie.",
-    "userModeDescription": "Deel met 'n spesifieke gebruiker wat reeds toegang tot hierdie gasheer het. Indien hulle nog nie toegang het nie, deel die gasheer eers met hulle of gebruik eerder 'n skakel. Sodra dit gedeel is, verskyn die sessie in hul Verbindings-oortjie.",
+    "linkModeDescription": "Enigeen met hierdie skakel kan aansluit, geen rekening nodig nie.",
+    "userModeDescription": "Deel met 'n spesifieke gebruiker wat reeds toegang tot hierdie gasheer het. As hulle nog nie toegang het nie, deel eers die gasheer met hulle of gebruik 'n skakel. Sodra gedeel, verskyn die sessie in hul Verbindings-oortjie.",
     "permissionLevel": {
       "label": "Toestemmingsvlak",
-      "readOnly": "Leesalleen",
-      "readOnlyDescription": "Kan die sessie regstreeks kyk, maar kan nie tik of interaksie hê nie.",
+      "readOnly": "Slegs lees",
+      "readOnlyDescription": "Kan die sessie live kyk, maar kan nie tik of interakteer nie.",
       "readWrite": "Lees-skryf",
-      "readWriteDescription": "Kan tik en met die sessie interaksie hê net soos die eienaar."
+      "readWriteDescription": "Kan tik en met die sessie interakteer, presies soos die eienaar."
     },
-    "expiryLabel": "Skakelvervaldatum",
+    "expiryLabel": "Skakelverval",
     "createLinkButton": "Skep skakel",
     "createShareButton": "Deel met gebruiker",
     "searchUsersPlaceholder": "Soek gebruikers...",
     "noUsersFound": "Geen gebruikers gevind nie",
-    "linkCreated": "Deel skakel geskep",
-    "linkNeedsServer": "Deelskakels werk slegs vir sessies op 'n Termix-bediener. Koppel hierdie gasheer deur jou gekoppelde bediener om dit met 'n skakel te deel.",
-    "linkCopied": "Skakel gekopieer na knipbord",
+    "linkCreated": "Deel-skakel geskep",
+    "linkNeedsServer": "Deel-skakels werk slegs vir sessies op 'n Termix-bedienaar. Verbind hierdie gasheer deur jou gekoppelde bedienaar om dit met 'n skakel te deel.",
+    "linkCopied": "Skakel na knipbord gekopieer",
     "copyLink": "Kopieer skakel",
     "shareCreated": "Sessie gedeel. Dit sal in hul Verbindings-oortjie verskyn.",
     "shareFailed": "Kon nie deel skep nie",
-    "userLacksHostAccess": "Daardie gebruiker het nog nie toegang tot hierdie gasheer nie. Deel die gasheer eers met hulle, of gebruik eerder 'n skakel.",
-    "activeShares": "Aktiewe aandele",
-    "noActiveShares": "Geen aktiewe delings vir hierdie sessie nie",
+    "userLacksHostAccess": "Daardie gebruiker het nog nie toegang tot hierdie gasheer nie. Deel eers die gasheer met hulle, of gebruik 'n skakel.",
+    "activeShares": "Aktiewe dele",
+    "noActiveShares": "Geen aktiewe dele vir hierdie sessie nie",
     "revoke": "Herroep",
-    "revokeConfirmTitle": "Herroep hierdie deling?",
-    "revokeConfirmDescription": "Enigiemand wat hierdie deel gebruik, sal onmiddellik toegang verloor.",
     "revoked": "Deel herroep",
     "revokeFailed": "Kon nie deel herroep nie",
-    "joinCount": "{{count}} sluit aan",
-    "joinCount_other": "{{count}} sluit aan",
-    "expiresAt": "Vervaldatum {{date}}",
+    "joinCount": {
+      "one": "{{count}} aansluiting",
+      "other": "{{count}} aansluitings"
+    },
+    "joinCount_one": "{{count}} aansluiting",
+    "joinCount_other": "{{count}} aansluitings",
+    "expiresAt": "Verval {{date}}",
     "linkShareBadge": "Skakel",
     "userShareBadge": "Gebruiker: {{username}}",
-    "loadSharesFailed": "Kon nie aktiewe delings laai nie",
-    "remoteDisplayUnavailable": "Afstandswerkskerm is tans nie beskikbaar nie.",
+    "remoteDisplayUnavailable": "Verre skryfstoel is tans nie beskikbaar nie.",
     "sharedWithMe": "Sessies met my gedeel",
-    "customHoursPlaceholder": "Ure totdat toegang verval"
+    "customHoursPlaceholder": "Ure tot toegang verval"
   },
   "collab": {
     "createRoom": "Nuwe kamer",
+    "roomCount_one": "{{count}} kamer",
+    "roomCount_other": "{{count}} kamers",
     "roomName": "Kamernaam",
-    "persistentRoom": "Permanente kamer",
-    "persistentRoomHint": "Permanente kamers bly gelys nadat die vergadering eindig en kan hergebruik word.",
-    "noRooms": "Geen kamers nog nie. Skep een om 'n vergadering te begin.",
-    "openRoom": "Oop",
+    "persistentRoom": "Volhoubare kamer",
+    "persistentRoomHint": "Volhoubare kamers bly gelys nadat die vergadering geëindig het en kan hergebruik word.",
+    "noRooms": "Nog geen kamers nie. Skep een om 'n vergadering te begin.",
+    "openRoom": "Maak oop",
     "endRoom": "Beëindig vergadering",
-    "leaveRoom": "Vertrek",
     "deleteMember": "Verwyder",
     "removeMember": "Verwyder {{name}}",
     "removeMemberTitle": "Verwyder hierdie lid?",
-    "removeMemberDescription": "{{name}} sal onmiddellik toegang tot hierdie kamer verloor. Enige aktiewe SSH-kyker sal ontkoppel word.",
+    "removeMemberDescription": "{{name}} sal onmiddellik toegang tot hierdie kamer verloor. Enige aktiewe SSH-kijker sal ontkoppel word.",
     "invite": "Nooi uit",
     "inviteTitle": "Nooi lede uit",
     "members": "Lede",
-    "membersPanel": "Kamerlede en beheerversoeke",
+    "membersPanel": "Kamerlede en beheeraanvrae",
     "membersWithCount": "Lede ({{count}})",
     "guestsWithCount": "Gaste ({{count}})",
     "removeGuests": "Verwyder gaste",
     "anonymousGuest": "Gas",
     "online": "aanlyn",
-    "offline": "vanlyn",
+    "offline": "aflyn",
     "you": "(jy)",
     "hostBadge": "Gasheer",
-    "presenterBadge": "Aanbieding",
-    "present": "Aanwesig",
+    "presenterBadge": "Besig om voor te dra",
+    "present": "Voor dra",
     "presentTitle": "Neem die verhoog",
-    "presentHost": "Gasheer",
-    "searchHosts": "Soek gashere",
-    "noHostsFound": "Geen beskikbare gashere gevind nie.",
-    "presentProtocol": "Protokol",
-    "stopPresenting": "Hou op met aanbied",
-    "takeOver": "Neem oor",
+    "searchHosts": "Soek gasheerbedieners",
+    "noHostsFound": "Geen beskikbare gasheerbedieners gevind nie.",
+    "stopPresenting": "Stop om voor te dra",
+    "takeOver": "Neem beheer oor",
     "takeOverConfirmTitle": "Vervang die huidige aanbieding?",
-    "takeOverDescription": "{{name}} bied nou aan. Oorname sal almal van daardie stadium ontkoppel.",
-    "emptyStage": "Niemand bied aan nie. Neem die verhoog om 'n sessie te deel.",
-    "stageLoading": "Verbind met die verhoog...",
-    "stageEnded": "Die aanbieding het geëindig",
+    "takeOverDescription": "{{name}} besig tans om voor te dra. As jy beheer oorneem, sal almal van daardie verhoog afgeskakel word.",
+    "emptyStage": "Niemand besig om voor te dra nie. Neem die verhoog om 'n sessie te deel.",
+    "stageLoading": "Maak verbinding met die verhoog...",
     "roomEnded": "Hierdie vergadering het geëindig",
-    "presenterLabel": "{{name}} bied aan",
-    "guestLink": "Gas skakel",
-    "guestLinkOn": "Gasskakel is aan. Enigiemand met die skakel kan die verhoog kyk.",
-    "guestLinkOff": "Gas skakel is af.",
+    "presenterLabel": "{{name}} besig om voor te dra",
+    "guestLink": "Gas-skakel",
+    "guestLinkOn": "Gas-skakel is aan. Enigeen met die skakel kan die verhoog kyk.",
+    "guestLinkOff": "Gas-skakel is af.",
     "copyLink": "Kopieer skakel",
-    "rotateLink": "Roteer skakel",
+    "rotateLink": "Draai skakel",
     "disableLink": "Deaktiveer skakel",
-    "rotateLinkConfirmTitle": "Draai die gasskakel?",
-    "rotateLinkDescription": "Die huidige skakel sal onmiddellik ophou werk. Gekoppelde SSH-gaste sal ontkoppel word.",
-    "disableLinkConfirmTitle": "Deaktiveer die gasskakel?",
-    "disableLinkDescription": "Anonieme SSH-kykers sal onmiddellik ontkoppel word en die huidige skakel sal ophou werk.",
+    "rotateLinkConfirmTitle": "Draai die gas-skakel?",
+    "rotateLinkDescription": "Die huidige skakel sal onmiddellik ophou werk. Verbonde SSH-gaste sal afgeskakel word.",
+    "disableLinkConfirmTitle": "Deaktiveer die gas-skakel?",
+    "disableLinkDescription": "Anonieme SSH-kykers sal onmiddellik afgeskakel word en die huidige skakel sal ophou werk.",
     "linkCopied": "Skakel gekopieer",
     "roles": "Rolle",
     "users": "Gebruikers",
     "searchUsers": "Soek gebruikers",
     "endConfirmTitle": "Beëindig hierdie vergadering?",
-    "endDescription": "{{name}} sal vir almal eindig en kan nie weer heropen word nie.",
+    "endDescription": "{{name}} sal vir almal beëindig word en kan nie heropen word nie.",
     "endPersistentDescription": "Die aktiewe aanbieding in {{name}} sal stop. Die kamer bly beskikbaar vir hergebruik.",
     "deleteRoom": "Vee kamer uit",
     "deleteConfirmTitle": "Vee hierdie kamer uit?",
     "deleteDescription": "{{name}} sal permanent vir almal uitgevee word en kan nie ongedaan gemaak word nie.",
-    "invitedTo": "Jy is genooi na \"{{name}}\"",
+    "invitedTo": "Jy is uitgenooi na \"{{name}}\"",
     "guest": {
       "title": "Vergadering",
       "waiting": "Wag vir die aanbieder...",
-      "linkInvalid": "Hierdie gasskakel is ongeldig of die vergadering het geëindig"
+      "linkInvalid": "Hierdie gas-skakel is ongeldig of die vergadering het geëindig"
     },
-    "reopenFromPanel": "Hierdie vergadering-oortjie het verval. Maak die kamer weer oop vanaf die Vergaderings-paneel.",
+    "reopenFromPanel": "Hierdie vergadering-oortjie het verval. Heropen die kamer vanaf die Vergaderings-paneel.",
     "retry": "Probeer weer",
-    "requestControl": "Versoekbeheer",
+    "requestControl": "Vra beheer",
     "cancelControlRequest": "Kanselleer versoek",
     "controlQueue": "Beheerversoeke",
-    "noControlRequests": "Geen hangende versoeke nie.",
+    "noControlRequests": "Geen uitstaande versoeke nie.",
     "grantControlTo": "Gee beheer aan {{name}}",
-    "dismissControlRequest": "Maak {{name}}se beheerversoek toe",
-    "releaseControl": "Vrystellingsbeheer",
+    "dismissControlRequest": "Wys {{name}} se beheerversoek van die hand",
+    "releaseControl": "Los beheer",
     "grantControl": "Gee beheer",
     "revokeControl": "Neem beheer terug",
-    "controlRequestedBy": "{{name}} het om beheer gevra",
-    "grant": "Toekenning",
+    "grant": "Verleen",
     "controlBadge": "In beheer",
-    "youArePresenting": "Jy bied aan in 'n ander oortjie. Stop die aanbieding om die verhoog oor te dra.",
+    "youArePresenting": "Jy besig om voor te dra in 'n ander oortjie. Stop om voor te dra om die verhoog oor te dra.",
     "created": "Kamer geskep",
-    "invited": "Lede genooi",
-    "roomTab": "Vergadering",
-    "serverChanged": "Die vergaderingsbediener het verander. Maak hierdie vergadering weer oop vanaf die Vergaderingspaneel.",
-    "hostNotSynced": "Sinkroniseer hierdie gasheer met die vergaderingbediener voor die aanbieding.",
-    "linkRequiresServer": "Koppel hierdie lessenaar aan 'n Termix-bediener en skep die vergadering daar om 'n webskakel te deel."
+    "invited": "Lede uitgenooi",
+    "serverChanged": "Die vergaderingsbediener het verander. Heropen hierdie vergadering vanaf die Vergaderings-paneel.",
+    "hostNotSynced": "Sinkroniseer hierdie gasheer met die vergaderingsbediener voordat jy aanbied.",
+    "linkRequiresServer": "Koppel hierdie skryfstoel aan 'n Termix-bediener en skep die vergadering daar om 'n web-skakel te deel."
   },
   "nav": {
     "collab": "Vergaderings"
@@ -148,21 +145,21 @@
   "settings": {
     "admin": {
       "globallyEnabled": {
-        "label": "Laat Sessiedeling Toe",
-        "description": "Laat lewendige terminaal-, RDP-, VNC- en Telnet-sessies toe om instansiewyd gedeel te word. Oorskryf elke deelskakelaar per gasheer wanneer dit gedeaktiveer is."
+        "label": "Laat sessiedeling toe",
+        "description": "Laat lewende terminal-, RDP-, VNC- en Telnet-sessies toe om instansie-breed gedeel te word. Oorskryf elke per-gasheer-delingsskakelaar wanneer dit gedeaktiveer is."
       }
     },
     "host": {
       "allowSessionSharing": {
-        "label": "Laat Sessiedeling Toe",
-        "description": "Laat regstreekse sessies op hierdie gasheer via skakel of met ander gebruikers gedeel word"
+        "label": "Laat sessiedeling toe",
+        "description": "Laat lewende sessies op hierdie gasheer toe om via skakel of met ander gebruikers gedeel te word"
       }
     }
   },
   "permissions": {
     "use": {
-      "title": "Deel sessies en sluit aan by kamers",
-      "description": "Deel regstreekse sessies per skakel of met ander gebruikers, en skep en sluit aan by samewerkingskamers."
+      "title": "Deel sessies en sluit by kamers aan",
+      "description": "Deel lewende sessies via skakel of met ander gebruikers, en skep en sluit by samewerkingskamers aan."
     }
   },
   "hosts": {
@@ -173,17 +170,17 @@
         "oneDay": "24 uur",
         "sevenDays": "7 dae",
         "thirtyDays": "30 dae",
-        "custom": "Pasgemaak"
+        "custom": "Aangepas"
       }
     }
   },
   "connections": {
-    "sectionSharedWithMe": "Met my gedeel",
+    "sectionSharedWithMe": "Gedeel met my",
     "sharedBy": "Gedeel deur {{username}}",
     "join": "Sluit aan",
-    "sharedSessionLabel": "{{hostName}} (gedeel)"
+    "sharedSessionLabel": "{{hostName}} (gedeeld)"
   },
   "plugin": {
-    "name": "Session Sharing"
+    "name": "Sessiedeling"
   }
 }

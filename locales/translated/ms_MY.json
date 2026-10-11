@@ -1,0 +1,183 @@
+{
+  "sessionSharing": {
+    "guestView": {
+      "loading": "Menyambung ke sesi kongsi...",
+      "linkInvalid": "Pautan kongsi ini tidak sah, telah tamat tempoh, atau telah ditarik balik",
+      "rateLimited": "Terlalu banyak percubaan, sila cuba lagi sebentar",
+      "sessionEnded": "Sesi ini telah tamat",
+      "readOnlyBadge": "Lihat sahaja",
+      "ownerLabel": "Pemilik hos"
+    },
+    "modalTitle": "Kongsi sesi",
+    "shareButton": "Kongsi",
+    "notReadyToShare": "Sesi belum sedia untuk dikongsi",
+    "modeTab": {
+      "link": "Pautan",
+      "user": "Pengguna"
+    },
+    "linkModeDescription": "Siapa sahaja yang mempunyai pautan ini boleh menyertai, akaun tidak diperlukan.",
+    "userModeDescription": "Kongsi dengan pengguna tertentu yang sudah mempunyai akses ke hos ini. Jika mereka belum mempunyai akses, kongsi hos dengan mereka terlebih dahulu atau gunakan pautan sebagai alternatif. Setelah dikongsi, sesi akan muncul di tab Sambungan mereka.",
+    "permissionLevel": {
+      "label": "Tahap kebenaran",
+      "readOnly": "Baca sahaja",
+      "readOnlyDescription": "Boleh menonton sesi secara langsung tetapi tidak boleh menaip atau berinteraksi.",
+      "readWrite": "Baca-tulis",
+      "readWriteDescription": "Boleh menaip dan berinteraksi dengan sesi seperti pemilik."
+    },
+    "expiryLabel": "Tempoh tamat pautan",
+    "createLinkButton": "Cipta pautan",
+    "createShareButton": "Kongsi dengan pengguna",
+    "searchUsersPlaceholder": "Cari pengguna...",
+    "noUsersFound": "Tiada pengguna ditemui",
+    "linkCreated": "Pautan kongsi dicipta",
+    "linkNeedsServer": "Pautan kongsi hanya berfungsi untuk sesi pada pelayan Termix. Sambungkan hos ini melalui pelayan yang dipautkan untuk mengongsi dengan pautan.",
+    "linkCopied": "Pautan disalin ke papan klip",
+    "copyLink": "Salin pautan",
+    "shareCreated": "Sesi dikongsi. Ia akan muncul di tab Sambungan mereka.",
+    "shareFailed": "Gagal mencipta perkongsian",
+    "userLacksHostAccess": "Pengguna tersebut belum mempunyai akses ke hos ini. Kongsi hos dengan mereka terlebih dahulu, atau gunakan pautan sebagai alternatif.",
+    "activeShares": "Perkongsian aktif",
+    "noActiveShares": "Tiada perkongsian aktif untuk sesi ini",
+    "revoke": "Tarik balik",
+    "revoked": "Perkongsian ditarik balik",
+    "revokeFailed": "Gagal menarik balik perkongsian",
+    "joinCount": {
+      "other": "{{count}} penyertaan"
+    },
+    "joinCount_other": "{{count}} penyertaan",
+    "expiresAt": "Tamat {{date}}",
+    "linkShareBadge": "Pautan",
+    "userShareBadge": "Pengguna: {{username}}",
+    "remoteDisplayUnavailable": "Desktop jauh tidak tersedia sekarang.",
+    "sharedWithMe": "Sesi dikongsi dengan saya",
+    "customHoursPlaceholder": "Jam sehingga akses tamat"
+  },
+  "collab": {
+    "createRoom": "Bilik baru",
+    "roomCount_other": "{{count}} bilik",
+    "roomName": "Nama bilik",
+    "persistentRoom": "Bilik kekal",
+    "persistentRoomHint": "Bilik kekal kekal disenaraikan selepas mesyuarat tamat dan boleh digunakan semula.",
+    "noRooms": "Belum ada bilik. Cipta satu untuk memulakan mesyuarat.",
+    "openRoom": "Buka",
+    "endRoom": "Tamatkan mesyuarat",
+    "deleteMember": "Buang",
+    "removeMember": "Buang {{name}}",
+    "removeMemberTitle": "Buang ahli ini?",
+    "removeMemberDescription": "{{name}} akan kehilangan akses ke bilik ini serta-merta. Sebarang penampil SSH aktif akan diputuskan sambungannya.",
+    "invite": "Jemput",
+    "inviteTitle": "Jemput ahli",
+    "members": "Ahli",
+    "membersPanel": "Ahli bilik dan permintaan kawalan",
+    "membersWithCount": "Ahli ({{count}})",
+    "guestsWithCount": "Tetamu ({{count}})",
+    "removeGuests": "Buang tetamu",
+    "anonymousGuest": "Tetamu",
+    "online": "dalam talian",
+    "offline": "luar talian",
+    "you": "(anda)",
+    "hostBadge": "Hos",
+    "presenterBadge": "Sedang membentangkan",
+    "present": "Bentangkan",
+    "presentTitle": "Jawati pentas",
+    "searchHosts": "Cari hos",
+    "noHostsFound": "Tiada hos tersedia ditemui.",
+    "stopPresenting": "Hentikan pembentangan",
+    "takeOver": "Jawati",
+    "takeOverConfirmTitle": "Gantikan pembentangan semasa?",
+    "takeOverDescription": "{{name}} sedang membentangkan. Menjawati akan memutuskan sambungan semua orang dari pentas tersebut.",
+    "emptyStage": "Tiada sesiapa yang membentangkan. Jawati pentas untuk berkongsi sesi.",
+    "stageLoading": "Menyambung ke pentas...",
+    "roomEnded": "Mesyuarat ini telah tamat",
+    "presenterLabel": "{{name}} sedang membentangkan",
+    "guestLink": "Pautan tetamu",
+    "guestLinkOn": "Pautan tetamu dihidupkan. Sesiapa sahaja yang mempunyai pautan boleh menonton pentas.",
+    "guestLinkOff": "Pautan tetamu dimatikan.",
+    "copyLink": "Salin pautan",
+    "rotateLink": "Putar pautan",
+    "disableLink": "Lumpuhkan pautan",
+    "rotateLinkConfirmTitle": "Putar pautan tetamu?",
+    "rotateLinkDescription": "Pautan semasa akan berhenti berfungsi serta-merta. Tetamu SSH yang disambung akan diputuskan sambungannya.",
+    "disableLinkConfirmTitle": "Lumpuhkan pautan tetamu?",
+    "disableLinkDescription": "Penonton SSH tanpa nama akan diputuskan sambungannya serta-merta dan pautan semasa akan berhenti berfungsi.",
+    "linkCopied": "Pautan disalin",
+    "roles": "Peranan",
+    "users": "Pengguna",
+    "searchUsers": "Cari pengguna",
+    "endConfirmTitle": "Tamatkan mesyuarat ini?",
+    "endDescription": "{{name}} akan ditamatkan untuk semua orang dan tidak boleh dibuka semula.",
+    "endPersistentDescription": "Pembentangan aktif dalam {{name}} akan dihentikan. Bilik kekal tersedia untuk digunakan semula.",
+    "deleteRoom": "Padam bilik",
+    "deleteConfirmTitle": "Padam bilik ini?",
+    "deleteDescription": "{{name}} akan dipadamkan secara kekal untuk semua orang dan tidak boleh dibatalkan.",
+    "invitedTo": "Anda telah dijemput ke \"{{name}}\"",
+    "guest": {
+      "title": "Mesyuarat",
+      "waiting": "Menunggu pembentang...",
+      "linkInvalid": "Pautan tetamu ini tidak sah atau mesyuarat telah tamat"
+    },
+    "reopenFromPanel": "Tab mesyuarat ini telah tamat tempoh. Buka semula bilik dari panel Mesyuarat.",
+    "retry": "Cuba lagi",
+    "requestControl": "Minta kawalan",
+    "cancelControlRequest": "Batalkan permintaan",
+    "controlQueue": "Permintaan kawalan",
+    "noControlRequests": "Tiada permintaan tertunda.",
+    "grantControlTo": "Berikan kawalan kepada {{name}}",
+    "dismissControlRequest": "Tolak permintaan kawalan {{name}}",
+    "releaseControl": "Lepaskan kawalan",
+    "grantControl": "Berikan kawalan",
+    "revokeControl": "Ambil balik kawalan",
+    "grant": "Berikan",
+    "controlBadge": "Mengawal",
+    "youArePresenting": "Anda sedang membentangkan dalam tab lain. Hentikan pembentangan untuk menyerahkan pentas.",
+    "created": "Bilik dicipta",
+    "invited": "Ahli dijemput",
+    "serverChanged": "Pelayan mesyuarat telah berubah. Buka semula mesyuarat ini dari panel Mesyuarat.",
+    "hostNotSynced": "Serentak hos ini ke pelayan mesyuarat sebelum membuat persembahan.",
+    "linkRequiresServer": "Pautkan desktop ini ke pelayan Termix dan cipta mesyuarat di sana untuk berkongsi pautan web."
+  },
+  "nav": {
+    "collab": "Mesyuarat"
+  },
+  "settings": {
+    "admin": {
+      "globallyEnabled": {
+        "label": "Benarkan Perkongsian Sesi",
+        "description": "Benarkan sesi terminal langsung, RDP, VNC, dan Telnet dikongsi merentasi keseluruhan instans. Menggantikan setiap togol perkongsian per-hos apabila dilumpuhkan."
+      }
+    },
+    "host": {
+      "allowSessionSharing": {
+        "label": "Benarkan Perkongsian Sesi",
+        "description": "Benarkan sesi langsung pada hos ini dikongsi melalui pautan atau dengan pengguna lain"
+      }
+    }
+  },
+  "permissions": {
+    "use": {
+      "title": "Kongsi sesi dan sertai bilik",
+      "description": "Kongsi sesi langsung melalui pautan atau dengan pengguna lain, serta cipta dan sertai bilik kolaborasi."
+    }
+  },
+  "hosts": {
+    "sharing": {
+      "expiry": {
+        "never": "Tidak pernah",
+        "oneHour": "1 jam",
+        "oneDay": "24 jam",
+        "sevenDays": "7 hari",
+        "thirtyDays": "30 hari",
+        "custom": "Tersuai"
+      }
+    }
+  },
+  "connections": {
+    "sectionSharedWithMe": "Dikongsi dengan saya",
+    "sharedBy": "Dikongsi oleh {{username}}",
+    "join": "Sertai",
+    "sharedSessionLabel": "{{hostName}} (dikongsi)"
+  },
+  "plugin": {
+    "name": "Perkongsian Sesi"
+  }
+}

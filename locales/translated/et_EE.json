@@ -1,0 +1,186 @@
+{
+  "sessionSharing": {
+    "guestView": {
+      "loading": "Ühendamine jagatud sessiooniga...",
+      "linkInvalid": "See jagamislink on kehtetu, aegunud või tühistatud",
+      "rateLimited": "Liiga palju katseid, proovige uuesti peatselt",
+      "sessionEnded": "See sessioon on lõppenud",
+      "readOnlyBadge": "Ainult vaatamine",
+      "ownerLabel": "Peremeesarvuti omanik"
+    },
+    "modalTitle": "Jaga sessiooni",
+    "shareButton": "Jaga",
+    "notReadyToShare": "Sessioon ei ole veel jagamiseks valmis",
+    "modeTab": {
+      "link": "Link",
+      "user": "Kasutaja"
+    },
+    "linkModeDescription": "Igaüks, kellel on see link, saab liituda, konto pole vaja.",
+    "userModeDescription": "Jaga konkreetse kasutajaga, kellel on sellel peremeesarvutil juba ligipääs. Kui tal ligipääsu veel pole, jaga esmalt peremeesarvuti temaga või kasuta asemel linki. Jagamise järel ilmub sessioon tema Ühenduste vahelehele.",
+    "permissionLevel": {
+      "label": "Õiguste tase",
+      "readOnly": "Ainult lugemine",
+      "readOnlyDescription": "Võib sessiooni otse jälgida, kuid ei saa trükkida ega suhelda.",
+      "readWrite": "Lugemine ja kirjutamine",
+      "readWriteDescription": "Võib trükkida ja sessiooniga suhelda täpselt nagu omanik."
+    },
+    "expiryLabel": "Lingi aegumine",
+    "createLinkButton": "Loo link",
+    "createShareButton": "Jaga kasutajaga",
+    "searchUsersPlaceholder": "Otsi kasutajaid...",
+    "noUsersFound": "Kasutajaid ei leitud",
+    "linkCreated": "Jagamislink loodud",
+    "linkNeedsServer": "Jagamislingid töötavad ainult Termixi serveril olevate sessioonide puhul. Ühenda see peremeesarvuti oma seotud serveri kaudu, et jagada seda lingiga.",
+    "linkCopied": "Link kopeeritud lõikelauale",
+    "copyLink": "Kopeeri link",
+    "shareCreated": "Sessioon jagatud. See ilmub nende Ühenduste vahelehele.",
+    "shareFailed": "Jagamise loomine ebaõnnestus",
+    "userLacksHostAccess": "Sellel kasutajal pole sellel peremeesarvutil veel ligipääsu. Jaga esmalt peremeesarvuti temaga või kasuta asemel linki.",
+    "activeShares": "Aktiivsed jagamised",
+    "noActiveShares": "Sellel sessioonil pole aktiivseid jagamisi",
+    "revoke": "Tühista",
+    "revoked": "Jagamine tühistatud",
+    "revokeFailed": "Jagamise tühistamine ebaõnnestus",
+    "joinCount": {
+      "one": "{{count}} liitumine",
+      "other": "{{count}} liitumist"
+    },
+    "joinCount_one": "{{count}} liitumine",
+    "joinCount_other": "{{count}} liitumist",
+    "expiresAt": "Aegub {{date}}",
+    "linkShareBadge": "Link",
+    "userShareBadge": "Kasutaja: {{username}}",
+    "remoteDisplayUnavailable": "Kaugtöölaua funktsioon pole praegu saadaval.",
+    "sharedWithMe": "Minuga jagatud sessioonid",
+    "customHoursPlaceholder": "Tundi, enne kui ligipääs aegub"
+  },
+  "collab": {
+    "createRoom": "Uus ruum",
+    "roomCount_one": "{{count}} ruum",
+    "roomCount_other": "{{count}} ruumi",
+    "roomName": "Ruumi nimi",
+    "persistentRoom": "Püsiv ruum",
+    "persistentRoomHint": "Püsivad ruumid jäävad loendisse ka pärast kohtumise lõppu ja neid saab uuesti kasutada.",
+    "noRooms": "Ruumi pole veel. Kohtumise alustamiseks loo üks.",
+    "openRoom": "Ava",
+    "endRoom": "Lõpeta kohtumine",
+    "deleteMember": "Eemalda",
+    "removeMember": "Eemalda {{name}}",
+    "removeMemberTitle": "Kas eemaldada see liige?",
+    "removeMemberDescription": "{{name}} kaotab selle ruumi ligipääsu kohe. Kõik aktiivsed SSH-vaatajad ühendatakse lahti.",
+    "invite": "Kutsu",
+    "inviteTitle": "Kutsu liikmeid",
+    "members": "Liikmed",
+    "membersPanel": "Ruumi liikmed ja juhtimise taotlused",
+    "membersWithCount": "Liikmed ({{count}})",
+    "guestsWithCount": "Külalised ({{count}})",
+    "removeGuests": "Eemalda külalised",
+    "anonymousGuest": "Külastaja",
+    "online": "võrgus",
+    "offline": "väljaspool võrgu",
+    "you": "(sina)",
+    "hostBadge": "Peremees",
+    "presenterBadge": "Esitlus",
+    "present": "Esita",
+    "presentTitle": "Võta lava enda kätte",
+    "searchHosts": "Otsi peremeesmärke",
+    "noHostsFound": "Saadaval olevaid peremeesmärke ei leitud.",
+    "stopPresenting": "Lõpeta esitlus",
+    "takeOver": "Võta üle",
+    "takeOverConfirmTitle": "Kas asendada praegune esitlus?",
+    "takeOverDescription": "{{name}} esitab praegu. Ülevõtmisel ühendatakse kõik selle lavaga seotud kasutajad lahti.",
+    "emptyStage": "Keegi ei esita. Võta lava enda kätte, et jagada sessiooni.",
+    "stageLoading": "Ühendamine lavaga...",
+    "roomEnded": "See koosolek on lõppenud",
+    "presenterLabel": "{{name}} esitab",
+    "guestLink": "Külalise link",
+    "guestLinkOn": "Külalise link on sisse lülitatud. Linki omav keegi saab lavale vaadata.",
+    "guestLinkOff": "Külalise link on välja lülitatud.",
+    "copyLink": "Kopeeri link",
+    "rotateLink": "Pööra linki",
+    "disableLink": "Lülita link välja",
+    "rotateLinkConfirmTitle": "Kas pöörata külalise linki?",
+    "rotateLinkDescription": "Praegune link lakkab kohest töötamast. Ühendatud SSH-külalised ühendatakse lahti.",
+    "disableLinkConfirmTitle": "Kas lülitada külalise link välja?",
+    "disableLinkDescription": "Anonüümsed SSH-vaatajad ühendatakse kohe lahti ja praegune link lakkab töötamast.",
+    "linkCopied": "Link kopeeritud",
+    "roles": "Rollid",
+    "users": "Kasutajad",
+    "searchUsers": "Otsi kasutajaid",
+    "endConfirmTitle": "Kas lõpetada see koosolek?",
+    "endDescription": "{{name}} lõpetatakse kõigi jaoks ja seda ei saa uuesti avada.",
+    "endPersistentDescription": "Aktiivne esitlus ruumis {{name}} peatub. Ruum jääb korduvkasutamiseks saadavaks.",
+    "deleteRoom": "Kustuta ruum",
+    "deleteConfirmTitle": "Kas kustutada see ruum?",
+    "deleteDescription": "{{name}} kustutatakse pöördumatult kõigi jaoks.",
+    "invitedTo": "Sind kutsuti \"{{name}}\"",
+    "guest": {
+      "title": "Koosolek",
+      "waiting": "Ootame esitajat...",
+      "linkInvalid": "See külalise link on kehtetu või koosolek on lõppenud"
+    },
+    "reopenFromPanel": "See koosoleku vaheleht on aegunud. Ava ruum uuesti koosolekute paneelist.",
+    "retry": "Proovi uuesti",
+    "requestControl": "Palu juhtimist",
+    "cancelControlRequest": "Tühista taotlus",
+    "controlQueue": "Juhtimistaotlused",
+    "noControlRequests": "Ootel taotlusi pole.",
+    "grantControlTo": "Anna juhtimine {{name}}-ile",
+    "dismissControlRequest": "Tühista {{name}} juhtimistaotlus",
+    "releaseControl": "Loobu juhtimisest",
+    "grantControl": "Anna juhtimine",
+    "revokeControl": "Võta juhtimine tagasi",
+    "grant": "Anna luba",
+    "controlBadge": "Juhib",
+    "youArePresenting": "Sa esitad teises vahelehes. Lõpeta esitlus, et anda lava üle.",
+    "created": "Ruum loodud",
+    "invited": "Liikmed kutsutud",
+    "serverChanged": "Kohtumise server on muutunud. Ava see kohtumine uuesti Kohtumised-paneelist.",
+    "hostNotSynced": "Sünkrooni see host kohtumise serveriga enne esitamist.",
+    "linkRequiresServer": "Lingige see töölaua seanss Termix-serveriga ja looge kohtumine seal, et jagada veebi-linki."
+  },
+  "nav": {
+    "collab": "Kohtumised"
+  },
+  "settings": {
+    "admin": {
+      "globallyEnabled": {
+        "label": "Luba seansside jagamine",
+        "description": "Luba otseülekannete jagamine terminali, RDP, VNC ja Telnet seansside puhul kogu instantsis. Kui see on keelatud, tühistab see kõik hostipõhised jagamisnupud."
+      }
+    },
+    "host": {
+      "allowSessionSharing": {
+        "label": "Luba seansside jagamine",
+        "description": "Luba selle hosti otseülekannete jagamine lingi kaudu või teiste kasutajatega"
+      }
+    }
+  },
+  "permissions": {
+    "use": {
+      "title": "Jaga seansse ja liitu tubadega",
+      "description": "Jaga otseülekandeid lingi kaudu või teiste kasutajatega ning loo ja liitu koostöö tubadega."
+    }
+  },
+  "hosts": {
+    "sharing": {
+      "expiry": {
+        "never": "Mitte kunagi",
+        "oneHour": "1 tund",
+        "oneDay": "24 tundi",
+        "sevenDays": "7 päeva",
+        "thirtyDays": "30 päeva",
+        "custom": "Kohandatud"
+      }
+    }
+  },
+  "connections": {
+    "sectionSharedWithMe": "Minuga jagatud",
+    "sharedBy": "Jagatud kasutaja {{username}} poolt",
+    "join": "Liitu",
+    "sharedSessionLabel": "{{hostName}} (jagatud)"
+  },
+  "plugin": {
+    "name": "Seansside jagamine"
+  }
+}

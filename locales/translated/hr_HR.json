@@ -1,0 +1,189 @@
+{
+  "sessionSharing": {
+    "guestView": {
+      "loading": "Povezivanje na dijeljenu sesiju...",
+      "linkInvalid": "Ova poveznica za dijeljenje je nevažeća, istekla ili je opozvana",
+      "rateLimited": "Previše pokušaja, pokušajte ponovno za kratko vrijeme",
+      "sessionEnded": "Ova sesija je završena",
+      "readOnlyBadge": "Samo za pregled",
+      "ownerLabel": "Vlasnik hosta"
+    },
+    "modalTitle": "Dijeli sesiju",
+    "shareButton": "Dijeli",
+    "notReadyToShare": "Sesija još nije spremna za dijeljenje",
+    "modeTab": {
+      "link": "Poveznica",
+      "user": "Korisnik"
+    },
+    "linkModeDescription": "Svatko s ovom poveznicom može se pridružiti, nije potreban račun.",
+    "userModeDescription": "Dijeli s određenim korisnikom koji već ima pristup ovom hostu. Ako još nema pristup, prvo mu dijeli host ili umjesto toga koristi poveznicu. Nakon dijeljenja, sesija se pojavljuje na njihovoj kartici Povezivanja.",
+    "permissionLevel": {
+      "label": "Razina dopuštenja",
+      "readOnly": "Samo za čitanje",
+      "readOnlyDescription": "Može pratiti sesiju uživo, ali ne može tipkati niti interagirati.",
+      "readWrite": "Čitanje i pisanje",
+      "readWriteDescription": "Može tipkati i interagirati sa sesijom kao i vlasnik."
+    },
+    "expiryLabel": "Istek poveznice",
+    "createLinkButton": "Stvori poveznicu",
+    "createShareButton": "Dijeli s korisnikom",
+    "searchUsersPlaceholder": "Pretraži korisnike...",
+    "noUsersFound": "Nema pronađenih korisnika",
+    "linkCreated": "Poveznica za dijeljenje je stvorena",
+    "linkNeedsServer": "Poveznice za dijeljenje rade samo za sesije na Termix poslužitelju. Poveži ovaj host putem povezanog poslužitelja kako bi ga mogao dijeliti poveznicom.",
+    "linkCopied": "Poveznica je kopirana u međuspremnik",
+    "copyLink": "Kopiraj poveznicu",
+    "shareCreated": "Sesija je dijeljena. Pojavit će se na njihovoj kartici Povezivanja.",
+    "shareFailed": "Stvaranje dijeljenja nije uspjelo",
+    "userLacksHostAccess": "Taj korisnik još nema pristup ovom hostu. Prvo mu dijeli host ili umjesto toga koristi poveznicu.",
+    "activeShares": "Aktivna dijeljenja",
+    "noActiveShares": "Nema aktivnih dijeljenja za ovu sesiju",
+    "revoke": "Opozovi",
+    "revoked": "Dijeljenje je opozvano",
+    "revokeFailed": "Opoziv dijeljenja nije uspio",
+    "joinCount": {
+      "one": "{{count}} prijava",
+      "few": "{{count}} prijave",
+      "other": "{{count}} prijava"
+    },
+    "joinCount_one": "{{count}} prijava",
+    "joinCount_few": "{{count}} prijave",
+    "joinCount_other": "{{count}} prijava",
+    "expiresAt": "Istječe {{date}}",
+    "linkShareBadge": "Poveznica",
+    "userShareBadge": "Korisnik: {{username}}",
+    "remoteDisplayUnavailable": "Udaljeni desktop trenutno nije dostupan.",
+    "sharedWithMe": "Sesije dijeljene sa mnom",
+    "customHoursPlaceholder": "Sati do isteka pristupa"
+  },
+  "collab": {
+    "createRoom": "Nova soba",
+    "roomCount_one": "{{count}} soba",
+    "roomCount_few": "{{count}} sobe",
+    "roomCount_other": "{{count}} soba",
+    "roomName": "Naziv sobe",
+    "persistentRoom": "Trajna soba",
+    "persistentRoomHint": "Trajne sobe ostaju na popisu nakon završetka sastanka i mogu se ponovno koristiti.",
+    "noRooms": "Još nema soba. Stvori jednu za početak sastanka.",
+    "openRoom": "Otvori",
+    "endRoom": "Završi sastanak",
+    "deleteMember": "Ukloni",
+    "removeMember": "Ukloni {{name}}",
+    "removeMemberTitle": "Ukloniti ovog člana?",
+    "removeMemberDescription": "{{name}} će odmah izgubiti pristup ovoj sobi. Bilo koji aktivan SSH preglednik bit će prekinut.",
+    "invite": "Pozovi",
+    "inviteTitle": "Pozovi članove",
+    "members": "Članovi",
+    "membersPanel": "Članovi sobe i zahtjevi za kontrolu",
+    "membersWithCount": "Članovi ({{count}})",
+    "guestsWithCount": "Gosti ({{count}})",
+    "removeGuests": "Ukloni goste",
+    "anonymousGuest": "Gost",
+    "online": "online",
+    "offline": "offline",
+    "you": "(vi)",
+    "hostBadge": "Domaćin",
+    "presenterBadge": "Prezentira",
+    "present": "Prezentiraj",
+    "presentTitle": "Preuzmi scenu",
+    "searchHosts": "Pretraži hostove",
+    "noHostsFound": "Nema dostupnih hostova.",
+    "stopPresenting": "Zaustavi prezentaciju",
+    "takeOver": "Preuzmi kontrolu",
+    "takeOverConfirmTitle": "Zamijeniti trenutnu prezentaciju?",
+    "takeOverDescription": "{{name}} trenutno prezentira. Preuzimanjem kontrole svi će biti odspojeni s te scene.",
+    "emptyStage": "Nitko ne prezentira. Preuzmite scenu za dijeljenje sesije.",
+    "stageLoading": "Povezivanje na scenu...",
+    "roomEnded": "Ovaj sastanak je završio",
+    "presenterLabel": "{{name}} prezentira",
+    "guestLink": "Poveznica za goste",
+    "guestLinkOn": "Poveznica za goste je aktivna. Svatko s poveznicom može gledati scenu.",
+    "guestLinkOff": "Poveznica za goste je deaktivirana.",
+    "copyLink": "Kopiraj poveznicu",
+    "rotateLink": "Obnovi poveznicu",
+    "disableLink": "Onemogući poveznicu",
+    "rotateLinkConfirmTitle": "Obnoviti poveznicu za goste?",
+    "rotateLinkDescription": "Trenutna poveznica će odmah prestati raditi. Povezani SSH gosti bit će odspojeni.",
+    "disableLinkConfirmTitle": "Onemogućiti poveznicu za goste?",
+    "disableLinkDescription": "Anonimni SSH promatrači bit će odmah odspojeni, a trenutna poveznica će prestati raditi.",
+    "linkCopied": "Poveznica kopirana",
+    "roles": "Uloge",
+    "users": "Korisnici",
+    "searchUsers": "Pretraži korisnike",
+    "endConfirmTitle": "Završiti ovaj sastanak?",
+    "endDescription": "{{name}} će biti završen za sve i ne može se ponovno otvoriti.",
+    "endPersistentDescription": "Aktivna prezentacija u {{name}} će se zaustaviti. Soba ostaje dostupna za ponovnu upotrebu.",
+    "deleteRoom": "Izbriši sobu",
+    "deleteConfirmTitle": "Izbrisati ovu sobu?",
+    "deleteDescription": "{{name}} će biti trajno izbrisan za sve i to se ne može poništiti.",
+    "invitedTo": "Pozvani ste na \"{{name}}\"",
+    "guest": {
+      "title": "Sastanak",
+      "waiting": "Čekanje prezentatora...",
+      "linkInvalid": "Ova poveznica za goste je nevažeća ili je sastanak završio"
+    },
+    "reopenFromPanel": "Ova kartica sastanka je istekla. Ponovno otvorite sobu iz panela Sastanci.",
+    "retry": "Pokušaj ponovo",
+    "requestControl": "Zatraži kontrolu",
+    "cancelControlRequest": "Otkaži zahtjev",
+    "controlQueue": "Zahtjevi za kontrolu",
+    "noControlRequests": "Nema čekajućih zahtjeva.",
+    "grantControlTo": "Predaj kontrolu korisniku {{name}}",
+    "dismissControlRequest": "Odbaci zahtjev za kontrolu od {{name}}",
+    "releaseControl": "Otpusti kontrolu",
+    "grantControl": "Predaj kontrolu",
+    "revokeControl": "Povrati kontrolu",
+    "grant": "Odobri",
+    "controlBadge": "U kontroli",
+    "youArePresenting": "Prezentirate u drugoj kartici. Zaustavite prezentaciju za predaju scene.",
+    "created": "Soba stvorena",
+    "invited": "Članovi pozvani",
+    "serverChanged": "Poslužitelj sastanka se promijenio. Ponovno otvorite ovaj sastanak iz ploče Sastanci.",
+    "hostNotSynced": "Sinkronizirajte ovog hosta s poslužiteljem sastanka prije prezentacije.",
+    "linkRequiresServer": "Povežite ovu radnu površinu s Termix poslužiteljem i stvorite sastanak tamo kako biste dijelili web poveznicu."
+  },
+  "nav": {
+    "collab": "Sastanci"
+  },
+  "settings": {
+    "admin": {
+      "globallyEnabled": {
+        "label": "Dopusti dijeljenje sesija",
+        "description": "Dopusti dijeljenje uživo terminala, RDP, VNC i Telnet sesija na razini cijele instance. Prekida svaku pojedinačnu opciju dijeljenja po hostu kada je onemogućeno."
+      }
+    },
+    "host": {
+      "allowSessionSharing": {
+        "label": "Dopusti dijeljenje sesija",
+        "description": "Omogući dijeljenje uživo sesija na ovom hostu putem poveznice ili s drugim korisnicima"
+      }
+    }
+  },
+  "permissions": {
+    "use": {
+      "title": "Dijeli sesije i pridruži se sobama",
+      "description": "Dijeli uživo sesije putem poveznice ili s drugim korisnicima, te stvaraš i pridružuješ se sobama za suradnju."
+    }
+  },
+  "hosts": {
+    "sharing": {
+      "expiry": {
+        "never": "Nikada",
+        "oneHour": "1 sat",
+        "oneDay": "24 sata",
+        "sevenDays": "7 dana",
+        "thirtyDays": "30 dana",
+        "custom": "Prilagođeno"
+      }
+    }
+  },
+  "connections": {
+    "sectionSharedWithMe": "Dijeljeno sa mnom",
+    "sharedBy": "Dijeljeno od {{username}}",
+    "join": "Pridruži se",
+    "sharedSessionLabel": "{{hostName}} (dijeljeno)"
+  },
+  "plugin": {
+    "name": "Dijeljenje sesija"
+  }
+}

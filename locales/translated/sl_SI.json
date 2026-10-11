@@ -1,0 +1,192 @@
+{
+  "sessionSharing": {
+    "guestView": {
+      "loading": "Povezovanje s skupno rabljeno sejo...",
+      "linkInvalid": "Ta povezava za skupno rabo je neveljavna, potekla ali preklicana.",
+      "rateLimited": "Preveč poskusov, poskusite znova čez kratek čas.",
+      "sessionEnded": "Ta seja se je končala.",
+      "readOnlyBadge": "Samo za ogled",
+      "ownerLabel": "Lastnik gostitelja"
+    },
+    "modalTitle": "Skupna raba seje",
+    "shareButton": "Skupna raba",
+    "notReadyToShare": "Seja še ni pripravljena za skupno rabo.",
+    "modeTab": {
+      "link": "Povezava",
+      "user": "Uporabnik"
+    },
+    "linkModeDescription": "Vsakdo s to povezavo se lahko pridruži, račun ni potreben.",
+    "userModeDescription": "Omogočite skupno rabo določenemu uporabniku, ki že ima dostop do tega gostitelja. Če še nima dostopa, mu najprej omogočite skupno rabo gostitelja ali uporabite povezavo. Ko je omogočena skupna raba, se seja prikaže na zavihku Povezave.",
+    "permissionLevel": {
+      "label": "Stopnja dovoljenja",
+      "readOnly": "Samo za branje",
+      "readOnlyDescription": "Lahko spremlja sejo v živo, vendar ne more tipkati ali sodelovati.",
+      "readWrite": "Branje in pisanje",
+      "readWriteDescription": "Lahko tipka in sodeluje v seji, kot lastnik."
+    },
+    "expiryLabel": "Potek povezave",
+    "createLinkButton": "Ustvari povezavo",
+    "createShareButton": "Omogoči skupno rabo z uporabnikom",
+    "searchUsersPlaceholder": "Išči uporabnike...",
+    "noUsersFound": "Ni najdenih uporabnikov",
+    "linkCreated": "Povezava za skupno rabo je ustvarjena",
+    "linkNeedsServer": "Povezave za skupno rabo delujejo le za seje na strežniku Termix. Povežite ta gostitelj prek svojega povezanega strežnika, da ga lahko delite s povezavo.",
+    "linkCopied": "Povezava je kopirana v odložišče",
+    "copyLink": "Kopiraj povezavo",
+    "shareCreated": "Seja je skupno uporabljena. Prikaže se na zavihku Povezave.",
+    "shareFailed": "Ustvarjanje skupne rabe ni uspelo",
+    "userLacksHostAccess": "Ta uporabnik še nima dostopa do tega gostitelja. Najprej mu omogočite skupno rabo gostitelja ali uporabite povezavo.",
+    "activeShares": "Aktivne skupne rabe",
+    "noActiveShares": "Za to sejo ni aktivnih skupnih rab",
+    "revoke": "Prekliči",
+    "revoked": "Skupna raba je preklicana",
+    "revokeFailed": "Preklic skupne rabe ni uspel",
+    "joinCount": {
+      "one": "{{count}} priključitev",
+      "two": "{{count}} priključitvi",
+      "few": "{{count}} priključitve",
+      "other": "{{count}} priključitev"
+    },
+    "joinCount_one": "{{count}} priključitev",
+    "joinCount_two": "{{count}} priključitvi",
+    "joinCount_few": "{{count}} priključitve",
+    "joinCount_other": "{{count}} priključitev",
+    "expiresAt": "Poteče {{date}}",
+    "linkShareBadge": "Povezava",
+    "userShareBadge": "Uporabnik: {{username}}",
+    "remoteDisplayUnavailable": "Oddaljena namizna površina trenutno ni na voljo.",
+    "sharedWithMe": "Seje, ki so mi bile omogočene v skupno rabo",
+    "customHoursPlaceholder": "Ure do poteka dostopa"
+  },
+  "collab": {
+    "createRoom": "Nova soba",
+    "roomCount_one": "{{count}} soba",
+    "roomCount_two": "{{count}} sobi",
+    "roomCount_few": "{{count}} sobe",
+    "roomCount_other": "{{count}} sob",
+    "roomName": "Ime sobe",
+    "persistentRoom": "Trajna soba",
+    "persistentRoomHint": "Trajne sobe ostanejo na seznamu tudi po koncu sestanka in jih je mogoče ponovno uporabiti.",
+    "noRooms": "Še ni sob. Ustvarite eno za začetek sestanka.",
+    "openRoom": "Odpri",
+    "endRoom": "Končaj sestanek",
+    "deleteMember": "Odstrani",
+    "removeMember": "Odstrani {{name}}",
+    "removeMemberTitle": "Ali želite odstraniti tega člana?",
+    "removeMemberDescription": "{{name}} bo takoj izgubil dostop do te sobe. Vsak aktivni ogledovalnik SSH bo prekinjen.",
+    "invite": "Povabi",
+    "inviteTitle": "Povabi člane",
+    "members": "Člani",
+    "membersPanel": "Člani sobe in zahteve za nadzor",
+    "membersWithCount": "Člani ({{count}})",
+    "guestsWithCount": "Gosti ({{count}})",
+    "removeGuests": "Odstrani goste",
+    "anonymousGuest": "Gost",
+    "online": "na spletu",
+    "offline": "izven spletu",
+    "you": "(vi)",
+    "hostBadge": "Gostitelj",
+    "presenterBadge": "Predstavljanje",
+    "present": "Predstavi",
+    "presentTitle": "Prevzemi vodstvo",
+    "searchHosts": "Išči gostitelje",
+    "noHostsFound": "Ni najdenih razpoložljivih gostiteljev.",
+    "stopPresenting": "Ustavi predstavljanje",
+    "takeOver": "Prevzemi nadzor",
+    "takeOverConfirmTitle": "Zamenjati trenutno predstavljanje?",
+    "takeOverDescription": "{{name}} trenutno predstavlja. Prevzem nadzora bo odstavil vse s tega odra.",
+    "emptyStage": "Nihče ne predstavlja. Prevzemite vodstvo, da delite sejo.",
+    "stageLoading": "Povezovanje z odrom...",
+    "roomEnded": "Ta sestanka je končan",
+    "presenterLabel": "{{name}} predstavlja",
+    "guestLink": "Povezava za goste",
+    "guestLinkOn": "Povezava za goste je vklopljena. Vsakdo s povezavo lahko spremlja odra.",
+    "guestLinkOff": "Povezava za goste je izklopljena.",
+    "copyLink": "Kopiraj povezavo",
+    "rotateLink": "Osveži povezavo",
+    "disableLink": "Onemogoči povezavo",
+    "rotateLinkConfirmTitle": "Osvežiti povezavo za goste?",
+    "rotateLinkDescription": "Trenutna povezava bo takoj prenehala delovati. Povezani SSH gostje bodo odstavljene.",
+    "disableLinkConfirmTitle": "Onemogočiti povezavo za goste?",
+    "disableLinkDescription": "Anonimni SSH gledalci bodo takoj odstavljene, trenutna povezava pa bo prenehala delovati.",
+    "linkCopied": "Povezava kopirana",
+    "roles": "Vloge",
+    "users": "Uporabniki",
+    "searchUsers": "Išči uporabnike",
+    "endConfirmTitle": "Končati ta sestanek?",
+    "endDescription": "{{name}} bo končan za vse in ga ni mogoče ponovno odpreti.",
+    "endPersistentDescription": "Aktivno predstavljanje v {{name}} bo ustavljeno. Prostor ostane na voljo za ponovno uporabo.",
+    "deleteRoom": "Izbriši prostor",
+    "deleteConfirmTitle": "Izbrisati ta prostor?",
+    "deleteDescription": "{{name}} bo trajno izbrisan za vse in tega ni mogoče razveljaviti.",
+    "invitedTo": "Povabljeni ste bili na \"{{name}}\"",
+    "guest": {
+      "title": "Sestanek",
+      "waiting": "Čakanje na predstavnika...",
+      "linkInvalid": "Ta povezava za goste je neveljavna ali pa je sestanek končan"
+    },
+    "reopenFromPanel": "Ta zavihek sestanka je potekel. Ponovno odprite prostor iz panela Sestanki.",
+    "retry": "Poskusi znova",
+    "requestControl": "Zahtevaj nadzor",
+    "cancelControlRequest": "Prekliči zahtevo",
+    "controlQueue": "Zahteve za nadzor",
+    "noControlRequests": "Ni odprtih zahtev.",
+    "grantControlTo": "Dodeli nadzor uporabniku {{name}}",
+    "dismissControlRequest": "Zavrni zahtevo za nadzor uporabnika {{name}}",
+    "releaseControl": "Odpusti nadzor",
+    "grantControl": "Dodeli nadzor",
+    "revokeControl": "Vrni nadzor",
+    "grant": "Dodeli",
+    "controlBadge": "Ima nadzor",
+    "youArePresenting": "Predstavljate v drugem zavihku. Ustavite predstavljanje, da prevzamete vodstvo.",
+    "created": "Prostor ustvarjen",
+    "invited": "Člani povabljeni",
+    "serverChanged": "Strežnik sestanka se je spremenil. Ponovno odprite ta se vast iz plošče Sestanki.",
+    "hostNotSynced": "Pred predstavitvijo sinhronizirajte tega gostitelja s strežnikom sestanka.",
+    "linkRequiresServer": "Povežite to namizno okolje s strežnikom Termix in ustvarite se vast tam, da delite spletno povezavo."
+  },
+  "nav": {
+    "collab": "Sestanki"
+  },
+  "settings": {
+    "admin": {
+      "globallyEnabled": {
+        "label": "Dovoli deljenje sej",
+        "description": "Dovoli deljenje sej terminala, RDP, VNC in Telnet v živo po celotni instanci. Ko je onemogočeno, prekrije vse posamezne stikala za deljenje gostitelja."
+      }
+    },
+    "host": {
+      "allowSessionSharing": {
+        "label": "Dovoli deljenje sej",
+        "description": "Dovoli deljenje sej v živo na tem gostitelju prek povezave ali z drugimi uporabniki"
+      }
+    }
+  },
+  "permissions": {
+    "use": {
+      "title": "Deljenje sej in vstop v sobe",
+      "description": "Delite seje v živo prek povezave ali z drugimi uporabniki ter ustvarjajte in vstopajte v sodelovalne sobe."
+    }
+  },
+  "hosts": {
+    "sharing": {
+      "expiry": {
+        "never": "Nikoli",
+        "oneHour": "1 ura",
+        "oneDay": "24 ur",
+        "sevenDays": "7 dni",
+        "thirtyDays": "30 dni",
+        "custom": "Po meri"
+      }
+    }
+  },
+  "connections": {
+    "sectionSharedWithMe": "Deljeno z mano",
+    "sharedBy": "Delil/a {{username}}",
+    "join": "Pridruži se",
+    "sharedSessionLabel": "{{hostName}} (deljeno)"
+  },
+  "plugin": {
+    "name": "Deljenje sej"
+  }
+}

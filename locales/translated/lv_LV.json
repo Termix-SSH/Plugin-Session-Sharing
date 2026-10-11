@@ -1,0 +1,189 @@
+{
+  "sessionSharing": {
+    "guestView": {
+      "loading": "Savienojas ar kopīgoto sesiju...",
+      "linkInvalid": "Šī koplietošanas saite ir nederīga, ir beigusies tās derīguma termiņš vai tā ir atcelta",
+      "rateLimited": "Pārāk daudz mēģinājumu, lūdzu, mēģiniet vēlreiz pēc brīža",
+      "sessionEnded": "Šī sesija ir beigusies",
+      "readOnlyBadge": "Tikai skatīšana",
+      "ownerLabel": "Resursdatora īpašnieks"
+    },
+    "modalTitle": "Koplietot sesiju",
+    "shareButton": "Koplietot",
+    "notReadyToShare": "Sesija vēl nav gatava koplietošanai",
+    "modeTab": {
+      "link": "Saite",
+      "user": "Lietotājs"
+    },
+    "linkModeDescription": "Jebkurš, kam ir šī saite, var pievienoties, nav nepieciešams konts.",
+    "userModeDescription": "Koplietot ar konkrētu lietotāju, kuram jau ir piekļuve šim resursdatoram. Ja viņam vēl nav piekļuves, vispirms koplietojiet ar viņu resursdatoru vai izmantojiet saiti. Pēc koplietošanas sesija parādīsies viņa cilnē Savienojumi.",
+    "permissionLevel": {
+      "label": "Atļauju līmenis",
+      "readOnly": "Tikai lasīšana",
+      "readOnlyDescription": "Var skatīties sesiju tiešraidē, bet nevar rakstīt vai mijiedarboties.",
+      "readWrite": "Lasīšana un rakstīšana",
+      "readWriteDescription": "Var rakstīt un mijiedarboties ar sesiju tāpat kā īpašnieks."
+    },
+    "expiryLabel": "Saites derīguma termiņš",
+    "createLinkButton": "Izveidot saiti",
+    "createShareButton": "Koplietot ar lietotāju",
+    "searchUsersPlaceholder": "Meklēt lietotājus...",
+    "noUsersFound": "Lietotāji nav atrasti",
+    "linkCreated": "Koplietošanas saite izveidota",
+    "linkNeedsServer": "Koplietošanas saites darbojas tikai sesijām Termix serverī. Lai koplietotu ar saiti, pieslēdzieties šim resursdatoram caur savu saistīto serveri.",
+    "linkCopied": "Saite nokopēta starpliktuvē",
+    "copyLink": "Kopēt saiti",
+    "shareCreated": "Sesija koplietota. Tā parādīsies viņu cilnē Savienojumi.",
+    "shareFailed": "Neizdevās izveidot koplietošanu",
+    "userLacksHostAccess": "Šim lietotājam vēl nav piekļuves šim resursdatoram. Vispirms koplietojiet ar viņu resursdatoru vai izmantojiet saiti.",
+    "activeShares": "Aktīvās koplietošanas",
+    "noActiveShares": "Šai sesijai nav aktīvu koplietošanu",
+    "revoke": "Atcelt",
+    "revoked": "Koplietošana atcelta",
+    "revokeFailed": "Neizdevās atcelt koplietošanu",
+    "joinCount": {
+      "zero": "0 pievienojušies",
+      "one": "{{count}} pievienojies",
+      "other": "{{count}} pievienojušies"
+    },
+    "joinCount_zero": "0 pievienojušies",
+    "joinCount_one": "{{count}} pievienojies",
+    "joinCount_other": "{{count}} pievienojušies",
+    "expiresAt": "Derīguma termiņš beidzas {{date}}",
+    "linkShareBadge": "Saite",
+    "userShareBadge": "Lietotājs: {{username}}",
+    "remoteDisplayUnavailable": "Tālvadības darbvirsma pašlaik nav pieejama.",
+    "sharedWithMe": "Ar mani koplietotās sesijas",
+    "customHoursPlaceholder": "Stundas līdz piekļuves derīguma termiņa beigām"
+  },
+  "collab": {
+    "createRoom": "Jauns istaba",
+    "roomCount_zero": "0 istabas",
+    "roomCount_one": "{{count}} istaba",
+    "roomCount_other": "{{count}} istabas",
+    "roomName": "Istabas nosaukums",
+    "persistentRoom": "Pastāvīga istaba",
+    "persistentRoomHint": "Pastāvīgās istabas paliek sarakstā pēc sanāksmes beigām un var tikt izmantotas atkārtoti.",
+    "noRooms": "Vēl nav istabu. Izveidojiet vienu, lai sāktu sanāksmi.",
+    "openRoom": "Atvērt",
+    "endRoom": "Beigt sanāksmi",
+    "deleteMember": "Noņemt",
+    "removeMember": "Noņemt {{name}}",
+    "removeMemberTitle": "Noņemt šo dalībnieku?",
+    "removeMemberDescription": "{{name}} uzreiz zaudēs piekļuvi šai istabai. Jebkura aktīva SSH skatītājs tiks atvienots.",
+    "invite": "Aicināt",
+    "inviteTitle": "Aicināt dalībniekus",
+    "members": "Dalībnieki",
+    "membersPanel": "Istabas dalībnieki un kontroles pieprasījumi",
+    "membersWithCount": "Dalībnieki ({{count}})",
+    "guestsWithCount": "Viesi ({{count}})",
+    "removeGuests": "Noņemt viesus",
+    "anonymousGuest": "Viesis",
+    "online": "tiešsaistē",
+    "offline": "bezsaistē",
+    "you": "(jūs)",
+    "hostBadge": "Rīkotājs",
+    "presenterBadge": "Prezentē",
+    "present": "Prezentēt",
+    "presentTitle": "Uzstāties",
+    "searchHosts": "Meklēt serverus",
+    "noHostsFound": "Nav atrasts neviena pieejama servera.",
+    "stopPresenting": "Pārtraukt prezentāciju",
+    "takeOver": "Pārņemt vadību",
+    "takeOverConfirmTitle": "Aizvietot pašreizējo prezentāciju?",
+    "takeOverDescription": "Pašlaik prezentē {{name}}. Vadības pārņemšana atslēgs visus no šīs skatuves.",
+    "emptyStage": "Neviens neprezentē. Uzstāties, lai kopīgotu sesiju.",
+    "stageLoading": "Notiek savienojums ar skatuvi...",
+    "roomEnded": "Šī tikšanās ir beigusies",
+    "presenterLabel": "{{name}} prezentē",
+    "guestLink": "Viesu saite",
+    "guestLinkOn": "Viesu saite ir ieslēgta. Jebkurš, kam ir saite, var skatīties skatuvi.",
+    "guestLinkOff": "Viesu saite ir izslēgta.",
+    "copyLink": "Kopēt saiti",
+    "rotateLink": "Atjaunot saiti",
+    "disableLink": "Atspējot saiti",
+    "rotateLinkConfirmTitle": "Atjaunot viesu saiti?",
+    "rotateLinkDescription": "Pašreizējā saite vairs nestrādās. Savienotie SSH viesi tiks atslēgti.",
+    "disableLinkConfirmTitle": "Atspējot viesu saiti?",
+    "disableLinkDescription": "Anonīmie SSH skatītāji tiks nekavējoties atslēgti, un pašreizējā saite vairs nestrādās.",
+    "linkCopied": "Saite nokopēta",
+    "roles": "Lomas",
+    "users": "Lietotāji",
+    "searchUsers": "Meklēt lietotājus",
+    "endConfirmTitle": "Beigt šo tikšanos?",
+    "endDescription": "{{name}} tiks beigts visiem, un to nevarēs atkal atvērt.",
+    "endPersistentDescription": "Aktīvā prezentācija telpā {{name}} tiks apturēta. Telpa paliks pieejama atkārtotai izmantošanai.",
+    "deleteRoom": "Dzēst telpu",
+    "deleteConfirmTitle": "Dzēst šo telpu?",
+    "deleteDescription": "{{name}} tiks neatgriezeniski dzēsts visiem, un šo darbību nevarēs atsaukt.",
+    "invitedTo": "Jūs tātāt aicināts uz \"{{name}}\"",
+    "guest": {
+      "title": "Tikšanās",
+      "waiting": "Gaida prezentētāju...",
+      "linkInvalid": "Šī viesu saite ir nederīga vai tikšanās ir beigusies"
+    },
+    "reopenFromPanel": "Šī tikšanās cilne ir beigusies. Atveriet telpu no Tikšanās panela.",
+    "retry": "Mēģināt vēlreiz",
+    "requestControl": "Pieprasīt vadību",
+    "cancelControlRequest": "Atcelt pieprasījumu",
+    "controlQueue": "Vadības pieprasījumi",
+    "noControlRequests": "Nav gaidāmu pieprasījumu.",
+    "grantControlTo": "Dot vadību {{name}}",
+    "dismissControlRequest": "Noraidīt {{name}} vadības pieprasījumu",
+    "releaseControl": "Atlaist vadību",
+    "grantControl": "Dot vadību",
+    "revokeControl": "Atņemt vadību",
+    "grant": "Piešķirt",
+    "controlBadge": "Vadībā",
+    "youArePresenting": "Jūs prezentējat citā cilnē. Pārtrauciet prezentāciju, lai nodotu skatuvi.",
+    "created": "Telpa izveidota",
+    "invited": "Dalībnieki aicināti",
+    "serverChanged": "Tikšanās serveris ir mainījies. Atveriet šo tikšanos no Tikšanās panela.",
+    "hostNotSynced": "Pirms prezentācijas sinhronizējiet šo hostu ar tikšanās serveri.",
+    "linkRequiresServer": "Lai kopīgotu tīmekļa saiti, piesaistiet šo darbvirsmu Termix serverim un izveidojiet tikšanos tur."
+  },
+  "nav": {
+    "collab": "Tikšanās"
+  },
+  "settings": {
+    "admin": {
+      "globallyEnabled": {
+        "label": "Atļaut sesiju kopīgošanu",
+        "description": "Atļaut dzīvo termināļa, RDP, VNC un Telnet sesiju kopīgošanu visā instancē. Ja ir atspējots, tas pārraksta katru atsevišķa hosta kopīgošanas slēdzi."
+      }
+    },
+    "host": {
+      "allowSessionSharing": {
+        "label": "Atļaut sesiju kopīgošanu",
+        "description": "Ļauj šī hosta dzīvās sesijas kopīgot, izmantojot saiti, vai ar citiem lietotājiem"
+      }
+    }
+  },
+  "permissions": {
+    "use": {
+      "title": "Kopīgot sesijas un pievienoties telpām",
+      "description": "Kopīgojiet dzīvās sesijas, izmantojot saiti vai ar citiem lietotājiem, kā arī izveidojiet un pievienojieties sadarbības telpām."
+    }
+  },
+  "hosts": {
+    "sharing": {
+      "expiry": {
+        "never": "Nekad",
+        "oneHour": "1 stunda",
+        "oneDay": "24 stundas",
+        "sevenDays": "7 dienas",
+        "thirtyDays": "30 dienas",
+        "custom": "Pielāgots"
+      }
+    }
+  },
+  "connections": {
+    "sectionSharedWithMe": "Kopīgots ar mani",
+    "sharedBy": "Kopīgojis {{username}}",
+    "join": "Pievienoties",
+    "sharedSessionLabel": "{{hostName}} (kopīgots)"
+  },
+  "plugin": {
+    "name": "Sesiju kopīgošana"
+  }
+}

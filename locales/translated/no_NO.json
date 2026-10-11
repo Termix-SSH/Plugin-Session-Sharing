@@ -2,71 +2,73 @@
   "sessionSharing": {
     "guestView": {
       "loading": "Kobler til delt økt...",
-      "linkInvalid": "Denne delingslenken er ugyldig, utløpt eller har blitt tilbakekalt",
-      "rateLimited": "For mange forsøk, prøv igjen snart",
+      "linkInvalid": "Denne delingslenken er ugyldig, utløpt eller har blitt inndratt",
+      "rateLimited": "For mange forsøk, vennligst prøv igjen om litt",
       "sessionEnded": "Denne økten er avsluttet",
       "readOnlyBadge": "Kun visning",
       "ownerLabel": "Vertseier"
     },
     "modalTitle": "Del økt",
-    "shareButton": "Dele",
-    "notReadyToShare": "Økten er ikke klar til deling ennå",
+    "shareButton": "Del",
+    "notReadyToShare": "Økten er ikke klar for deling ennå",
     "modeTab": {
       "link": "Lenke",
       "user": "Bruker"
     },
-    "linkModeDescription": "Alle med denne lenken kan bli med, ingen konto kreves.",
-    "userModeDescription": "Del med en bestemt bruker som allerede har tilgang til denne verten. Hvis de ikke har tilgang ennå, del verten med dem først eller bruk en lenke i stedet. Når økten er delt, vises den i deres Tilkoblinger-fane.",
+    "linkModeDescription": "Alle med denne lenken kan delta, ingen konto kreves.",
+    "userModeDescription": "Del med en spesifikk bruker som allerede har tilgang til denne verten. Hvis de ikke har tilgang ennå, del verten med dem først eller bruk en lenke i stedet. Når den er delt, vises økten i fanen Tilkoblinger for dem.",
     "permissionLevel": {
-      "label": "Tillatelsesnivå",
+      "label": "Tilgangsnivå",
       "readOnly": "Skrivebeskyttet",
-      "readOnlyDescription": "Kan se økten direkte, men kan ikke skrive eller samhandle.",
-      "readWrite": "Lese-skrive",
-      "readWriteDescription": "Kan skrive og samhandle med økten akkurat som eieren."
+      "readOnlyDescription": "Kan se økten i sanntid, men kan ikke skrive eller interagere.",
+      "readWrite": "Les/skriv",
+      "readWriteDescription": "Kan skrive og interagere med økten på samme måte som eieren."
     },
-    "expiryLabel": "Utløpsdato for lenke",
+    "expiryLabel": "Utløp for lenke",
     "createLinkButton": "Opprett lenke",
-    "createShareButton": "Del med brukeren",
+    "createShareButton": "Del med bruker",
     "searchUsersPlaceholder": "Søk etter brukere...",
     "noUsersFound": "Ingen brukere funnet",
     "linkCreated": "Delingslenke opprettet",
-    "linkNeedsServer": "Delingslenker fungerer bare for økter på en Termix-server. Koble til denne verten via den tilkoblede serveren din for å dele den med en lenke.",
+    "linkNeedsServer": "Delingslenker fungerer bare for økter på en Termix-server. Koble denne verten til via din koblet server for å dele den med en lenke.",
     "linkCopied": "Lenke kopiert til utklippstavlen",
     "copyLink": "Kopier lenke",
-    "shareCreated": "Økten er delt. Den vil vises i Tilkoblinger-fanen deres.",
-    "shareFailed": "Kunne ikke opprette delingen",
+    "shareCreated": "Økt delt. Den vil vises i fanen Tilkoblinger for dem.",
+    "shareFailed": "Kunne ikke opprette deling",
     "userLacksHostAccess": "Den brukeren har ikke tilgang til denne verten ennå. Del verten med dem først, eller bruk en lenke i stedet.",
-    "activeShares": "Aktive aksjer",
+    "activeShares": "Aktive delinger",
     "noActiveShares": "Ingen aktive delinger for denne økten",
-    "revoke": "Tilbakekalling",
-    "revokeConfirmTitle": "Tilbakekalle denne delingen?",
-    "revokeConfirmDescription": "Alle som bruker denne delingen vil miste tilgangen umiddelbart.",
-    "revoked": "Deling tilbakekalt",
-    "revokeFailed": "Kunne ikke tilbakekalle delingen",
-    "joinCount": "{{count}} bli med",
-    "joinCount_other": "{{count}} blir med",
+    "revoke": "Inndra",
+    "revoked": "Deling inndratt",
+    "revokeFailed": "Kunne ikke inndra deling",
+    "joinCount": {
+      "one": "{{count}} deltaker",
+      "other": "{{count}} deltakere"
+    },
+    "joinCount_one": "{{count}} deltaker",
+    "joinCount_other": "{{count}} deltakere",
     "expiresAt": "Utløper {{date}}",
     "linkShareBadge": "Lenke",
     "userShareBadge": "Bruker: {{username}}",
-    "loadSharesFailed": "Kunne ikke laste inn aktive delinger",
-    "remoteDisplayUnavailable": "Eksternt skrivebord er ikke tilgjengelig akkurat nå.",
+    "remoteDisplayUnavailable": "Fjernskrivebord er ikke tilgjengelig akkurat nå.",
     "sharedWithMe": "Økter delt med meg",
     "customHoursPlaceholder": "Timer til tilgangen utløper"
   },
   "collab": {
-    "createRoom": "Nytt rom",
+    "createRoom": "Ny rom",
+    "roomCount_one": "{{count}} rom",
+    "roomCount_other": "{{count}} rom",
     "roomName": "Romnavn",
-    "persistentRoom": "Permanent rom",
-    "persistentRoomHint": "Permanente rom forblir oppført etter at møtet er avsluttet og kan brukes om igjen.",
-    "noRooms": "Ingen rom ennå. Opprett et for å starte et møte.",
+    "persistentRoom": "Permanente rom",
+    "persistentRoomHint": "Permanente rom forblir i listen etter at møtet er over og kan gjenbrukes.",
+    "noRooms": "Ingen rom ennå. Opprett ett for å starte et møte.",
     "openRoom": "Åpne",
-    "endRoom": "Avslutt møtet",
-    "leaveRoom": "Forlate",
+    "endRoom": "Avslutt møte",
     "deleteMember": "Fjern",
     "removeMember": "Fjern {{name}}",
-    "removeMemberTitle": "Fjerne dette medlemmet?",
-    "removeMemberDescription": "{{name}} mister tilgangen til dette rommet umiddelbart. Alle aktive SSH-lesere blir frakoblet.",
-    "invite": "Invitere",
+    "removeMemberTitle": "Fjerne denne medlemmet?",
+    "removeMemberDescription": "{{name}} mister tilgangen til dette rommet umiddelbart. Eventuelle aktive SSH-visere vil bli koblet fra.",
+    "invite": "Inviter",
     "inviteTitle": "Inviter medlemmer",
     "members": "Medlemmer",
     "membersPanel": "Rommedlemmer og kontrollforespørsler",
@@ -74,73 +76,68 @@
     "guestsWithCount": "Gjester ({{count}})",
     "removeGuests": "Fjern gjester",
     "anonymousGuest": "Gjest",
-    "online": "tilkoblet",
+    "online": "pålogget",
     "offline": "frakoblet",
-    "you": "(du)",
+    "you": "(deg)",
     "hostBadge": "Vert",
     "presenterBadge": "Presenterer",
-    "present": "Nåværende",
-    "presentTitle": "Innta scenen",
-    "presentHost": "Vert",
-    "searchHosts": "Søk etter verter",
-    "noHostsFound": "Ingen tilgjengelige verter funnet.",
-    "presentProtocol": "Protokoll",
+    "present": "Presenter",
+    "presentTitle": "Ta over presentasjonen",
+    "searchHosts": "Søk etter vertsmaskiner",
+    "noHostsFound": "Ingen tilgjengelige vertsmaskiner funnet.",
     "stopPresenting": "Slutt å presentere",
     "takeOver": "Ta over",
-    "takeOverConfirmTitle": "Erstatte den nåværende presentasjonen?",
-    "takeOverDescription": "{{name}} presenterer nå. Å ta over vil koble alle fra det stadiet.",
-    "emptyStage": "Ingen presenterer. Gå på scenen for å dele en økt.",
+    "takeOverConfirmTitle": "Erstatte gjeldende presentasjon?",
+    "takeOverDescription": "{{name}} presenterer nå. Å ta over vil koble alle fra scenen.",
+    "emptyStage": "Ingen presenterer. Ta over for å dele en økt.",
     "stageLoading": "Kobler til scenen...",
-    "stageEnded": "Presentasjonen ble avsluttet",
     "roomEnded": "Dette møtet er avsluttet",
     "presenterLabel": "{{name}} presenterer",
-    "guestLink": "Gjestelenke",
-    "guestLinkOn": "Gjestelenken er på. Alle med lenken kan se scenen.",
-    "guestLinkOff": "Gjestelenken er av.",
-    "copyLink": "Kopier lenke",
-    "rotateLink": "Roter lenken",
-    "disableLink": "Deaktiver lenken",
-    "rotateLinkConfirmTitle": "Roter gjestelenken?",
-    "rotateLinkDescription": "Den nåværende lenken vil slutte å virke umiddelbart. Tilkoblede SSH-gjester vil bli frakoblet.",
-    "disableLinkConfirmTitle": "Deaktivere gjestelenken?",
-    "disableLinkDescription": "Anonyme SSH-lesere vil bli frakoblet umiddelbart, og den nåværende koblingen vil slutte å fungere.",
-    "linkCopied": "Lenken er kopiert",
-    "roles": "Roller",
+    "guestLink": "Gjestelink",
+    "guestLinkOn": "Gjestelink er aktiv. Alle med linken kan se på scenen.",
+    "guestLinkOff": "Gjestelink er deaktivert.",
+    "copyLink": "Kopier link",
+    "rotateLink": "Roter link",
+    "disableLink": "Deaktiver link",
+    "rotateLinkConfirmTitle": "Roter gjestelinken?",
+    "rotateLinkDescription": "Den gjeldende linken slutter å fungere umiddelbart. Koblede SSH-gjester blir koblet fra.",
+    "disableLinkConfirmTitle": "Deaktivere gjestelinken?",
+    "disableLinkDescription": "Anonyme SSH-seere blir koblet fra umiddelbart, og den gjeldende linken slutter å fungere.",
+    "linkCopied": "Link kopiert",
+    "roles": "R roller",
     "users": "Brukere",
     "searchUsers": "Søk etter brukere",
     "endConfirmTitle": "Avslutte dette møtet?",
-    "endDescription": "{{name}} vil avsluttes for alle og kan ikke åpnes igjen.",
-    "endPersistentDescription": "Den aktive presentasjonen i {{name}} stopper. Rommet er fortsatt tilgjengelig for gjenbruk.",
+    "endDescription": "{{name}} avsluttes for alle og kan ikke åpnes på nytt.",
+    "endPersistentDescription": "Den aktive presentasjonen i {{name}} stoppes. Rommet forblir tilgjengelig for gjenbruk.",
     "deleteRoom": "Slett rom",
     "deleteConfirmTitle": "Slette dette rommet?",
-    "deleteDescription": "{{name}} vil bli permanent slettet for alle og kan ikke angres.",
+    "deleteDescription": "{{name}} slettes permanent for alle, og dette kan ikke angres.",
     "invitedTo": "Du ble invitert til «{{name}}»",
     "guest": {
       "title": "Møte",
-      "waiting": "Venter på programlederen...",
-      "linkInvalid": "Denne gjestelenken er ugyldig, eller møtet er avsluttet"
+      "waiting": "Venter på presenteren...",
+      "linkInvalid": "Denne gjestelinken er ugyldig, eller møtet er avsluttet"
     },
-    "reopenFromPanel": "Denne møtefanen er utløpt. Åpne rommet på nytt fra Møter-panelet.",
+    "reopenFromPanel": "Denne møtefanen har utløpt. Åpne rommet på nytt fra Møter-panelet.",
     "retry": "Prøv igjen",
     "requestControl": "Be om kontroll",
     "cancelControlRequest": "Avbryt forespørsel",
     "controlQueue": "Kontrollforespørsler",
     "noControlRequests": "Ingen ventende forespørsler.",
     "grantControlTo": "Gi kontroll til {{name}}",
-    "dismissControlRequest": "Avvis kontrollforespørselen til {{name}}",
-    "releaseControl": "Slipp kontrollen",
+    "dismissControlRequest": "Avvis {{name}}s kontrollforespørsel",
+    "releaseControl": "Gi fra seg kontroll",
     "grantControl": "Gi kontroll",
     "revokeControl": "Ta tilbake kontrollen",
-    "controlRequestedBy": "{{name}} ba om kontroll",
-    "grant": "Stipend",
-    "controlBadge": "I kontroll",
-    "youArePresenting": "Du presenterer i en annen fane. Stopp presentasjonen for å gi fra deg scenen.",
-    "created": "Rommet er opprettet",
+    "grant": "Godkjenn",
+    "controlBadge": "Har kontroll",
+    "youArePresenting": "Du presenterer i en annen fane. Slutt å presentere for å gi fra deg scenen.",
+    "created": "Rom opprettet",
     "invited": "Medlemmer invitert",
-    "roomTab": "Møte",
-    "serverChanged": "Møteserveren er endret. Åpne dette møtet på nytt fra Møter-panelet.",
-    "hostNotSynced": "Synkroniser denne verten med møteserveren før presentasjonen.",
-    "linkRequiresServer": "Koble dette skrivebordet til en Termix-server og opprett møtet der for å dele en nettlenke."
+    "serverChanged": "Møteserveren har endret seg. Åpne møtet på nytt fra Møter-panelet.",
+    "hostNotSynced": "Synkroniser denne verten med møteserveren før du presenterer.",
+    "linkRequiresServer": "Koble dette skrivebordet til en Termix-server og opprett møtet der for å dele en web-lenke."
   },
   "nav": {
     "collab": "Møter"
@@ -148,21 +145,21 @@
   "settings": {
     "admin": {
       "globallyEnabled": {
-        "label": "Tillat øktdeling",
-        "description": "Tillat deling av Live Terminal-, RDP-, VNC- og Telnet-økter på tvers av hele instansen. Overstyrer alle delingsalternativer per vert når de er deaktivert."
+        "label": "Tillat deling av økter",
+        "description": "Tillat at live-terminal-, RDP-, VNC- og Telnet-økter deles over hele instansen. Overskriver alle per-vert-delingsbrytere når den er deaktivert."
       }
     },
     "host": {
       "allowSessionSharing": {
-        "label": "Tillat øktdeling",
-        "description": "La direktesendte økter på denne verten deles via lenke eller med andre brukere"
+        "label": "Tillat deling av økter",
+        "description": "La live-økter på denne verten deles via lenke eller med andre brukere"
       }
     }
   },
   "permissions": {
     "use": {
       "title": "Del økter og bli med i rom",
-      "description": "Del direktesendte økter via lenke eller med andre brukere, og opprett og bli med i samarbeidsrom."
+      "description": "Del live-økter via lenke eller med andre brukere, og opprett og bli med i samarbeidsrom."
     }
   },
   "hosts": {
@@ -173,7 +170,7 @@
         "oneDay": "24 timer",
         "sevenDays": "7 dager",
         "thirtyDays": "30 dager",
-        "custom": "Skikk"
+        "custom": "Egendefinert"
       }
     }
   },
@@ -184,6 +181,6 @@
     "sharedSessionLabel": "{{hostName}} (delt)"
   },
   "plugin": {
-    "name": "Session Sharing"
+    "name": "Deling av økter"
   }
 }

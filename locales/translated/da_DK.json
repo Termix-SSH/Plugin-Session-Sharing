@@ -2,72 +2,74 @@
   "sessionSharing": {
     "guestView": {
       "loading": "Forbinder til delt session...",
-      "linkInvalid": "Dette delingslink er ugyldigt, udløbet eller er blevet tilbagekaldt",
+      "linkInvalid": "Denne delingslink er ugyldig, udløbet eller er blevet tilbagekaldt",
       "rateLimited": "For mange forsøg, prøv igen om lidt",
       "sessionEnded": "Denne session er afsluttet",
       "readOnlyBadge": "Kun visning",
       "ownerLabel": "Værtsejer"
     },
     "modalTitle": "Del session",
-    "shareButton": "Dele",
+    "shareButton": "Del",
     "notReadyToShare": "Sessionen er ikke klar til deling endnu",
     "modeTab": {
-      "link": "Forbindelse",
+      "link": "Link",
       "user": "Bruger"
     },
-    "linkModeDescription": "Alle med dette link kan tilmelde sig, ingen konto kræves.",
-    "userModeDescription": "Del med en bestemt bruger, der allerede har adgang til denne vært. Hvis de ikke har adgang endnu, skal du først dele værten med dem eller bruge et link i stedet. Når sessionen er delt, vises den under deres fane Forbindelser.",
+    "linkModeDescription": "Alle med dette link kan deltage, ingen konto kræves.",
+    "userModeDescription": "Del med en bestemt bruger, der allerede har adgang til denne vært. Hvis de ikke har adgang endnu, del værten med dem først, eller brug et link i stedet. Når den er delt, vises sessionen i deres fanen Forbindelser.",
     "permissionLevel": {
       "label": "Tilladelsesniveau",
       "readOnly": "Skrivebeskyttet",
       "readOnlyDescription": "Kan se sessionen live, men kan ikke skrive eller interagere.",
       "readWrite": "Læs-skriv",
-      "readWriteDescription": "Kan skrive og interagere med sessionen ligesom ejeren."
+      "readWriteDescription": "Kan skrive og interagere med sessionen, præcis som ejeren."
     },
-    "expiryLabel": "Linkudløb",
+    "expiryLabel": "Linkets udløb",
     "createLinkButton": "Opret link",
-    "createShareButton": "Del med brugeren",
+    "createShareButton": "Del med bruger",
     "searchUsersPlaceholder": "Søg efter brugere...",
     "noUsersFound": "Ingen brugere fundet",
     "linkCreated": "Delingslink oprettet",
-    "linkNeedsServer": "Delingslinks fungerer kun for sessioner på en Termix-server. Forbind denne vært via din linkede server for at dele den med et link.",
-    "linkCopied": "Link kopieret til udklipsholder",
+    "linkNeedsServer": "Delingslinks fungerer kun for sessioner på en Termix-server. Forbind denne vært gennem din linkede server for at dele den med et link.",
+    "linkCopied": "Link kopieret til udklipsholderen",
     "copyLink": "Kopiér link",
-    "shareCreated": "Session delt. Den vises i fanen Forbindelser.",
+    "shareCreated": "Session delt. Den vil fremgå i deres fanen Forbindelser.",
     "shareFailed": "Kunne ikke oprette deling",
-    "userLacksHostAccess": "Den bruger har endnu ikke adgang til denne vært. Del værten med dem først, eller brug et link i stedet.",
-    "activeShares": "Aktive aktier",
+    "userLacksHostAccess": "Denne bruger har ikke adgang til denne vært endnu. Del værten med dem først, eller brug et link i stedet.",
+    "activeShares": "Aktive delinger",
     "noActiveShares": "Ingen aktive delinger for denne session",
     "revoke": "Tilbagekald",
-    "revokeConfirmTitle": "Tilbagekald denne deling?",
-    "revokeConfirmDescription": "Enhver, der bruger denne deling, mister adgangen med det samme.",
     "revoked": "Deling tilbagekaldt",
-    "revokeFailed": "Delingen kunne ikke tilbagekaldes",
-    "joinCount": "{{count}} tilmeld dig",
-    "joinCount_other": "{{count}} deltager",
+    "revokeFailed": "Kunne ikke tilbagekalde deling",
+    "joinCount": {
+      "one": "{{count}} deltagelse",
+      "other": "{{count}} deltagelser"
+    },
+    "joinCount_one": "{{count}} deltagelse",
+    "joinCount_other": "{{count}} deltagelser",
     "expiresAt": "Udløber {{date}}",
-    "linkShareBadge": "Forbindelse",
+    "linkShareBadge": "Link",
     "userShareBadge": "Bruger: {{username}}",
-    "loadSharesFailed": "Kunne ikke indlæse aktive delinger",
     "remoteDisplayUnavailable": "Fjernskrivebord er ikke tilgængeligt lige nu.",
     "sharedWithMe": "Sessioner delt med mig",
     "customHoursPlaceholder": "Timer indtil adgangen udløber"
   },
   "collab": {
-    "createRoom": "Nyt værelse",
-    "roomName": "Værelsesnavn",
-    "persistentRoom": "Permanent rum",
-    "persistentRoomHint": "Permanente rum forbliver på listen efter mødets afslutning og kan genbruges.",
+    "createRoom": "Nyt rum",
+    "roomCount_one": "{{count}} rum",
+    "roomCount_other": "{{count}} rum",
+    "roomName": "Rumnavn",
+    "persistentRoom": "Permanente rum",
+    "persistentRoomHint": "Permanente rum forbliver på listen, efter mødet er slut, og kan genbruges.",
     "noRooms": "Ingen rum endnu. Opret et for at starte et møde.",
-    "openRoom": "Åben",
-    "endRoom": "Afslut mødet",
-    "leaveRoom": "Forlade",
-    "deleteMember": "Fjerne",
+    "openRoom": "Åbn",
+    "endRoom": "Afslut møde",
+    "deleteMember": "Fjern",
     "removeMember": "Fjern {{name}}",
     "removeMemberTitle": "Fjern dette medlem?",
-    "removeMemberDescription": "{{name}} mister adgangen til dette rum med det samme. Enhver aktiv SSH-seer vil blive afbrudt.",
-    "invite": "Invitere",
-    "inviteTitle": "Inviter medlemmer",
+    "removeMemberDescription": "{{name}} mister straks adgang til dette rum. Eventuelle aktive SSH-visere vil blive afbrudt.",
+    "invite": "Invitér",
+    "inviteTitle": "Invitér medlemmer",
     "members": "Medlemmer",
     "membersPanel": "Rummedlemmer og kontrolanmodninger",
     "membersWithCount": "Medlemmer ({{count}})",
@@ -76,71 +78,66 @@
     "anonymousGuest": "Gæst",
     "online": "online",
     "offline": "offline",
-    "you": "(du)",
+    "you": "(dig)",
     "hostBadge": "Vært",
-    "presenterBadge": "Præsentation",
-    "present": "Nuværende",
-    "presentTitle": "Indtag scenen",
-    "presentHost": "Vært",
+    "presenterBadge": "Præsenterer",
+    "present": "Præsenter",
+    "presentTitle": "Tag scenen",
     "searchHosts": "Søg efter værter",
     "noHostsFound": "Ingen tilgængelige værter fundet.",
-    "presentProtocol": "Protokol",
-    "stopPresenting": "Stop med at præsentere",
+    "stopPresenting": "Stop præsentation",
     "takeOver": "Overtag",
-    "takeOverConfirmTitle": "Erstat den nuværende præsentation?",
-    "takeOverDescription": "{{name}} præsenterer nu. Overtagelse vil afbryde alles forbindelse til den scene.",
-    "emptyStage": "Ingen præsenterer. Gå på scenen for at dele en session.",
-    "stageLoading": "Forbinder sig til scenen...",
-    "stageEnded": "Præsentationen sluttede",
-    "roomEnded": "Dette møde er afsluttet",
+    "takeOverConfirmTitle": "Erstat den aktuelle præsentation?",
+    "takeOverDescription": "{{name}} præsenterer lige nu. Hvis du overtager, afbrydes alle forbindelser til scenen.",
+    "emptyStage": "Ingen præsenterer. Tag scenen for at dele en session.",
+    "stageLoading": "Forbinder til scenen...",
+    "roomEnded": "Mødet er slut",
     "presenterLabel": "{{name}} præsenterer",
     "guestLink": "Gæstelink",
     "guestLinkOn": "Gæstelinket er aktiveret. Alle med linket kan se scenen.",
-    "guestLinkOff": "Gæstelinket er slået fra.",
+    "guestLinkOff": "Gæstelinket er deaktiveret.",
     "copyLink": "Kopiér link",
     "rotateLink": "Roter link",
     "disableLink": "Deaktiver link",
     "rotateLinkConfirmTitle": "Roter gæstelinket?",
-    "rotateLinkDescription": "Det nuværende link vil stoppe med at virke med det samme. Forbundne SSH-gæster vil blive afbrudt.",
+    "rotateLinkDescription": "Det aktuelle link holder straks op med at virke. Forbundne SSH-gæster vil blive afbrudt.",
     "disableLinkConfirmTitle": "Deaktiver gæstelinket?",
-    "disableLinkDescription": "Anonyme SSH-seere vil blive afbrudt med det samme, og det nuværende link vil stoppe med at virke.",
-    "linkCopied": "Linket er kopieret",
-    "roles": "Roller",
+    "disableLinkDescription": "Anonyme SSH-seere vil blive afbrudt straks, og det aktuelle link holder op med at virke.",
+    "linkCopied": "Link kopieret",
+    "roles": "Rolle",
     "users": "Brugere",
-    "searchUsers": "Søg brugere",
-    "endConfirmTitle": "Afslutte dette møde?",
-    "endDescription": "{{name}} slutter for alle og kan ikke genåbnes.",
-    "endPersistentDescription": "Den aktive præsentation i {{name}} stopper. Rummet forbliver tilgængeligt til genbrug.",
+    "searchUsers": "Søg efter brugere",
+    "endConfirmTitle": "Afslut dette møde?",
+    "endDescription": "{{name}} afsluttes for alle og kan ikke genåbnes.",
+    "endPersistentDescription": "Den aktive præsentation i {{name}} stoppes. Rummet forbliver tilgængeligt til genbrug.",
     "deleteRoom": "Slet rum",
     "deleteConfirmTitle": "Slet dette rum?",
-    "deleteDescription": "{{name}} vil blive slettet permanent for alle og kan ikke fortrydes.",
+    "deleteDescription": "{{name}} slettes permanent for alle, og det kan ikke fortrydes.",
     "invitedTo": "Du blev inviteret til \"{{name}}\"",
     "guest": {
       "title": "Møde",
       "waiting": "Venter på præsentatoren...",
-      "linkInvalid": "Dette gæstelink er ugyldigt, eller mødet er afsluttet"
+      "linkInvalid": "Dette gæstelink er ugyldigt, eller mødet er slut"
     },
-    "reopenFromPanel": "Denne mødefane er udløbet. Genåbn rummet fra panelet Møder.",
+    "reopenFromPanel": "Denne mødefane er udløbet. Åbn rummet igen fra Møder-panelet.",
     "retry": "Prøv igen",
     "requestControl": "Anmod om kontrol",
-    "cancelControlRequest": "Annuller anmodning",
+    "cancelControlRequest": "Annullér anmodning",
     "controlQueue": "Kontrolanmodninger",
-    "noControlRequests": "Ingen ventende anmodninger.",
+    "noControlRequests": "Ingen afventende anmodninger.",
     "grantControlTo": "Giv kontrol til {{name}}",
-    "dismissControlRequest": "Afvis kontrolanmodningen fra {{name}}",
-    "releaseControl": "Slipkontrol",
+    "dismissControlRequest": "Afvis {{name}}'s kontrolanmodning",
+    "releaseControl": "Giv slip på kontrollen",
     "grantControl": "Giv kontrol",
     "revokeControl": "Tag kontrollen tilbage",
-    "controlRequestedBy": "{{name}} bad om kontrol",
-    "grant": "Give",
-    "controlBadge": "I kontrol",
+    "grant": "Bevilg",
+    "controlBadge": "Har kontrollen",
     "youArePresenting": "Du præsenterer i en anden fane. Stop præsentationen for at overdrage scenen.",
     "created": "Rum oprettet",
     "invited": "Medlemmer inviteret",
-    "roomTab": "Møde",
-    "serverChanged": "Mødeserveren er ændret. Genåbn dette møde fra panelet Møder.",
-    "hostNotSynced": "Synkroniser denne vært med mødeserveren før præsentation.",
-    "linkRequiresServer": "Forbind dette skrivebord til en Termix-server, og opret mødet der for at dele et weblink."
+    "serverChanged": "Mødeserveren er ændret. Genåbn dette møde fra Møder-panelet.",
+    "hostNotSynced": "Synkroniser denne vært med mødeserveren, før du præsenterer.",
+    "linkRequiresServer": "Kobl dette skrivebord til en Termix-server og opret mødet der for at dele et web-link."
   },
   "nav": {
     "collab": "Møder"
@@ -149,20 +146,20 @@
     "admin": {
       "globallyEnabled": {
         "label": "Tillad deling af sessioner",
-        "description": "Tillad deling af live terminal-, RDP-, VNC- og Telnet-sessioner på tværs af instanser. Tilsidesætter alle delingsindstillinger pr. vært, når de er deaktiveret."
+        "description": "Tillad, at live-sessioner for terminal, RDP, VNC og Telnet kan deles på tværs af hele instansen. Overskriver alle per-vært indstillinger for deling, når den er deaktiveret."
       }
     },
     "host": {
       "allowSessionSharing": {
         "label": "Tillad deling af sessioner",
-        "description": "Tillad live-sessioner på denne vært at blive delt via link eller med andre brugere"
+        "description": "Gør det muligt at dele live-sessioner på denne vært via link eller med andre brugere"
       }
     }
   },
   "permissions": {
     "use": {
-      "title": "Del sessioner og deltag i rum",
-      "description": "Del livesessioner via link eller med andre brugere, og opret og deltag i samarbejdsrum."
+      "title": "Del sessioner og deltage i rum",
+      "description": "Del live-sessioner via link eller med andre brugere, og opret og deltage i samarbejdssrum."
     }
   },
   "hosts": {
@@ -173,7 +170,7 @@
         "oneDay": "24 timer",
         "sevenDays": "7 dage",
         "thirtyDays": "30 dage",
-        "custom": "Skik"
+        "custom": "Brugerdefineret"
       }
     }
   },
@@ -184,6 +181,6 @@
     "sharedSessionLabel": "{{hostName}} (delt)"
   },
   "plugin": {
-    "name": "Session Sharing"
+    "name": "Deling af sessioner"
   }
 }

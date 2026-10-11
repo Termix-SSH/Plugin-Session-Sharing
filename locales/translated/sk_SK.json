@@ -1,0 +1,192 @@
+{
+  "sessionSharing": {
+    "guestView": {
+      "loading": "Pripájanie k zdieľanej relácii...",
+      "linkInvalid": "Tento odkaz na zdieľanie je neplatný, vypršal alebo bol zrušený",
+      "rateLimited": "Príliš veľa pokusov, skúste to prosím znova o chvíľu",
+      "sessionEnded": "Táto relácia sa skončila",
+      "readOnlyBadge": "Iba na čítanie",
+      "ownerLabel": "Vlastník hostiteľa"
+    },
+    "modalTitle": "Zdieľať reláciu",
+    "shareButton": "Zdieľať",
+    "notReadyToShare": "Relácia ešte nie je pripravená na zdieľanie",
+    "modeTab": {
+      "link": "Odkaz",
+      "user": "Používateľ"
+    },
+    "linkModeDescription": "Ktokoľvek s týmto odkazom sa môže pripojiť, nie je potrebný účet.",
+    "userModeDescription": "Zdieľajte s konkrétnym používateľom, ktorý už má prístup k tomuto hostiteľovi. Ak ešte nemá prístup, najprv mu zdieľajte hostiteľa alebo použite odkaz. Po zdieľaní sa relácia zobrazí na jeho karte Pripojenia.",
+    "permissionLevel": {
+      "label": "Úroveň oprávnení",
+      "readOnly": "Iba na čítanie",
+      "readOnlyDescription": "Môže sledovať reláciu v reálnom čase, ale nemôže písať ani interagovať.",
+      "readWrite": "Čítanie a písanie",
+      "readWriteDescription": "Môže písať a interagovať s reláciou rovnako ako vlastník."
+    },
+    "expiryLabel": "Platnosť odkazu",
+    "createLinkButton": "Vytvoriť odkaz",
+    "createShareButton": "Zdieľať s používateľom",
+    "searchUsersPlaceholder": "Vyhľadať používateľov...",
+    "noUsersFound": "Nenašli sa žiadni používatelia",
+    "linkCreated": "Odkaz na zdieľanie vytvorený",
+    "linkNeedsServer": "Odkazy na zdieľanie fungujú len pre relácie na serveri Termix. Pripojte tento hostiteľa cez váš prepojený server, aby ste ho mohli zdieľať pomocou odkazu.",
+    "linkCopied": "Odkaz skopírovaný do schránky",
+    "copyLink": "Kopírovať odkaz",
+    "shareCreated": "Relácia zdieľaná. Zobrazí sa na ich karte Pripojenia.",
+    "shareFailed": "Nepodarilo sa vytvoriť zdieľanie",
+    "userLacksHostAccess": "Tento používateľ zatiaľ nemá prístup k tomuto hostiteľovi. Najprv mu zdieľajte hostiteľa alebo použite odkaz.",
+    "activeShares": "Aktívne zdieľania",
+    "noActiveShares": "Žiadne aktívne zdieľania pre túto reláciu",
+    "revoke": "Zrušiť",
+    "revoked": "Zdieľanie zrušené",
+    "revokeFailed": "Nepodarilo sa zrušiť zdieľanie",
+    "joinCount": {
+      "one": "{{count}} pripojenie",
+      "few": "{{count}} pripojenia",
+      "many": "{{count}} pripojení",
+      "other": "{{count}} pripojení"
+    },
+    "joinCount_one": "{{count}} pripojenie",
+    "joinCount_few": "{{count}} pripojenia",
+    "joinCount_many": "{{count}} pripojení",
+    "joinCount_other": "{{count}} pripojení",
+    "expiresAt": "Vyprší {{date}}",
+    "linkShareBadge": "Odkaz",
+    "userShareBadge": "Používateľ: {{username}}",
+    "remoteDisplayUnavailable": "Vzdialená plocha momentálne nie je dostupná.",
+    "sharedWithMe": "Relácie zdieľané so mnou",
+    "customHoursPlaceholder": "Hodiny do vypršania prístupu"
+  },
+  "collab": {
+    "createRoom": "Nová miestnosť",
+    "roomCount_one": "{{count}} miestnosť",
+    "roomCount_few": "{{count}} miestnosti",
+    "roomCount_many": "{{count}} miestností",
+    "roomCount_other": "{{count}} miestností",
+    "roomName": "Názov miestnosti",
+    "persistentRoom": "Trvalá miestnosť",
+    "persistentRoomHint": "Trvalé miestnosti zostávajú v zozname aj po skončení stretnutia a dajú sa znova použiť.",
+    "noRooms": "Zatiaľ žiadne miestnosti. Vytvorte jednu a začnite stretnutie.",
+    "openRoom": "Otvoriť",
+    "endRoom": "Ukončiť stretnutie",
+    "deleteMember": "Odstrániť",
+    "removeMember": "Odstrániť {{name}}",
+    "removeMemberTitle": "Odstrániť tohto člena?",
+    "removeMemberDescription": "{{name}} okamžite stratí prístup k tejto miestnosti. Akýkoľvek aktívny prehliadač SSH bude odpojený.",
+    "invite": "Pozvať",
+    "inviteTitle": "Pozvať členov",
+    "members": "Členovia",
+    "membersPanel": "Členovia miestnosti a žiadosti o ovládanie",
+    "membersWithCount": "Členovia ({{count}})",
+    "guestsWithCount": "Hostia ({{count}})",
+    "removeGuests": "Odstrániť hostí",
+    "anonymousGuest": "Host",
+    "online": "online",
+    "offline": "offline",
+    "you": "(vy)",
+    "hostBadge": "Hostiteľ",
+    "presenterBadge": "Prezentuje",
+    "present": "Prezentovať",
+    "presentTitle": "Vziať slovo",
+    "searchHosts": "Vyhľadať hosty",
+    "noHostsFound": "Nenašli sa žiadne dostupné hosty.",
+    "stopPresenting": "Ukončiť prezentáciu",
+    "takeOver": "Prevziať ovládanie",
+    "takeOverConfirmTitle": "Nahradiť aktuálnu prezentáciu?",
+    "takeOverDescription": "{{name}} práve prezentuje. Prevzatím ovládania sa všetci odpoja od tejto prezentácie.",
+    "emptyStage": "Nikto neprezentuje. Vezmite slovo a zdieľajte reláciu.",
+    "stageLoading": "Pripájanie k prezentácii...",
+    "roomEnded": "Toto stretnutie sa skončilo",
+    "presenterLabel": "{{name}} prezentuje",
+    "guestLink": "Odkaz pre hostí",
+    "guestLinkOn": "Odkaz pre hostí je zapnutý. Každý s odkazom môže sledovať prezentáciu.",
+    "guestLinkOff": "Odkaz pre hostí je vypnutý.",
+    "copyLink": "Kopírovať odkaz",
+    "rotateLink": "Obnoviť odkaz",
+    "disableLink": "Zakázať odkaz",
+    "rotateLinkConfirmTitle": "Obnoviť odkaz pre hostí?",
+    "rotateLinkDescription": "Aktuálny odkaz prestane okamžite fungovať. Pripojení SSH hostia budú odpojení.",
+    "disableLinkConfirmTitle": "Zakázať odkaz pre hostí?",
+    "disableLinkDescription": "Anonymní SSH diváci budú okamžite odpojení a aktuálny odkaz prestane fungovať.",
+    "linkCopied": "Odkaz skopírovaný",
+    "roles": "Roly",
+    "users": "Používatelia",
+    "searchUsers": "Vyhľadať používateľov",
+    "endConfirmTitle": "Ukončiť toto stretnutie?",
+    "endDescription": "{{name}} sa ukončí pre všetkých a nemožno ho znovu otvoriť.",
+    "endPersistentDescription": "Aktívna prezentácia v {{name}} sa zastaví. Miestnosť zostane dostupná na opätovné použitie.",
+    "deleteRoom": "Odstrániť miestnosť",
+    "deleteConfirmTitle": "Odstrániť túto miestnosť?",
+    "deleteDescription": "{{name}} bude trvalo odstránená pre všetkých a nemožno to vrátiť späť.",
+    "invitedTo": "Boli ste pozvaní do \"{{name}}\"",
+    "guest": {
+      "title": "Stretnutie",
+      "waiting": "Čaká sa na prezentujúceho...",
+      "linkInvalid": "Tento odkaz pre hostí je neplatný alebo sa stretnutie skončilo"
+    },
+    "reopenFromPanel": "Tento záložka stretnutia vypršala. Otvorte miestnosť z panelu Stretnutia.",
+    "retry": "Skúsiť znova",
+    "requestControl": "Požiadať o ovládanie",
+    "cancelControlRequest": "Zrušiť požiadavku",
+    "controlQueue": "Požiadavky na ovládanie",
+    "noControlRequests": "Žiadne čakajúce požiadavky.",
+    "grantControlTo": "Udeliť ovládanie používateľovi {{name}}",
+    "dismissControlRequest": "Odmietnuť požiadavku používateľa {{name}} na ovládanie",
+    "releaseControl": "Uvoľniť ovládanie",
+    "grantControl": "Udeliť ovládanie",
+    "revokeControl": "Zobrať späť ovládanie",
+    "grant": "Udeliť",
+    "controlBadge": "Ovláda",
+    "youArePresenting": "Prezentujete v inej záložke. Ukončite prezentáciu, aby ste previedli ovládanie.",
+    "created": "Miestnosť vytvorená",
+    "invited": "Členovia pozvaní",
+    "serverChanged": "Server stretnutia sa zmenil. Otvorte toto stretnutie znova z panelu Stretnutia.",
+    "hostNotSynced": "Pred prezentáciou synchronizujte tento hostiteľ so serverom stretnutia.",
+    "linkRequiresServer": "Prepojte túto plochu so serverom Termix a vytvorte stretnutie tam, aby ste mohli zdieľať webový odkaz."
+  },
+  "nav": {
+    "collab": "Stretnutia"
+  },
+  "settings": {
+    "admin": {
+      "globallyEnabled": {
+        "label": "Povoliť zdieľanie relácií",
+        "description": "Povoľte zdieľanie živých relácií terminálu, RDP, VNC a Telnet pre celú inštaláciu. Ak je vypnuté, prepíše všetky prepínače zdieľania pre jednotlivé hostiteľov."
+      }
+    },
+    "host": {
+      "allowSessionSharing": {
+        "label": "Povoliť zdieľanie relácií",
+        "description": "Umožnite zdieľať živé relácie na tomto hostiteľovi prostredníctvom odkazu alebo s inými používateľmi"
+      }
+    }
+  },
+  "permissions": {
+    "use": {
+      "title": "Zdieľať relácie a pripojiť sa do miestností",
+      "description": "Zdieľajte živé relácie prostredníctvom odkazu alebo s inými používateľmi a vytvárajte a pripájajte sa do kolaboratívnych miestností."
+    }
+  },
+  "hosts": {
+    "sharing": {
+      "expiry": {
+        "never": "Nikdy",
+        "oneHour": "1 hodina",
+        "oneDay": "24 hodín",
+        "sevenDays": "7 dní",
+        "thirtyDays": "30 dní",
+        "custom": "Vlastné"
+      }
+    }
+  },
+  "connections": {
+    "sectionSharedWithMe": "Zdieľané so mnou",
+    "sharedBy": "Zdieľané používateľom {{username}}",
+    "join": "Pripojiť sa",
+    "sharedSessionLabel": "{{hostName}} (zdieľané)"
+  },
+  "plugin": {
+    "name": "Zdieľanie relácií"
+  }
+}
