@@ -41,9 +41,6 @@
     "revoke": "Tarik balik",
     "revoked": "Perkongsian ditarik balik",
     "revokeFailed": "Gagal menarik balik perkongsian",
-    "joinCount": {
-      "other": "{{count}} penyertaan"
-    },
     "joinCount_other": "{{count}} penyertaan",
     "expiresAt": "Tamat {{date}}",
     "linkShareBadge": "Pautan",

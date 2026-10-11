@@ -41,7 +41,7 @@
     "revoke": "Revoke",
     "revoked": "Share revoked",
     "revokeFailed": "Failed to revoke share",
-    "joinCount": "{{count}} join",
+    "joinCount_one": "{{count}} join",
     "joinCount_other": "{{count}} joins",
     "expiresAt": "Expires {{date}}",
     "linkShareBadge": "Link",

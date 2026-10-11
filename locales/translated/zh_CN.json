@@ -41,9 +41,6 @@
     "revoke": "撤销",
     "revoked": "共享已撤销",
     "revokeFailed": "撤销共享失败",
-    "joinCount": {
-      "other": "{{count}} 次加入"
-    },
     "joinCount_other": "{{count}} 次加入",
     "expiresAt": "于 {{date}} 过期",
     "linkShareBadge": "链接",

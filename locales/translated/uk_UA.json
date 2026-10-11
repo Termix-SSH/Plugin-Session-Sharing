@@ -41,12 +41,6 @@
     "revoke": "Відкликати",
     "revoked": "Спільний доступ відкликано",
     "revokeFailed": "Не вдалося відкликати спільний доступ",
-    "joinCount": {
-      "one": "{{count}} приєднання",
-      "few": "{{count}} приєднання",
-      "many": "{{count}} приєднань",
-      "other": "{{count}} приєднань"
-    },
     "joinCount_one": "{{count}} приєднання",
     "joinCount_few": "{{count}} приєднання",
     "joinCount_many": "{{count}} приєднань",

@@ -41,9 +41,6 @@
     "revoke": "เพิกถอน",
     "revoked": "เพิกถอนการแชร์แล้ว",
     "revokeFailed": "เพิกถอนการแชร์ไม่สำเร็จ",
-    "joinCount": {
-      "other": "{{count}} การเข้าร่วม"
-    },
     "joinCount_other": "{{count}} การเข้าร่วม",
     "expiresAt": "หมดอายุ {{date}}",
     "linkShareBadge": "ลิงก์",

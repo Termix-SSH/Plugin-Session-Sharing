@@ -41,9 +41,6 @@
     "revoke": "취소",
     "revoked": "공유가 취소되었습니다.",
     "revokeFailed": "공유 취소에 실패했습니다.",
-    "joinCount": {
-      "other": "{{count}}명 참여"
-    },
     "joinCount_other": "{{count}}명 참여",
     "expiresAt": "{{date}}에 만료",
     "linkShareBadge": "링크",

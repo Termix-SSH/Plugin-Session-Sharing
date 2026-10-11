@@ -41,10 +41,6 @@
     "revoke": "Tühista",
     "revoked": "Jagamine tühistatud",
     "revokeFailed": "Jagamise tühistamine ebaõnnestus",
-    "joinCount": {
-      "one": "{{count}} liitumine",
-      "other": "{{count}} liitumist"
-    },
     "joinCount_one": "{{count}} liitumine",
     "joinCount_other": "{{count}} liitumist",
     "expiresAt": "Aegub {{date}}",

@@ -41,14 +41,9 @@
     "revoke": "Revogar",
     "revoked": "Partilha revogada",
     "revokeFailed": "Falha ao revogar partilha",
-    "joinCount": {
-      "one": "{{count}} entrada",
-      "many": "{{count}} entradas",
-      "other": "{{count}} entradas"
-    },
-    "joinCount_one": "{{count}} entrada",
-    "joinCount_many": "{{count}} entradas",
-    "joinCount_other": "{{count}} entradas",
+    "joinCount_one": "{{count}} participação",
+    "joinCount_many": "{{count}} participações",
+    "joinCount_other": "{{count}} participações",
     "expiresAt": "Expira {{date}}",
     "linkShareBadge": "Link",
     "userShareBadge": "Utilizador: {{username}}",

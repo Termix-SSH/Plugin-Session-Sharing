@@ -41,12 +41,6 @@
     "revoke": "Prekliči",
     "revoked": "Skupna raba je preklicana",
     "revokeFailed": "Preklic skupne rabe ni uspel",
-    "joinCount": {
-      "one": "{{count}} priključitev",
-      "two": "{{count}} priključitvi",
-      "few": "{{count}} priključitve",
-      "other": "{{count}} priključitev"
-    },
     "joinCount_one": "{{count}} priključitev",
     "joinCount_two": "{{count}} priključitvi",
     "joinCount_few": "{{count}} priključitve",

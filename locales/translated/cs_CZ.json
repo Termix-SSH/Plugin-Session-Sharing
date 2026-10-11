@@ -41,12 +41,6 @@
     "revoke": "Zrušit",
     "revoked": "Sdílení zrušeno",
     "revokeFailed": "Zrušení sdílení selhalo",
-    "joinCount": {
-      "one": "{{count}} připojení",
-      "few": "{{count}} připojení",
-      "many": "{{count}} připojení",
-      "other": "{{count}} připojení"
-    },
     "joinCount_one": "{{count}} připojení",
     "joinCount_few": "{{count}} připojení",
     "joinCount_many": "{{count}} připojení",

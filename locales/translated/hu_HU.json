@@ -41,10 +41,6 @@
     "revoke": "Visszavonás",
     "revoked": "Megosztás visszavonva",
     "revokeFailed": "A megosztás visszavonása sikertelen",
-    "joinCount": {
-      "one": "{{count}} csatlakozás",
-      "other": "{{count}} csatlakozás"
-    },
     "joinCount_one": "{{count}} csatlakozás",
     "joinCount_other": "{{count}} csatlakozás",
     "expiresAt": "Lejár: {{date}}",

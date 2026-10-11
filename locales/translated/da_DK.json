@@ -41,12 +41,8 @@
     "revoke": "Tilbagekald",
     "revoked": "Deling tilbagekaldt",
     "revokeFailed": "Kunne ikke tilbagekalde deling",
-    "joinCount": {
-      "one": "{{count}} deltagelse",
-      "other": "{{count}} deltagelser"
-    },
-    "joinCount_one": "{{count}} deltagelse",
-    "joinCount_other": "{{count}} deltagelser",
+    "joinCount_one": "{{count}} deltager",
+    "joinCount_other": "{{count}} deltagere",
     "expiresAt": "Udløber {{date}}",
     "linkShareBadge": "Link",
     "userShareBadge": "Bruger: {{username}}",

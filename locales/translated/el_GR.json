@@ -41,10 +41,6 @@
     "revoke": "Ανακάλυψη",
     "revoked": "Η κοινοποίηση ανακλήθηκε",
     "revokeFailed": "Αποτυχία ανάκλησης κοινοποίησης",
-    "joinCount": {
-      "one": "{{count}} συμμετοχή",
-      "other": "{{count}} συμμετοχές"
-    },
     "joinCount_one": "{{count}} συμμετοχή",
     "joinCount_other": "{{count}} συμμετοχές",
     "expiresAt": "Λήγει {{date}}",

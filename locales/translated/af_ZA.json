@@ -41,10 +41,6 @@
     "revoke": "Herroep",
     "revoked": "Deel herroep",
     "revokeFailed": "Kon nie deel herroep nie",
-    "joinCount": {
-      "one": "{{count}} aansluiting",
-      "other": "{{count}} aansluitings"
-    },
     "joinCount_one": "{{count}} aansluiting",
     "joinCount_other": "{{count}} aansluitings",
     "expiresAt": "Verval {{date}}",

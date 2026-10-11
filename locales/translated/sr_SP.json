@@ -41,14 +41,9 @@
     "revoke": "Поништи",
     "revoked": "Дељење је поништено",
     "revokeFailed": "Неуспешно поништавање дељења",
-    "joinCount": {
-      "one": "{{count}} пријед",
-      "few": "{{count}} пријед",
-      "other": "{{count}} пријед"
-    },
-    "joinCount_one": "{{count}} пријед",
-    "joinCount_few": "{{count}} пријед",
-    "joinCount_other": "{{count}} пријед",
+    "joinCount_one": "{{count}} пријављен",
+    "joinCount_few": "{{count}} пријављена",
+    "joinCount_other": "{{count}} пријављених",
     "expiresAt": "Истекуће {{date}}",
     "linkShareBadge": "Линк",
     "userShareBadge": "Корисник: {{username}}",

@@ -41,12 +41,6 @@
     "revoke": "Zrušiť",
     "revoked": "Zdieľanie zrušené",
     "revokeFailed": "Nepodarilo sa zrušiť zdieľanie",
-    "joinCount": {
-      "one": "{{count}} pripojenie",
-      "few": "{{count}} pripojenia",
-      "many": "{{count}} pripojení",
-      "other": "{{count}} pripojení"
-    },
     "joinCount_one": "{{count}} pripojenie",
     "joinCount_few": "{{count}} pripojenia",
     "joinCount_many": "{{count}} pripojení",

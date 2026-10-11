@@ -41,11 +41,6 @@
     "revoke": "Revocar",
     "revoked": "Compartició revocada",
     "revokeFailed": "No s'ha pogut revocar la compartició",
-    "joinCount": {
-      "one": "{{count}} unió",
-      "many": "{{count}} unions",
-      "other": "{{count}} unions"
-    },
     "joinCount_one": "{{count}} unió",
     "joinCount_many": "{{count}} unions",
     "joinCount_other": "{{count}} unions",

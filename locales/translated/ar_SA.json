@@ -41,14 +41,6 @@
     "revoke": "إلغاء",
     "revoked": "تم إلغاء المشاركة",
     "revokeFailed": "فشل في إلغاء المشاركة",
-    "joinCount": {
-      "zero": "لا يوجد انضمام",
-      "one": "انضمام واحد",
-      "two": "انضمامان",
-      "few": "{{count}} انضمامات",
-      "many": "{{count}} انضماماً",
-      "other": "{{count}} انضمام"
-    },
     "joinCount_zero": "لا يوجد انضمام",
     "joinCount_one": "انضمام واحد",
     "joinCount_two": "انضمامان",

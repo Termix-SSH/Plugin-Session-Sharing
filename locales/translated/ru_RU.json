@@ -41,14 +41,8 @@
     "revoke": "Отозвать",
     "revoked": "Общий доступ отозван",
     "revokeFailed": "Не удалось отозвать общий доступ",
-    "joinCount": {
-      "one": "{{count}} присоединение",
-      "few": "{{count}} присоединения",
-      "many": "{{count}} присоединений",
-      "other": "{{count}} присоединений"
-    },
-    "joinCount_one": "{{count}} присоединение",
-    "joinCount_few": "{{count}} присоединения",
+    "joinCount_one": "{{count}} присоединился",
+    "joinCount_few": "{{count}} присоединились",
     "joinCount_many": "{{count}} присоединений",
     "joinCount_other": "{{count}} присоединений",
     "expiresAt": "Истекает {{date}}",

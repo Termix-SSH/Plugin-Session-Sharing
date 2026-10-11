@@ -41,12 +41,6 @@
     "revoke": "Atšaukti",
     "revoked": "Bendrinimas atšauktas",
     "revokeFailed": "Nepavyko atšaukti bendrinimo",
-    "joinCount": {
-      "one": "{{count}} prisijungimas",
-      "few": "{{count}} prisijungimai",
-      "many": "{{count}} prisijungimų",
-      "other": "{{count}} prisijungimų"
-    },
     "joinCount_one": "{{count}} prisijungimas",
     "joinCount_few": "{{count}} prisijungimai",
     "joinCount_many": "{{count}} prisijungimų",

@@ -41,12 +41,8 @@
     "revoke": "বাতিল করুন",
     "revoked": "শেয়ার বাতিল করা হয়েছে",
     "revokeFailed": "শেয়ার বাতিল করতে ব্যর্থ হয়েছে",
-    "joinCount": {
-      "one": "{{count}} যোগদান",
-      "other": "{{count}} যোগদান"
-    },
-    "joinCount_one": "{{count}} যোগদান",
-    "joinCount_other": "{{count}} যোগদান",
+    "joinCount_one": "{{count}} জন যোগ দিয়েছে",
+    "joinCount_other": "{{count}} জন যোগ দিয়েছে",
     "expiresAt": "{{date}} তারিখে মেয়াদ শেষ",
     "linkShareBadge": "লিঙ্ক",
     "userShareBadge": "ব্যবহারকারী: {{username}}",

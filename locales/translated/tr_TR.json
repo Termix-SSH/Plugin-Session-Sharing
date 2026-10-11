@@ -41,12 +41,8 @@
     "revoke": "İptal et",
     "revoked": "Paylaşım iptal edildi",
     "revokeFailed": "Paylaşım iptal edilemedi",
-    "joinCount": {
-      "one": "{{count}} katılım",
-      "other": "{{count}} katılım"
-    },
-    "joinCount_one": "{{count}} katılım",
-    "joinCount_other": "{{count}} katılım",
+    "joinCount_one": "{{count}} katılan",
+    "joinCount_other": "{{count}} katılan",
     "expiresAt": "{{date}} tarihinde sona eriyor",
     "linkShareBadge": "Bağlantı",
     "userShareBadge": "Kullanıcı: {{username}}",

@@ -41,14 +41,9 @@
     "revoke": "Opozovi",
     "revoked": "Dijeljenje je opozvano",
     "revokeFailed": "Opoziv dijeljenja nije uspio",
-    "joinCount": {
-      "one": "{{count}} prijava",
-      "few": "{{count}} prijave",
-      "other": "{{count}} prijava"
-    },
-    "joinCount_one": "{{count}} prijava",
-    "joinCount_few": "{{count}} prijave",
-    "joinCount_other": "{{count}} prijava",
+    "joinCount_one": "{{count}} priključak",
+    "joinCount_few": "{{count}} priključka",
+    "joinCount_other": "{{count}} priključaka",
     "expiresAt": "Istječe {{date}}",
     "linkShareBadge": "Poveznica",
     "userShareBadge": "Korisnik: {{username}}",

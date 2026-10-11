@@ -41,10 +41,6 @@
     "revoke": "Peruuta",
     "revoked": "Jakaminen peruutettu",
     "revokeFailed": "Jakamisen peruutus epäonnistui",
-    "joinCount": {
-      "one": "{{count}} liittyminen",
-      "other": "{{count}} liittymistä"
-    },
     "joinCount_one": "{{count}} liittyminen",
     "joinCount_other": "{{count}} liittymistä",
     "expiresAt": "Vanhenee {{date}}",

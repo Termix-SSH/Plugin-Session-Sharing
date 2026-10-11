@@ -41,10 +41,6 @@
     "revoke": "Intrekken",
     "revoked": "Delen ingetrokken",
     "revokeFailed": "Intrekken van delen is mislukt",
-    "joinCount": {
-      "one": "{{count}} deelname",
-      "other": "{{count}} deelnames"
-    },
     "joinCount_one": "{{count}} deelname",
     "joinCount_other": "{{count}} deelnames",
     "expiresAt": "Verloopt op {{date}}",

@@ -41,10 +41,6 @@
     "revoke": "Inndra",
     "revoked": "Deling inndratt",
     "revokeFailed": "Kunne ikke inndra deling",
-    "joinCount": {
-      "one": "{{count}} deltaker",
-      "other": "{{count}} deltakere"
-    },
     "joinCount_one": "{{count}} deltaker",
     "joinCount_other": "{{count}} deltakere",
     "expiresAt": "Utløper {{date}}",

@@ -41,10 +41,6 @@
     "revoke": "Återkalla",
     "revoked": "Delning återkallad",
     "revokeFailed": "Misslyckades med att återkalla delning",
-    "joinCount": {
-      "one": "{{count}} anslutning",
-      "other": "{{count}} anslutningar"
-    },
     "joinCount_one": "{{count}} anslutning",
     "joinCount_other": "{{count}} anslutningar",
     "expiresAt": "Går ut {{date}}",

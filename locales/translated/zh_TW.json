@@ -41,10 +41,7 @@
     "revoke": "撤銷",
     "revoked": "共用已撤銷",
     "revokeFailed": "撤銷共用失敗",
-    "joinCount": {
-      "other": "{{count}} 次加入"
-    },
-    "joinCount_other": "{{count}} 次加入",
+    "joinCount_other": "{{count}} 個加入",
     "expiresAt": "過期時間：{{date}}",
     "linkShareBadge": "連結",
     "userShareBadge": "使用者：{{username}}",

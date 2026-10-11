@@ -41,12 +41,8 @@
     "revoke": "रद्द करें",
     "revoked": "शेयर रद्द किया गया",
     "revokeFailed": "शेयर रद्द करने में विफल",
-    "joinCount": {
-      "one": "{{count}} जुड़ाव",
-      "other": "{{count}} जुड़ाव"
-    },
-    "joinCount_one": "{{count}} जुड़ाव",
-    "joinCount_other": "{{count}} जुड़ाव",
+    "joinCount_one": "{{count}} जुड़ें",
+    "joinCount_other": "{{count}} जुड़ें",
     "expiresAt": "{{date}} को समाप्त होता है",
     "linkShareBadge": "लिंक",
     "userShareBadge": "उपयोगकर्ता: {{username}}",

@@ -41,10 +41,6 @@
     "revoke": "Widerrufen",
     "revoked": "Freigabe widerrufen",
     "revokeFailed": "Fehler beim Widerrufen der Freigabe",
-    "joinCount": {
-      "one": "{{count}} Beitritt",
-      "other": "{{count}} Beitritte"
-    },
     "joinCount_one": "{{count}} Beitritt",
     "joinCount_other": "{{count}} Beitritte",
     "expiresAt": "Läuft am {{date}} ab",

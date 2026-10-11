@@ -41,10 +41,6 @@
     "revoke": "Отмени",
     "revoked": "Споделянето е отменено",
     "revokeFailed": "Грешка при отмяна на споделянето",
-    "joinCount": {
-      "one": "{{count}} присъединяване",
-      "other": "{{count}} присъединявания"
-    },
     "joinCount_one": "{{count}} присъединяване",
     "joinCount_other": "{{count}} присъединявания",
     "expiresAt": "Изтича на {{date}}",

@@ -41,11 +41,6 @@
     "revoke": "Révoquer",
     "revoked": "Partage révoqué",
     "revokeFailed": "Échec de la révocation du partage",
-    "joinCount": {
-      "one": "{{count}} connexion",
-      "many": "{{count}} connexions",
-      "other": "{{count}} connexions"
-    },
     "joinCount_one": "{{count}} connexion",
     "joinCount_many": "{{count}} connexions",
     "joinCount_other": "{{count}} connexions",

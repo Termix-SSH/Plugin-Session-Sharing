@@ -41,10 +41,7 @@
     "revoke": "取り消す",
     "revoked": "共有が取り消されました",
     "revokeFailed": "共有の取り消しに失敗しました",
-    "joinCount": {
-      "other": "{{count}}回の参加"
-    },
-    "joinCount_other": "{{count}}回の参加",
+    "joinCount_other": "{{count}} 件の参加",
     "expiresAt": "{{date}}に期限切れ",
     "linkShareBadge": "リンク",
     "userShareBadge": "ユーザー: {{username}}",

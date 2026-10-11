@@ -41,9 +41,6 @@
     "revoke": "Cabut",
     "revoked": "Berbagi dicabut",
     "revokeFailed": "Gagal mencabut berbagi",
-    "joinCount": {
-      "other": "{{count}} bergabung"
-    },
     "joinCount_other": "{{count}} bergabung",
     "expiresAt": "Kedaluwarsa {{date}}",
     "linkShareBadge": "Tautan",

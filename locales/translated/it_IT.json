@@ -41,14 +41,9 @@
     "revoke": "Revoca",
     "revoked": "Condivisione revocata",
     "revokeFailed": "Impossibile revocare la condivisione",
-    "joinCount": {
-      "one": "{{count}} accesso",
-      "many": "{{count}} accessi",
-      "other": "{{count}} accessi"
-    },
-    "joinCount_one": "{{count}} accesso",
-    "joinCount_many": "{{count}} accessi",
-    "joinCount_other": "{{count}} accessi",
+    "joinCount_one": "{{count}} unione",
+    "joinCount_many": "{{count}} unioni",
+    "joinCount_other": "{{count}} unioni",
     "expiresAt": "Scade il {{date}}",
     "linkShareBadge": "Link",
     "userShareBadge": "Utente: {{username}}",

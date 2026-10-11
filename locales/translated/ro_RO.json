@@ -41,11 +41,6 @@
     "revoke": "Revocă",
     "revoked": "Partajare revocată",
     "revokeFailed": "Revocarea partajării a eșuat",
-    "joinCount": {
-      "one": "{{count}} alăturare",
-      "few": "{{count}} alăturări",
-      "other": "{{count}} alăturări"
-    },
     "joinCount_one": "{{count}} alăturare",
     "joinCount_few": "{{count}} alăturări",
     "joinCount_other": "{{count}} alăturări",

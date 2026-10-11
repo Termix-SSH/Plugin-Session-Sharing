@@ -41,12 +41,6 @@
     "revoke": "Cofnij",
     "revoked": "Udostępnienie cofnięte",
     "revokeFailed": "Nie udało się cofnąć udostępnienia",
-    "joinCount": {
-      "one": "{{count}} dołączenie",
-      "few": "{{count}} dołączenia",
-      "many": "{{count}} dołączeń",
-      "other": "{{count}} dołączeń"
-    },
     "joinCount_one": "{{count}} dołączenie",
     "joinCount_few": "{{count}} dołączenia",
     "joinCount_many": "{{count}} dołączeń",

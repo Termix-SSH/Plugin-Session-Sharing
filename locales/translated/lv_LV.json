@@ -41,14 +41,9 @@
     "revoke": "Atcelt",
     "revoked": "Koplietošana atcelta",
     "revokeFailed": "Neizdevās atcelt koplietošanu",
-    "joinCount": {
-      "zero": "0 pievienojušies",
-      "one": "{{count}} pievienojies",
-      "other": "{{count}} pievienojušies"
-    },
-    "joinCount_zero": "0 pievienojušies",
-    "joinCount_one": "{{count}} pievienojies",
-    "joinCount_other": "{{count}} pievienojušies",
+    "joinCount_zero": "0 pievienojas",
+    "joinCount_one": "{{count}} pievienojas",
+    "joinCount_other": "{{count}} pievienojas",
     "expiresAt": "Derīguma termiņš beidzas {{date}}",
     "linkShareBadge": "Saite",
     "userShareBadge": "Lietotājs: {{username}}",

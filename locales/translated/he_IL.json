@@ -41,11 +41,6 @@
     "revoke": "בטל",
     "revoked": "השיתוף בוטל",
     "revokeFailed": "ביטול השיתוף נכשל",
-    "joinCount": {
-      "one": "{{count}} הצטרפות",
-      "two": "{{count}} הצטרפויות",
-      "other": "{{count}} הצטרפויות"
-    },
     "joinCount_one": "{{count}} הצטרפות",
     "joinCount_two": "{{count}} הצטרפויות",
     "joinCount_other": "{{count}} הצטרפויות",

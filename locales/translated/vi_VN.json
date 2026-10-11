@@ -41,10 +41,7 @@
     "revoke": "Thu hồi",
     "revoked": "Đã thu hồi quyền chia sẻ",
     "revokeFailed": "Không thể thu hồi quyền chia sẻ",
-    "joinCount": {
-      "other": "{{count}} lần tham gia"
-    },
-    "joinCount_other": "{{count}} lần tham gia",
+    "joinCount_other": "{{count}} tham gia",
     "expiresAt": "Hết hạn {{date}}",
     "linkShareBadge": "Liên kết",
     "userShareBadge": "Người dùng: {{username}}",
