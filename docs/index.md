@@ -6,8 +6,8 @@ Use it to get a second pair of eyes on a problem, or to show a group how somethi
 
 Press the share button in the terminal toolbar, or Share in the tab's menu. Pick:
 
-- **Link**: anyone with the link can join. No account needed.
-- **User**: only that Termix user can join. They need access to the host already. [Share the host](/guide/sharing) with them first if they don't.
+- Link: anyone with the link can join. No account needed.
+- User: only that Termix user can join. They need access to the host already. [Share the host](/guide/sharing) with them first if they don't.
 
 Then pick what they can do:
 
@@ -31,8 +31,8 @@ A meeting room is for showing sessions to a group. Open Meetings from the sideba
 - Invite members. Anyone in the room can Present one of their sessions on the stage.
 - Viewers can Request control. The presenter decides who gets it.
 - Turn on Guest link to let people without an account watch the stage.
-- **Persistent room** keeps the room around after the meeting ends, to reuse.
-- **End meeting** disconnects everyone.
+- Persistent room keeps the room around after the meeting ends, to reuse.
+- End meeting disconnects everyone.
 
 ## Turning it off
 
