@@ -6,6 +6,12 @@
 
 <p>Share live sessions by link or with another user, and present sessions to a group in meeting rooms</p>
 
+<!-- VIDEO:START -->
+
+<a href="https://www.youtube.com/watch?v=7VUOXIKlR5Q"><img src="https://img.shields.io/badge/Watch_the_demo-f59145?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch the demo on YouTube" /></a>
+
+<!-- VIDEO:END -->
+
 </div>
 
 <br />
