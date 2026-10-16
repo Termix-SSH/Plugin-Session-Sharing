@@ -193,6 +193,20 @@ describe("share routes", () => {
     ]);
   });
 
+  it("hands out the admin's public URL for guest links", async () => {
+    server = await startServer({
+      settings: { publicUrl: "https://share.example.com:8443/?x=1" },
+    });
+    const res = await server.request("GET", "/public-url");
+    expect(res.body).toEqual({ url: "https://share.example.com:8443/" });
+  });
+
+  it("ignores a public URL that is not a web address", async () => {
+    server = await startServer({ settings: { publicUrl: "javascript:x" } });
+    const res = await server.request("GET", "/public-url");
+    expect(res.body).toEqual({ url: null });
+  });
+
   it("denies every signed-in route without the use permission", async () => {
     server = await startServer({ permissions: [] });
     for (const [method, path] of [
@@ -200,6 +214,7 @@ describe("share routes", () => {
       ["GET", "/host/1/active"],
       ["GET", "/shared-with-me"],
       ["GET", "/directory"],
+      ["GET", "/public-url"],
       ["DELETE", "/share-1"],
       ["POST", "/share-1/end"],
       ["POST", "/rooms"],

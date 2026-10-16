@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+
+### Added
+
+- Public URL for guest links, an admin setting for servers that guests reach at a different address, like a public proxy in front of a VPN-only server
+
 ## 1.0.1
 
 ### Changed

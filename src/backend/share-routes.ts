@@ -379,6 +379,30 @@ export function registerShareRoutes(router: Router, deps: SharingDeps): void {
    *       500:
    *         description: Server error
    */
+  /**
+   * @openapi
+   * /plugin-api/session-sharing/public-url:
+   *   get:
+   *     summary: The base address for guest links
+   *     description: The admin-set public URL guests open, or null to use the address the link is made from.
+   *     tags:
+   *       - Session Sharing
+   *     security:
+   *       - bearerAuth: []
+   *     responses:
+   *       200:
+   *         description: The public URL, or null
+   */
+  router.get(
+    "/public-url",
+    requireUse,
+    async (_req: Request, res: Response) => {
+      res.json({
+        url: normalizePublicUrl(await ctx.settings.get("publicUrl")),
+      });
+    },
+  );
+
   router.get("/directory", requireUse, async (_req: Request, res: Response) => {
     try {
       res.json({
@@ -520,4 +544,18 @@ export function registerShareRoutes(router: Router, deps: SharingDeps): void {
       }
     },
   );
+}
+
+/** An http(s) base for guest links, or null when unset or not a web address. */
+export function normalizePublicUrl(raw: unknown): string | null {
+  if (typeof raw !== "string" || !raw.trim()) return null;
+  try {
+    const url = new URL(raw.trim());
+    if (url.protocol !== "http:" && url.protocol !== "https:") return null;
+    url.search = "";
+    url.hash = "";
+    return url.toString();
+  } catch {
+    return null;
+  }
 }

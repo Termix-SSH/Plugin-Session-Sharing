@@ -1,7 +1,7 @@
 {
   "id": "session-sharing",
   "name": "Session Sharing",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Share live sessions by link or with another user, and present sessions to a group in meeting rooms.",
   "author": {
     "name": "Termix"
@@ -109,6 +109,14 @@
           "labelKey": "settings.admin.globallyEnabled.label",
           "descriptionKey": "settings.admin.globallyEnabled.description",
           "default": true
+        },
+        {
+          "key": "publicUrl",
+          "type": "string",
+          "labelKey": "settings.admin.publicUrl.label",
+          "descriptionKey": "settings.admin.publicUrl.description",
+          "placeholderKey": "settings.admin.publicUrl.placeholder",
+          "default": ""
         }
       ],
       "host": {
