@@ -6,6 +6,10 @@
 
 - Public URL for guest links, an admin setting for servers that guests reach at a different address, like a public proxy in front of a VPN-only server
 
+### Changed
+
+- The plugin name and description show in your language
+
 ### Fixed
 
 - Revoking a remote desktop share now disconnects the viewers who joined through it, and ending a shared remote desktop session ends it for everyone
