@@ -6,6 +6,11 @@
 
 - Public URL for guest links, an admin setting for servers that guests reach at a different address, like a public proxy in front of a VPN-only server
 
+### Fixed
+
+- Revoking a remote desktop share now disconnects the viewers who joined through it, and ending a shared remote desktop session ends it for everyone
+- Presenting an RDP, VNC or Telnet host in a meeting room never started when Remote Desktop used guacd
+
 ## 1.0.1
 
 ### Changed

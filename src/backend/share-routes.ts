@@ -98,6 +98,7 @@ export function registerShareRoutes(router: Router, deps: SharingDeps): void {
             share.sessionId,
             share.permissionLevel === "read-only",
             share.ownerUserId,
+            share.id,
           ),
         };
       }
@@ -466,13 +467,20 @@ export function registerShareRoutes(router: Router, deps: SharingDeps): void {
             .json({ error: "Not authorized to revoke this share" });
         }
 
-        // guacamole-lite has no kick, so a revoked remote desktop link only
-        // blocks new resolves until the viewer's own socket ends.
         if (share.protocol === "ssh") {
           await live.ownerEndSession(
             "ssh",
             share.sessionId,
             "Session share revoked by owner",
+            share.ownerUserId,
+          );
+        } else {
+          // Remote desktop closes only the viewers of this share.
+          await live.disconnectParticipants(
+            share.protocol,
+            share.sessionId,
+            share.id,
+            { reason: "Session share revoked by owner" },
             share.ownerUserId,
           );
         }
@@ -493,7 +501,7 @@ export function registerShareRoutes(router: Router, deps: SharingDeps): void {
    * /plugin-api/session-sharing/{shareId}/end:
    *   post:
    *     summary: End a shared session for all participants
-   *     description: Owner-only. Terminates the underlying session and notifies joined participants. Remote desktop viewers are not force-disconnected.
+   *     description: Owner-only. Terminates the underlying session and disconnects everyone in it.
    *     tags:
    *       - Session Sharing
    *     security:
@@ -527,13 +535,11 @@ export function registerShareRoutes(router: Router, deps: SharingDeps): void {
         if (share.ownerUserId !== userId) {
           return res.status(403).json({ error: "Not the owner of this share" });
         }
-        if (share.protocol === "ssh") {
-          await live.ownerEndSession(
-            "ssh",
-            share.sessionId,
-            "Session ended by owner",
-          );
-        }
+        await live.ownerEndSession(
+          share.protocol,
+          share.sessionId,
+          "Session ended by owner",
+        );
         res.json({ success: true });
       } catch (error) {
         ctx.log.error(

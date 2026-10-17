@@ -131,6 +131,33 @@ describe("share routes", () => {
     expect((await server.request("DELETE", "/missing")).status).toBe(404);
   });
 
+  it("tags remote desktop viewers with the share and kicks them on revoke", async () => {
+    server = await startServer();
+    server.live.addSession("rdp-1", "alice");
+    const { body } = await server.request("POST", "/create", {
+      body: linkShare({ sessionId: "rdp-1", protocol: "rdp" }),
+    });
+    const resolved = await server.request("GET", `/resolve/${body.linkToken}`, {
+      user: null,
+    });
+    expect(resolved.body.connectParams).toEqual({ token: "join-token" });
+    expect(server.live.calls).toContainEqual([
+      "createViewerToken",
+      "rdp-1",
+      true,
+      body.shareId,
+    ]);
+    expect((await server.request("DELETE", `/${body.shareId}`)).status).toBe(
+      200,
+    );
+    expect(server.live.calls).toContainEqual([
+      "disconnectParticipants",
+      "rdp-1",
+      body.shareId,
+      { reason: "Session share revoked by owner" },
+    ]);
+  });
+
   it("ends a shared session for its owner only", async () => {
     server = await startServer();
     server.live.addSession("sess-1", "alice");
