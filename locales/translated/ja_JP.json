@@ -141,6 +141,11 @@
       "globallyEnabled": {
         "label": "セッション共有を許可する",
         "description": "インスタンス全体で、ライブのターミナル、RDP、VNC、および Telnet セッションの共有を許可します。無効にすると、各ホストの共有トグル設定を上書きします。"
+      },
+      "publicUrl": {
+        "label": "ゲストリンク用の公開URL",
+        "description": "VPN上のサーバーの前にある公開プロキシなど、あなたが使用するアドレスと異なる場合にゲストが開くアドレスです。現在のアドレスを使用する場合は空白のままにしてください。",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -175,6 +180,7 @@
     "sharedSessionLabel": "{{hostName}} (共有)"
   },
   "plugin": {
-    "name": "セッション共有"
+    "name": "セッション共有",
+    "description": "リンクまたは他のユーザーとライブセッションを共有し、会議室でグループにセッションを提示します。"
   }
 }

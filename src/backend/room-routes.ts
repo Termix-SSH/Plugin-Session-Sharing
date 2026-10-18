@@ -15,8 +15,8 @@ import type { CollabControlRequest } from "./runtime-store.js";
  * Known limits, shared with session sharing:
  * - Redis synchronizes collaboration events and ephemeral state across
  *   instances, but live session transports still need WebSocket affinity.
- * - Remote desktop stages stay read-only because guacamole-lite cannot revoke
- *   a writable viewer without disconnecting the whole shared session.
+ * - Remote desktop stages stay read-only: control can't be handed to one
+ *   viewer and taken back without a reconnect.
  */
 
 const STAGE_SHARE_EXPIRY_HOURS = 12;
@@ -59,14 +59,14 @@ export function createRoomActions(deps: SharingDeps) {
     if (!(await shares.revokeAny(room.stageShareId))) {
       throw new Error("Failed to revoke the active stage share");
     }
+    await live.disconnectParticipants(
+      share.protocol,
+      share.sessionId,
+      share.id,
+      { reason: "The collaboration stage ended" },
+      share.ownerUserId,
+    );
     if (share.protocol === "ssh") {
-      await live.disconnectParticipants(
-        "ssh",
-        share.sessionId,
-        share.id,
-        { reason: "The collaboration stage ended" },
-        share.ownerUserId,
-      );
       void store.publish(room.id, {
         type: "collab_internal_stage_revoked",
         sessionId: share.sessionId,
@@ -859,6 +859,7 @@ export function registerRoomRoutes(
               share.sessionId,
               true,
               share.ownerUserId,
+              share.id,
             ),
           };
         }
@@ -1360,6 +1361,7 @@ export function registerRoomRoutes(
                     share.sessionId,
                     true,
                     share.ownerUserId,
+                    share.id,
                   ),
                 },
               }),

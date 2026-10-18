@@ -17,9 +17,9 @@ export interface LiveSessionInfo {
 /**
  * sessions.live v1, keyed by session type. ssh-terminal provides "ssh";
  * remote-desktop provides "rdp", "vnc" and "telnet". Through a service handle
- * every method answers with a promise. The control methods are the terminal's
- * (a remote desktop viewer cannot be kicked or handed control), and
- * createViewerToken is remote desktop's: a join token for a viewer.
+ * every method answers with a promise. Control methods are the terminal's;
+ * remote desktop has createViewerToken (a join token for a viewer, tagged
+ * with its share) and disconnectParticipants, which closes a share's viewers.
  */
 export interface LiveSessionProvider {
   getSession: (sessionId: string) => LiveSessionInfo | null;
@@ -38,7 +38,11 @@ export interface LiveSessionProvider {
     sessionId: string,
     shareId: string,
   ) => { label: string | null }[];
-  createViewerToken?: (sessionId: string, readOnly: boolean) => string;
+  createViewerToken?: (
+    sessionId: string,
+    readOnly: boolean,
+    shareId?: string,
+  ) => string;
 }
 
 type Async<T> = {
@@ -174,12 +178,15 @@ export function createLiveSessions(ctx: PluginContext) {
       sessionId: string,
       readOnly: boolean,
       asUser?: string,
+      shareId?: string,
     ): Promise<string> {
       const live = provider(protocol);
       if (!live || !("createViewerToken" in live)) {
         throw new Error(`No ${protocol} session provider is running`);
       }
-      return run(asUser, () => live.createViewerToken(sessionId, readOnly));
+      return run(asUser, () =>
+        live.createViewerToken(sessionId, readOnly, shareId),
+      );
     },
   };
 }

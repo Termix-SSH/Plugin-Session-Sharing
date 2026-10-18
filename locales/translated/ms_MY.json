@@ -141,6 +141,11 @@
       "globallyEnabled": {
         "label": "Benarkan Perkongsian Sesi",
         "description": "Benarkan sesi terminal langsung, RDP, VNC, dan Telnet dikongsi merentasi keseluruhan instans. Menggantikan setiap togol perkongsian per-hos apabila dilumpuhkan."
+      },
+      "publicUrl": {
+        "label": "URL awam untuk pautan tetamu",
+        "description": "Alamat yang dibuka oleh tetamu, apabila ia berbeza daripada yang anda gunakan, seperti proksi awam di hadapan pelayan pada VPN. Biarkan kosong untuk menggunakan alamat semasa.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -175,6 +180,7 @@
     "sharedSessionLabel": "{{hostName}} (dikongsi)"
   },
   "plugin": {
-    "name": "Perkongsian Sesi"
+    "name": "Perkongsian Sesi",
+    "description": "Kongsi sesi langsung melalui pautan atau dengan pengguna lain, dan persembahkan sesi kepada kumpulan di ruang mesyuarat."
   }
 }

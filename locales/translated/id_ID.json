@@ -141,6 +141,11 @@
       "globallyEnabled": {
         "label": "Izinkan Berbagi Sesi",
         "description": "Izinkan sesi terminal, RDP, VNC, dan Telnet langsung untuk dibagikan di seluruh instance. Menimpa setiap toggle berbagi per-host saat dinonaktifkan."
+      },
+      "publicUrl": {
+        "label": "URL publik untuk tautan tamu",
+        "description": "Alamat yang dibuka tamu, jika berbeda dari yang Anda gunakan, seperti proxy publik di depan server pada VPN. Kosongkan untuk menggunakan alamat saat ini.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -175,6 +180,7 @@
     "sharedSessionLabel": "{{hostName}} (dibagikan)"
   },
   "plugin": {
-    "name": "Berbagi Sesi"
+    "name": "Berbagi Sesi",
+    "description": "Bagikan sesi langsung melalui tautan atau dengan pengguna lain, dan presentasikan sesi kepada sekelompok orang di ruang rapat."
   }
 }

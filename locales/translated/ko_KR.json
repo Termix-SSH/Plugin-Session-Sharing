@@ -141,6 +141,11 @@
       "globallyEnabled": {
         "label": "세션 공유 허용",
         "description": "실시간 터미널, RDP, VNC 및 Telnet 세션을 인스턴스 전체에서 공유할 수 있도록 허용합니다. 비활성화 시 모든 호스트별 공유 토글을 덮어씁니다."
+      },
+      "publicUrl": {
+        "label": "게스트 링크용 공개 URL",
+        "description": "사용자가 사용하는 주소와 다른 경우(예: VPN 서버 앞의 공개 프록시) 게스트가 여는 주소입니다. 현재 주소를 사용하려면 비워 두세요.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -175,6 +180,7 @@
     "sharedSessionLabel": "{{hostName}} (공유됨)"
   },
   "plugin": {
-    "name": "세션 공유"
+    "name": "세션 공유",
+    "description": "링크 또는 다른 사용자와 라이브 세션을 공유하고, 회의실에서 그룹에 세션을 프레젠테이션합니다."
   }
 }

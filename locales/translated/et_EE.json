@@ -143,6 +143,11 @@
       "globallyEnabled": {
         "label": "Luba seansside jagamine",
         "description": "Luba otseülekannete jagamine terminali, RDP, VNC ja Telnet seansside puhul kogu instantsis. Kui see on keelatud, tühistab see kõik hostipõhised jagamisnupud."
+      },
+      "publicUrl": {
+        "label": "Külastajate linkide avalik URL",
+        "description": "Aadress, mida külastajad avavad, kui see erineb sinu kasutatavast aadressist, näiteks avalik proksy VPN-is asuva serveri ees. Jäta tühjaks, et kasutada praegust aadressi.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -177,6 +182,7 @@
     "sharedSessionLabel": "{{hostName}} (jagatud)"
   },
   "plugin": {
-    "name": "Seansside jagamine"
+    "name": "Seansside jagamine",
+    "description": "Jaga otseülesid lingi kaudu või teise kasutajaga ning esita sessioone grupile koosolekuruumides."
   }
 }

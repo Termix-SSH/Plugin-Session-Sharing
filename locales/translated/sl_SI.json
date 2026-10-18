@@ -147,6 +147,11 @@
       "globallyEnabled": {
         "label": "Dovoli deljenje sej",
         "description": "Dovoli deljenje sej terminala, RDP, VNC in Telnet v živo po celotni instanci. Ko je onemogočeno, prekrije vse posamezne stikala za deljenje gostitelja."
+      },
+      "publicUrl": {
+        "label": "Javni URL za povezave za goste",
+        "description": "Naslov, ki ga odprejo gostje, če se razlikuje od vašega, na primer javni proxy pred strežnikom v omrežju VPN. Pustite prazno, če želite uporabiti trenutni naslov.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -181,6 +186,7 @@
     "sharedSessionLabel": "{{hostName}} (deljeno)"
   },
   "plugin": {
-    "name": "Deljenje sej"
+    "name": "Deljenje sej",
+    "description": "Delite žive seje s povezavo ali z drugim uporabnikom ter predstavljajte seje skupini v konferenčnih sobah."
   }
 }

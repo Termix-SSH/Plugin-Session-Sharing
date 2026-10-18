@@ -147,6 +147,11 @@
       "globallyEnabled": {
         "label": "Povolit sdílení relací",
         "description": "Povolit sdílení živých relací terminálu, RDP, VNC a Telnet v rámci celé instance. Pokud je vypnuto, přepíše všechny přepínače sdílení pro jednotlivé hostitele."
+      },
+      "publicUrl": {
+        "label": "Veřejná URL pro odkazy pro hosty",
+        "description": "Adresa, kterou otevřou hosté, pokud se liší od té, kterou používáte vy, například veřejný proxy server před serverem v VPN. Nechte prázdné pro použití aktuální adresy.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -181,6 +186,7 @@
     "sharedSessionLabel": "{{hostName}} (sdíleno)"
   },
   "plugin": {
-    "name": "Sdílení relací"
+    "name": "Sdílení relací",
+    "description": "Sdílejte živé relace pomocí odkazu nebo s jiným uživatelem a prezentujte relace skupině v konferenčních místnostech."
   }
 }

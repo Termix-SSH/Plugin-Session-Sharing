@@ -145,6 +145,11 @@
       "globallyEnabled": {
         "label": "Permite partajarea sesiunilor",
         "description": "Permite partajarea sesiunilor live de terminal, RDP, VNC și Telnet la nivel de instanță. Anulează toate comutatorurile de partajare per host când este dezactivat."
+      },
+      "publicUrl": {
+        "label": "URL public pentru link-urile de oaspete",
+        "description": "Adresa pe care o deschid oaspeții, când diferă de cea pe care o folosești tu, de exemplu un proxy public în fața unui server de pe o rețea VPN. Lasă câmpul gol pentru a folosi adresa curentă.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -179,6 +184,7 @@
     "sharedSessionLabel": "{{hostName}} (partajat)"
   },
   "plugin": {
-    "name": "Partajarea sesiunilor"
+    "name": "Partajarea sesiunilor",
+    "description": "Distribuie sesiuni live prin link sau cu un alt utilizator și prezintă sesiuni unui grup în săli de ședințe."
   }
 }

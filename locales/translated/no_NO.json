@@ -143,6 +143,11 @@
       "globallyEnabled": {
         "label": "Tillat deling av økter",
         "description": "Tillat at live-terminal-, RDP-, VNC- og Telnet-økter deles over hele instansen. Overskriver alle per-vert-delingsbrytere når den er deaktivert."
+      },
+      "publicUrl": {
+        "label": "Offentlig URL for gjestelinker",
+        "description": "Adressen gjester åpner, når den er forskjellig fra den du bruker, for eksempel en offentlig proxy foran en server på en VPN. La stå tomt for å bruke den nåværende adressen.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -177,6 +182,7 @@
     "sharedSessionLabel": "{{hostName}} (delt)"
   },
   "plugin": {
-    "name": "Deling av økter"
+    "name": "Deling av økter",
+    "description": "Del live-sesjoner via lenke eller med en annen bruker, og presentér sesjoner for en gruppe i møterom."
   }
 }

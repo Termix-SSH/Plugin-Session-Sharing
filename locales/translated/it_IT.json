@@ -145,6 +145,11 @@
       "globallyEnabled": {
         "label": "Consenti la condivisione delle sessioni",
         "description": "Consenti la condivisione di sessioni terminali, RDP, VNC e Telnet in tempo reale a livello di istanza. Sovrascrive ogni toggle di condivisione per host quando disabilitato."
+      },
+      "publicUrl": {
+        "label": "URL pubblico per i link degli ospiti",
+        "description": "L'indirizzo che gli ospiti aprono, quando è diverso da quello che usi tu, come un proxy pubblico davanti a un server su una VPN. Lascia vuoto per usare l'indirizzo corrente.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -179,6 +184,7 @@
     "sharedSessionLabel": "{{hostName}} (condiviso)"
   },
   "plugin": {
-    "name": "Condivisione sessioni"
+    "name": "Condivisione sessioni",
+    "description": "Condividi sessioni live tramite link o con un altro utente, e presenta sessioni a un gruppo in sale riunioni."
   }
 }

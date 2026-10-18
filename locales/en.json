@@ -143,6 +143,11 @@
       "globallyEnabled": {
         "label": "Allow Session Sharing",
         "description": "Allow live terminal, RDP, VNC, and Telnet sessions to be shared instance-wide. Overrides every per-host sharing toggle when disabled."
+      },
+      "publicUrl": {
+        "label": "Public URL for guest links",
+        "description": "The address guests open, when it differs from the one you use, like a public proxy in front of a server on a VPN. Leave empty to use the current address.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -177,6 +182,7 @@
     "sharedSessionLabel": "{{hostName}} (shared)"
   },
   "plugin": {
-    "name": "Session Sharing"
+    "name": "Session Sharing",
+    "description": "Share live sessions by link or with another user, and present sessions to a group in meeting rooms."
   }
 }

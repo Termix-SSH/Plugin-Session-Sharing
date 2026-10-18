@@ -141,6 +141,11 @@
       "globallyEnabled": {
         "label": "Cho phép chia sẻ phiên",
         "description": "Cho phép chia sẻ các phiên terminal, RDP, VNC và Telnet trực tiếp trên toàn bộ phiên bản. Ghi đè mọi tùy chọn chia sẻ riêng lẻ của máy chủ khi bị tắt."
+      },
+      "publicUrl": {
+        "label": "URL công khai cho liên kết khách",
+        "description": "Địa chỉ mà khách truy cập mở, khi khác với địa chỉ bạn đang dùng, chẳng hạn như một proxy công khai đặt trước máy chủ trên VPN. Để trống để sử dụng địa chỉ hiện tại.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -175,6 +180,7 @@
     "sharedSessionLabel": "{{hostName}} (đã chia sẻ)"
   },
   "plugin": {
-    "name": "Chia sẻ phiên"
+    "name": "Chia sẻ phiên",
+    "description": "Chia sẻ phiên làm việc trực tiếp qua liên kết hoặc với người dùng khác, và trình chiếu phiên làm việc cho nhóm trong phòng họp."
   }
 }

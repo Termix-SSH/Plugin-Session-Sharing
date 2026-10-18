@@ -143,6 +143,11 @@
       "globallyEnabled": {
         "label": "Laat sessiedeling toe",
         "description": "Laat lewende terminal-, RDP-, VNC- en Telnet-sessies toe om instansie-breed gedeel te word. Oorskryf elke per-gasheer-delingsskakelaar wanneer dit gedeaktiveer is."
+      },
+      "publicUrl": {
+        "label": "Openbare URL vir gasligte",
+        "description": "Die adres wat gaste oopmaak, wanneer dit verskil van die een wat jy gebruik, soos ’n openbare proxy voor ’n bediener op ’n VPN. Laat leeg om die huidige adres te gebruik.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -177,6 +182,7 @@
     "sharedSessionLabel": "{{hostName}} (gedeeld)"
   },
   "plugin": {
-    "name": "Sessiedeling"
+    "name": "Sessiedeling",
+    "description": "Deel live-sessies deur ’n skakel of met ’n ander gebruiker, en toon sessies aan ’n groep in vergaderingsale."
   }
 }

@@ -141,6 +141,11 @@
       "globallyEnabled": {
         "label": "允許會話分享",
         "description": "允許在全例項範圍內分享即時終端機、RDP、VNC 和 Telnet 會話。若停用此選項，將覆蓋所有個別主機的分享開關。"
+      },
+      "publicUrl": {
+        "label": "訪客連結的公開網址",
+        "description": "當訪客使用的網址與您不同時（例如在 VPN 伺服器前方設置的公開代理），請在此輸入訪客開啟的位址。若留空，則使用目前的網址。",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -175,6 +180,7 @@
     "sharedSessionLabel": "{{hostName}}（已分享）"
   },
   "plugin": {
-    "name": "會話分享"
+    "name": "會話分享",
+    "description": "透過連結或與其他使用者共享即時工作階段，並在會議室中向一群人展示工作階段。"
   }
 }

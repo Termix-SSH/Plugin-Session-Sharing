@@ -51,6 +51,10 @@ export function createFakeLive() {
         calls.push(["setRoomShareControl", ...args]);
       },
       listGuests: () => [{ label: "Guest 1" }],
+      createViewerToken: (...args: unknown[]) => {
+        calls.push(["createViewerToken", ...args]);
+        return "join-token";
+      },
     },
   };
 }
@@ -131,7 +135,10 @@ export async function startServer(
       folder: null,
       authType: "password",
     })) as never,
-    services: { "sessions.live#ssh": live.provider },
+    services: {
+      "sessions.live#ssh": live.provider,
+      "sessions.live#rdp": live.provider,
+    },
   });
 
   const { activate } = await import("../../src/backend/index.js");

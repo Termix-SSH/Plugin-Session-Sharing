@@ -143,6 +143,11 @@
       "globallyEnabled": {
         "label": "Salli istuntojen jakaminen",
         "description": "Salli reaaliaikaisten terminali-, RDP-, VNC- ja Telnet-istuntojen jakaminen koko instanssin alueella. Kumoaa kaikki isäntäkohtaiset jakamisasetukset, kun se on poistettu käytöstä."
+      },
+      "publicUrl": {
+        "label": "Julkinen URL vierailijalinkkeihin",
+        "description": "Osoite, jonka vierailijat avaavat, jos se poikkeaa omasta käyttämästäsi osoitteesta, kuten julkinen välityspalvelin VPN-verkossa olevan palvelimen edessä. Jätä tyhjäksi käyttääksesi nykyistä osoitetta.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -177,6 +182,7 @@
     "sharedSessionLabel": "{{hostName}} (jaettu)"
   },
   "plugin": {
-    "name": "Istuntojen jakaminen"
+    "name": "Istuntojen jakaminen",
+    "description": "Jaa reaaliaikaisia istuntoja linkin tai toisen käyttäjän kautta sekä esitä istuntoja ryhmälle kokoushuoneissa."
   }
 }

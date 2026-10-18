@@ -145,6 +145,11 @@
       "globallyEnabled": {
         "label": "Permetre la compartició de sessions",
         "description": "Permet que les sessions en directe de terminal, RDP, VNC i Telnet es comparteixin a tota la instància. Anul·la cada interruptor de compartició per host quan està desactivat."
+      },
+      "publicUrl": {
+        "label": "URL pública per a enllaços d'invitats",
+        "description": "L'adreça que obren els convidats, quan és diferent de la que utilitzeu vosaltres, com ara un proxy públic davant d'un servidor en una VPN. Deixeu-lo buit per utilitzar l'adreça actual.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -179,6 +184,7 @@
     "sharedSessionLabel": "{{hostName}} (compartit)"
   },
   "plugin": {
-    "name": "Compartició de sessions"
+    "name": "Compartició de sessions",
+    "description": "Comparteix sessions en directe mitjançant un enllaç o amb un altre usuari, i presenta sessions a un grup en sales de reunions."
   }
 }

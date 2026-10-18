@@ -124,6 +124,9 @@
   "nav.collab": "b23a193872fc",
   "settings.admin.globallyEnabled.label": "8776c86f282d",
   "settings.admin.globallyEnabled.description": "3145c13d3ec6",
+  "settings.admin.publicUrl.label": "0547419f5a5e",
+  "settings.admin.publicUrl.description": "4f043e3c0135",
+  "settings.admin.publicUrl.placeholder": "1be605986534",
   "settings.host.allowSessionSharing.label": "8776c86f282d",
   "settings.host.allowSessionSharing.description": "41ba92010a94",
   "permissions.use.title": "1c5a53887d7e",
@@ -138,5 +141,6 @@
   "connections.sharedBy": "6276bf29c699",
   "connections.join": "e0d73143de80",
   "connections.sharedSessionLabel": "313a987f7600",
-  "plugin.name": "4911ed90d065"
+  "plugin.name": "4911ed90d065",
+  "plugin.description": "0572dfa41db5"
 }

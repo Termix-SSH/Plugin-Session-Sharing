@@ -145,6 +145,11 @@
       "globallyEnabled": {
         "label": "Permitir partilha de sessões",
         "description": "Permitir que sessões ativas de terminal, RDP, VNC e Telnet sejam partilhadas em toda a instância. Substitui todas as opções de partilha por host quando desativado."
+      },
+      "publicUrl": {
+        "label": "URL pública para ligações de convidados",
+        "description": "O endereço que os convidados abrem, quando é diferente do que você usa, como um proxy público à frente de um servidor numa VPN. Deixe vazio para usar o endereço atual.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -179,6 +184,7 @@
     "sharedSessionLabel": "{{hostName}} (partilhado)"
   },
   "plugin": {
-    "name": "Partilha de Sessões"
+    "name": "Partilha de Sessões",
+    "description": "Partilhe sessões em direto por ligação ou com outro utilizador, e apresente sessões a um grupo em salas de reunião."
   }
 }

@@ -141,6 +141,11 @@
       "globallyEnabled": {
         "label": "允许会话共享",
         "description": "允许在整个实例中共享实时终端、RDP、VNC 和 Telnet 会话。禁用时将覆盖所有针对单个主机的共享开关。"
+      },
+      "publicUrl": {
+        "label": "访客链接的公开 URL",
+        "description": "当访客使用的地址与您使用的地址不同时（例如位于 VPN 服务器前的公共代理），请在此填写访客打开的地址。留空则使用当前地址。",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -175,6 +180,7 @@
     "sharedSessionLabel": "{{hostName}}（共享）"
   },
   "plugin": {
-    "name": "会话共享"
+    "name": "会话共享",
+    "description": "通过链接或与其他用户共享实时会话，并在会议室中向一组人演示会话。"
   }
 }

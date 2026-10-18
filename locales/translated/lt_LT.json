@@ -147,6 +147,11 @@
       "globallyEnabled": {
         "label": "Leisti sesijų dalinimąsi",
         "description": "Leisti dalintis gyvomis terminalo, RDP, VNC ir Telnet sesijomis visoje instancijoje. Jei išjungta, perrašo visus individualius hosto dalinimosi jungiklius."
+      },
+      "publicUrl": {
+        "label": "Viešas URL adresas svečių nuorodoms",
+        "description": "Adresas, kurį atidaro svečiai, kai jis skiriasi nuo jūsų naudojamo, pavyzdžiui, viešasis tarpinis serveris prieš VPN tinkle esantį serverį. Palikite tuščią, kad būtų naudojamas dabartinis adresas.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -181,6 +186,7 @@
     "sharedSessionLabel": "{{hostName}} (pasidalinta)"
   },
   "plugin": {
-    "name": "Sesijų dalinimasis"
+    "name": "Sesijų dalinimasis",
+    "description": "Dalinkitės tiesioginėmis sesijomis per nuorodą arba su kitu vartotoju, taip pat pristatykite sesijas grupei susitikimų kambariuose."
   }
 }

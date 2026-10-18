@@ -131,6 +131,33 @@ describe("share routes", () => {
     expect((await server.request("DELETE", "/missing")).status).toBe(404);
   });
 
+  it("tags remote desktop viewers with the share and kicks them on revoke", async () => {
+    server = await startServer();
+    server.live.addSession("rdp-1", "alice");
+    const { body } = await server.request("POST", "/create", {
+      body: linkShare({ sessionId: "rdp-1", protocol: "rdp" }),
+    });
+    const resolved = await server.request("GET", `/resolve/${body.linkToken}`, {
+      user: null,
+    });
+    expect(resolved.body.connectParams).toEqual({ token: "join-token" });
+    expect(server.live.calls).toContainEqual([
+      "createViewerToken",
+      "rdp-1",
+      true,
+      body.shareId,
+    ]);
+    expect((await server.request("DELETE", `/${body.shareId}`)).status).toBe(
+      200,
+    );
+    expect(server.live.calls).toContainEqual([
+      "disconnectParticipants",
+      "rdp-1",
+      body.shareId,
+      { reason: "Session share revoked by owner" },
+    ]);
+  });
+
   it("ends a shared session for its owner only", async () => {
     server = await startServer();
     server.live.addSession("sess-1", "alice");
@@ -193,6 +220,20 @@ describe("share routes", () => {
     ]);
   });
 
+  it("hands out the admin's public URL for guest links", async () => {
+    server = await startServer({
+      settings: { publicUrl: "https://share.example.com:8443/?x=1" },
+    });
+    const res = await server.request("GET", "/public-url");
+    expect(res.body).toEqual({ url: "https://share.example.com:8443/" });
+  });
+
+  it("ignores a public URL that is not a web address", async () => {
+    server = await startServer({ settings: { publicUrl: "javascript:x" } });
+    const res = await server.request("GET", "/public-url");
+    expect(res.body).toEqual({ url: null });
+  });
+
   it("denies every signed-in route without the use permission", async () => {
     server = await startServer({ permissions: [] });
     for (const [method, path] of [
@@ -200,6 +241,7 @@ describe("share routes", () => {
       ["GET", "/host/1/active"],
       ["GET", "/shared-with-me"],
       ["GET", "/directory"],
+      ["GET", "/public-url"],
       ["DELETE", "/share-1"],
       ["POST", "/share-1/end"],
       ["POST", "/rooms"],

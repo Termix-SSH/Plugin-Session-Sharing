@@ -143,6 +143,11 @@
       "globallyEnabled": {
         "label": "Sessiedeling toestaan",
         "description": "Sta het delen van live terminal-, RDP-, VNC- en Telnet-sessies op het hele systeem toe. Overschrijft alle per-host schakelaars voor delen wanneer uitgeschakeld."
+      },
+      "publicUrl": {
+        "label": "Openbare URL voor gastlinks",
+        "description": "Het adres dat gasten openen, wanneer dit afwijkt van het adres dat u gebruikt, zoals een openbare proxy voor een server op een VPN. Laat leeg om het huidige adres te gebruiken.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -177,6 +182,7 @@
     "sharedSessionLabel": "{{hostName}} (gedeeld)"
   },
   "plugin": {
-    "name": "Sessiedeling"
+    "name": "Sessiedeling",
+    "description": "Deel live-sessies via een link of met een andere gebruiker, en presenteer sessies aan een groep in vergaderzalen."
   }
 }

@@ -35,7 +35,7 @@ export const shares = adoptLegacyTable(
       hostId: refHost(),
       ownerUserId: refUser(),
       protocol: text().notNull(),
-      // The terminal's session id for SSH, guacd's connection id otherwise.
+      // The terminal's session id for SSH, the remote desktop session id otherwise.
       // Neither is a row, so there is no foreign key.
       sessionId: varchar().notNull(),
       tabInstanceId: text(),

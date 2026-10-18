@@ -145,6 +145,11 @@
       "globallyEnabled": {
         "label": "Autoriser le partage de sessions",
         "description": "Autoriser le partage de sessions terminales, RDP, VNC et Telnet en direct sur toute l'instance. Remplace tous les interrupteurs de partage par hôte lorsqu'il est désactivé."
+      },
+      "publicUrl": {
+        "label": "URL publique pour les liens invités",
+        "description": "L'adresse que les invités ouvrent, lorsqu'elle diffère de celle que vous utilisez, comme un proxy public devant un serveur sur un VPN. Laissez vide pour utiliser l'adresse actuelle.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -179,6 +184,7 @@
     "sharedSessionLabel": "{{hostName}} (partagé)"
   },
   "plugin": {
-    "name": "Partage de sessions"
+    "name": "Partage de sessions",
+    "description": "Partagez des sessions en direct par lien ou avec un autre utilisateur, et présentez des sessions à un groupe dans des salles de réunion."
   }
 }

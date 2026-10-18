@@ -11,7 +11,9 @@ export async function connectMeetings(app: TermixApp) {
   const key = remoteUrl?.replace(/\/+$/, "") || "local";
   const origin = remoteUrl ? ("remote" as const) : ("local" as const);
   const publicUrl =
-    remoteUrl || (!app.desktop.available ? window.location.href : null);
+    (await configuredPublicUrl(app, origin)) ||
+    remoteUrl ||
+    (!app.desktop.available ? window.location.href : null);
   const assertCurrent = async () => {
     const current = app.desktop.available
       ? await app.desktop.remoteServerUrl()
@@ -52,12 +54,33 @@ export function guestViewUrl(
   return url.toString();
 }
 
+/** The admin's public URL for guest links on that backend, if set. */
+async function configuredPublicUrl(
+  app: TermixApp,
+  origin: "local" | "remote" | undefined,
+): Promise<string | null> {
+  try {
+    const { data } = await app
+      .apiFor(origin ?? "local")
+      .get<{ url: string | null }>("/public-url");
+    return typeof data?.url === "string" && data.url ? data.url : null;
+  } catch {
+    return null;
+  }
+}
+
 /** Where guests reach a session that runs on the given backend. */
 export async function sessionPublicUrl(
   app: TermixApp,
   origin: "local" | "remote" | undefined,
 ): Promise<string | null> {
-  if (!app.desktop.available) return window.location.href;
+  if (!app.desktop.available) {
+    return (await configuredPublicUrl(app, origin)) || window.location.href;
+  }
   if (origin !== "remote") return null;
-  return (await app.desktop.remoteServerUrl()) || null;
+  return (
+    (await configuredPublicUrl(app, origin)) ||
+    (await app.desktop.remoteServerUrl()) ||
+    null
+  );
 }

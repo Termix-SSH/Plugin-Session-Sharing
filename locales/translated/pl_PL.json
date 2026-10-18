@@ -147,6 +147,11 @@
       "globallyEnabled": {
         "label": "Zezwalaj na udostępnianie sesji",
         "description": "Zezwalaj na udostępnianie na żywo sesji terminala, RDP, VNC i Telnet w całym instancji. Gdy jest wyłączone, zastępuje wszystkie przełączniki udostępniania dla poszczególnych hostów."
+      },
+      "publicUrl": {
+        "label": "Publiczny URL dla linków dla gości",
+        "description": "Adres, który otwierają goście, gdy różni się on od tego, którego Ty używasz, np. publiczny proxy przed serwerem w VPN. Pozostaw puste, aby użyć bieżącego adresu.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -181,6 +186,7 @@
     "sharedSessionLabel": "{{hostName}} (udostępnione)"
   },
   "plugin": {
-    "name": "Udostępnianie sesji"
+    "name": "Udostępnianie sesji",
+    "description": "Udostępniaj aktywne sesje za pomocą linku lub innemu użytkownikowi oraz prezentuj sesje grupom w salach konferencyjnych."
   }
 }

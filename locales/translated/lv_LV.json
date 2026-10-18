@@ -145,6 +145,11 @@
       "globallyEnabled": {
         "label": "Atļaut sesiju kopīgošanu",
         "description": "Atļaut dzīvo termināļa, RDP, VNC un Telnet sesiju kopīgošanu visā instancē. Ja ir atspējots, tas pārraksta katru atsevišķa hosta kopīgošanas slēdzi."
+      },
+      "publicUrl": {
+        "label": "Publiskā URL adrese viesu saitēm",
+        "description": "Adrese, ko atver viesi, ja tā atšķiras no jūsu izmantotās, piemēram, publisks starpniekserveris pirms VPN tīklā esoša servera. Atstājiet tukšu, lai izmantotu pašreizējo adresi.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -179,6 +184,7 @@
     "sharedSessionLabel": "{{hostName}} (kopīgots)"
   },
   "plugin": {
-    "name": "Sesiju kopīgošana"
+    "name": "Sesiju kopīgošana",
+    "description": "Kopīgojiet tiešraides sesijas ar saiti vai citu lietotāju, kā arī prezentējiet sesijas grupai sanāksmju telpās."
   }
 }

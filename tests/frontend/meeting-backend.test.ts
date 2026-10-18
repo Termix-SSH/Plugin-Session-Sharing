@@ -6,6 +6,7 @@ import type {
 import {
   connectMeetings,
   meetingGuestUrl,
+  sessionPublicUrl,
 } from "../../src/frontend/meeting-backend";
 
 function client(): PluginApiClient {
@@ -79,5 +80,32 @@ describe("meeting backend", () => {
     expect(
       meetingGuestUrl("https://termix.example/app/?view=other#old", "token"),
     ).toBe("https://termix.example/app/?view=collab-guest&token=token");
+  });
+});
+
+describe("guest link base", () => {
+  it("uses the admin's public URL over the page address", async () => {
+    const local = client();
+    vi.mocked(local.get).mockResolvedValue({
+      data: { url: "https://share.example.com:8443/" },
+    } as never);
+    const app = {
+      desktop: { available: false },
+      apiFor: () => local,
+    } as unknown as TermixApp;
+    expect(await sessionPublicUrl(app, undefined)).toBe(
+      "https://share.example.com:8443/",
+    );
+    expect(local.get).toHaveBeenCalledWith("/public-url");
+  });
+
+  it("falls back to the page address when none is set", async () => {
+    const local = client();
+    vi.mocked(local.get).mockResolvedValue({ data: { url: null } } as never);
+    const app = {
+      desktop: { available: false },
+      apiFor: () => local,
+    } as unknown as TermixApp;
+    expect(await sessionPublicUrl(app, undefined)).toBe(window.location.href);
   });
 });

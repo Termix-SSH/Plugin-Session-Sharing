@@ -49,7 +49,10 @@ export function RemoteDisplay(props: RemoteDisplayProps) {
 
 export interface RemoteSessionToken {
   token: string;
-  connectionId: string;
+  /** Null when the session gets its id only once it connects. */
+  connectionId: string | null;
+  /** Waits for that id after the display connects. */
+  resolveConnectionId?: () => Promise<string | null>;
 }
 
 /** Mints a session token for presenting a host, through the provider. */

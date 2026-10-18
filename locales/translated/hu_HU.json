@@ -143,6 +143,11 @@
       "globallyEnabled": {
         "label": "Munkamenet-megosztás engedélyezése",
         "description": "Engedélyezze az élő terminál, RDP, VNC és Telnet munkamenetek megosztását az egész példányban. Ha letiltja, felülírja minden hoszt egyéni megosztási kapcsolóját."
+      },
+      "publicUrl": {
+        "label": "Nyilvános URL a vendéglinkekhez",
+        "description": "A cím, amelyet a vendégek megnyitnak, ha eltér a saját használt címtől, például egy nyilvános proxy esetén, amely egy VPN-en lévő szerver előtt helyezkedik el. Hagyja üresen, ha a jelenlegi címet szeretné használni.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -177,6 +182,7 @@
     "sharedSessionLabel": "{{hostName}} (megosztott)"
   },
   "plugin": {
-    "name": "Munkamenet-megosztás"
+    "name": "Munkamenet-megosztás",
+    "description": "Munkamenetek megosztása linkkel vagy más felhasználóval, valamint csoportos prezentálás értekeztermekben."
   }
 }

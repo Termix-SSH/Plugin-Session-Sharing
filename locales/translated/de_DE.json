@@ -143,6 +143,11 @@
       "globallyEnabled": {
         "label": "Sitzungsfreigabe erlauben",
         "description": "Erlaube die Freigabe von Live-Terminal-, RDP-, VNC- und Telnet-Sitzungen instancesweit. Wenn deaktiviert, überschreibt dies alle Host-spezifischen Freigabe-Schalter."
+      },
+      "publicUrl": {
+        "label": "Öffentliche URL für Gast-Links",
+        "description": "Die Adresse, die Gäste öffnen, wenn sie sich von der von Ihnen verwendeten unterscheidet, z. B. ein öffentlicher Proxy vor einem Server in einem VPN. Leer lassen, um die aktuelle Adresse zu verwenden.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -177,6 +182,7 @@
     "sharedSessionLabel": "{{hostName}} (geteilt)"
   },
   "plugin": {
-    "name": "Sitzungsfreigabe"
+    "name": "Sitzungsfreigabe",
+    "description": "Teilen Sie Live-Sitzungen per Link oder mit einem anderen Benutzer und präsentieren Sie Sitzungen einer Gruppe in Besprechungsräumen."
   }
 }

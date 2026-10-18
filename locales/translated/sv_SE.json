@@ -143,6 +143,11 @@
       "globallyEnabled": {
         "label": "Tillåt delning av sessioner",
         "description": "Tillåt att live-sessioner för terminal, RDP, VNC och Telnet delas över hela instansen. Åsidosätter alla per-värd-delningsswitchar när den är inaktiverad."
+      },
+      "publicUrl": {
+        "label": "Offentlig URL för gästinbjudningar",
+        "description": "Adressen gäster öppnar, om den skiljer sig från den du använder, till exempel en offentlig proxy framför en server på en VPN. Lämna tomt för att använda den aktuella adressen.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -177,6 +182,7 @@
     "sharedSessionLabel": "{{hostName}} (delad)"
   },
   "plugin": {
-    "name": "Delning av sessioner"
+    "name": "Delning av sessioner",
+    "description": "Dela live-sessioner via länk eller med en annan användare, och visa sessioner för en grupp i mötesrum."
   }
 }

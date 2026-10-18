@@ -66,7 +66,8 @@ type PresentDraft =
       protocol: "rdp" | "vnc" | "telnet";
       host: SSHHostWithStatus;
       token: string;
-      guacamoleConnectionId: string;
+      guacamoleConnectionId: string | null;
+      resolveConnectionId?: () => Promise<string | null>;
     };
 
 export function CollabRoomTab({
@@ -371,7 +372,7 @@ export function CollabRoomTab({
         backend.origin,
         protocol,
       );
-      if (!response?.connectionId) {
+      if (!response?.connectionId && !response?.resolveConnectionId) {
         toast.error(t("collab.stageLoading"));
         return;
       }
@@ -380,10 +381,25 @@ export function CollabRoomTab({
         host,
         token: response.token,
         guacamoleConnectionId: response.connectionId,
+        resolveConnectionId: response.resolveConnectionId,
       });
     } catch (error) {
       toast.error(getErrorMessage(error));
     }
+  }
+
+  /** Registers a remote desktop stage once its session id is known. */
+  async function presentRemote(draft: PresentDraft) {
+    if (draft.protocol === "ssh") return;
+    const sessionId =
+      draft.guacamoleConnectionId ??
+      (await draft.resolveConnectionId?.()) ??
+      null;
+    if (!sessionId) {
+      toast.error(t("collab.stageLoading"));
+      return;
+    }
+    await registerStage(draft.protocol, sessionId, Number(draft.host.id));
   }
 
   async function registerStage(
@@ -757,10 +773,8 @@ export function CollabRoomTab({
                 protocol={draft.protocol}
                 isVisible={isVisible}
                 onConnect={() =>
-                  void registerStage(
-                    draft.protocol,
-                    draft.guacamoleConnectionId,
-                    Number(draft.host.id),
+                  void presentRemote(draft).catch((error) =>
+                    toast.error(getErrorMessage(error)),
                   )
                 }
                 onError={(err) => {

@@ -143,6 +143,11 @@
       "globallyEnabled": {
         "label": "Oturum Paylaşımına İzin Ver",
         "description": "Canlı terminal, RDP, VNC ve Telnet oturumlarının tüm örnek genelinde paylaşılmasına izin verin. Devre dışı bırakıldığında, her ana bilgisayar için ayrı ayrı yapılan paylaşım ayarlarını geçersiz kılar."
+      },
+      "publicUrl": {
+        "label": "Misafir bağlantıları için genel URL",
+        "description": "Misafirlerin açtığı adres, kullandığınız adresten farklıysa (örneğin bir VPN üzerindeki sunucunun önündeki genel bir proxy gibi). Geçerli adresi kullanmak için boş bırakın.",
+        "placeholder": "https://share.example.com"
       }
     },
     "host": {
@@ -177,6 +182,7 @@
     "sharedSessionLabel": "{{hostName}} (paylaşılan)"
   },
   "plugin": {
-    "name": "Oturum Paylaşımı"
+    "name": "Oturum Paylaşımı",
+    "description": "Canlı oturumları bağlantı ile veya başka bir kullanıcıyla paylaşın ve toplantı odalarında gruplara sunun."
   }
 }
