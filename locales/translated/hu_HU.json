@@ -184,5 +184,9 @@
   "plugin": {
     "name": "Munkamenet-megosztás",
     "description": "Munkamenetek megosztása linkkel vagy más felhasználóval, valamint csoportos prezentálás értekeztermekben."
+  },
+  "card": {
+    "title": "Megosztás",
+    "loading": "Betöltés..."
   }
 }

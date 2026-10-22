@@ -184,5 +184,9 @@
   "plugin": {
     "name": "Istuntojen jakaminen",
     "description": "Jaa reaaliaikaisia istuntoja linkin tai toisen käyttäjän kautta sekä esitä istuntoja ryhmälle kokoushuoneissa."
+  },
+  "card": {
+    "title": "Jakaminen",
+    "loading": "Ladataan..."
   }
 }

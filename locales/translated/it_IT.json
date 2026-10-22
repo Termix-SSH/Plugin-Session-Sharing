@@ -186,5 +186,9 @@
   "plugin": {
     "name": "Condivisione sessioni",
     "description": "Condividi sessioni live tramite link o con un altro utente, e presenta sessioni a un gruppo in sale riunioni."
+  },
+  "card": {
+    "title": "Condivisione",
+    "loading": "Caricamento..."
   }
 }

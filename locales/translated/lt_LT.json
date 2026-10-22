@@ -188,5 +188,9 @@
   "plugin": {
     "name": "Sesijų dalinimasis",
     "description": "Dalinkitės tiesioginėmis sesijomis per nuorodą arba su kitu vartotoju, taip pat pristatykite sesijas grupei susitikimų kambariuose."
+  },
+  "card": {
+    "title": "Dalijimasis",
+    "loading": "Kraunama..."
   }
 }

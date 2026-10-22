@@ -316,6 +316,36 @@ export function registerShareRoutes(router: Router, deps: SharingDeps): void {
 
   /**
    * @openapi
+   * /plugin-api/session-sharing/active:
+   *   get:
+   *     summary: List every active share the caller made
+   *     description: Shares that are not revoked or expired, on any host, newest first. Feeds the dashboard card.
+   *     tags:
+   *       - Session Sharing
+   *     security:
+   *       - bearerAuth: []
+   *     responses:
+   *       200:
+   *         description: List of active shares
+   *       500:
+   *         description: Server error
+   */
+  router.get("/active", requireUse, async (_req: Request, res: Response) => {
+    try {
+      res.json({
+        shares: await shares.findActiveSharesForOwner(actorOf(ctx)),
+      });
+    } catch (error) {
+      ctx.log.error(
+        "Failed to list session shares",
+        error instanceof Error ? error : undefined,
+      );
+      res.status(500).json({ error: "Failed to list session shares" });
+    }
+  });
+
+  /**
+   * @openapi
    * /plugin-api/session-sharing/shared-with-me:
    *   get:
    *     summary: List live SSH sessions other users shared with the caller

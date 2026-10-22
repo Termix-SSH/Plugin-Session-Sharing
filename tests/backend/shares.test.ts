@@ -35,6 +35,18 @@ describe("share routes", () => {
     });
   });
 
+  it("lists every active share the caller made", async () => {
+    server = await startServer();
+    server.live.addSession("sess-1", "alice");
+    await server.request("POST", "/create", { body: linkShare() });
+
+    const res = await server.request("GET", "/active");
+    expect(res.status).toBe(200);
+    expect(res.body.shares).toEqual([
+      expect.objectContaining({ hostId: 1, ownerUserId: "alice" }),
+    ]);
+  });
+
   it("refuses a session someone else owns", async () => {
     server = await startServer();
     server.live.addSession("sess-1", "bob");

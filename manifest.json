@@ -1,7 +1,7 @@
 {
   "id": "session-sharing",
   "name": "Session Sharing",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Share live sessions by link or with another user, and present sessions to a group in meeting rooms.",
   "author": {
     "name": "Termix"
@@ -18,7 +18,8 @@
     "Read-only or read and write",
     "Links that expire or can be revoked",
     "Meeting rooms where a presenter shows a session and can hand over control",
-    "Guest links for people without an account"
+    "Guest links for people without an account",
+    "A dashboard card with your live shares and meeting rooms"
   ],
   "env": [
     {
@@ -133,7 +134,18 @@
         ]
       }
     },
-    "uses": ["session.remoteDisplay.token", "terminal.open", "terminal.overlay"]
+    "uses": [
+      "session.remoteDisplay.token",
+      "terminal.open",
+      "terminal.overlay"
+    ],
+    "dashboardCards": [
+      {
+        "id": "session-sharing",
+        "titleKey": "card.title",
+        "icon": "Share2"
+      }
+    ]
   },
   "locales": "locales",
   "platforms": ["linux", "win32", "darwin"]

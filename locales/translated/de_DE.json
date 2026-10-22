@@ -184,5 +184,9 @@
   "plugin": {
     "name": "Sitzungsfreigabe",
     "description": "Teilen Sie Live-Sitzungen per Link oder mit einem anderen Benutzer und präsentieren Sie Sitzungen einer Gruppe in Besprechungsräumen."
+  },
+  "card": {
+    "title": "Freigabe",
+    "loading": "Wird geladen..."
   }
 }

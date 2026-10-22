@@ -186,5 +186,9 @@
   "plugin": {
     "name": "Partilha de Sessões",
     "description": "Partilhe sessões em direto por ligação ou com outro utilizador, e apresente sessões a um grupo em salas de reunião."
+  },
+  "card": {
+    "title": "Partilha",
+    "loading": "A carregar..."
   }
 }

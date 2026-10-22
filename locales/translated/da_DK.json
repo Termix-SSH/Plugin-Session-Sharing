@@ -184,5 +184,9 @@
   "plugin": {
     "name": "Deling af sessioner",
     "description": "Del live-sessioner via link eller med en anden bruger, og præsenter sessioner for en gruppe i mødelokaler."
+  },
+  "card": {
+    "title": "Deling",
+    "loading": "Indlæser..."
   }
 }

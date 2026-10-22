@@ -186,5 +186,9 @@
   "plugin": {
     "name": "Partajarea sesiunilor",
     "description": "Distribuie sesiuni live prin link sau cu un alt utilizator și prezintă sesiuni unui grup în săli de ședințe."
+  },
+  "card": {
+    "title": "Partajare",
+    "loading": "Se încarcă..."
   }
 }

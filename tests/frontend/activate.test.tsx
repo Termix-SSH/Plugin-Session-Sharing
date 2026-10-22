@@ -231,3 +231,58 @@ describe("session-sharing activate", () => {
     expect(app.registered.actions()).toEqual([]);
   });
 });
+
+describe("sharing dashboard card", () => {
+  it("lists live shares and rooms", async () => {
+    const share = {
+      id: "s1",
+      hostId: 4,
+      ownerUserId: "me",
+      protocol: "ssh",
+      sessionId: "x",
+      tabInstanceId: null,
+      shareType: "link",
+      targetUserId: null,
+      linkToken: "tok",
+      permissionLevel: "read-only",
+      createdAt: "2026-10-20T00:00:00.000Z",
+      expiresAt: "2999-01-01T00:00:00.000Z",
+      revokedAt: null,
+      lastJoinedAt: null,
+      joinCount: 2,
+    };
+    const room = {
+      id: "r1",
+      name: "Standup",
+      ownerUserId: "me",
+      persistent: false,
+      presenterUserId: null,
+      stageProtocol: null,
+      stageHostId: null,
+      stageShareId: null,
+      guestLinkEnabled: false,
+      createdAt: "",
+      endedAt: null,
+    };
+    rendered = await renderWithApp(plugin, {
+      manifest,
+      locales,
+      permissions: ["session-sharing.use"],
+      hosts: [{ id: "4", name: "web", ip: "10.0.0.4", port: 22 }],
+      api: stubApi({
+        get: vi.fn(async (url: string) => ({
+          data:
+            url === "/active"
+              ? { shares: [share] }
+              : url === "/rooms"
+                ? { rooms: [room] }
+                : {},
+        })) as never,
+      }),
+    });
+    expect(rendered.registered.dashboardCards()).toEqual(["session-sharing"]);
+    rendered.renderDashboardCard("session-sharing");
+    expect(await screen.findByText("web")).toBeTruthy();
+    expect(await screen.findByText("Standup")).toBeTruthy();
+  });
+});

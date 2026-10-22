@@ -188,5 +188,9 @@
   "plugin": {
     "name": "Udostępnianie sesji",
     "description": "Udostępniaj aktywne sesje za pomocą linku lub innemu użytkownikowi oraz prezentuj sesje grupom w salach konferencyjnych."
+  },
+  "card": {
+    "title": "Udostępnianie",
+    "loading": "Ładowanie..."
   }
 }

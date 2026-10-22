@@ -186,5 +186,9 @@
   "plugin": {
     "name": "Compartilhamento de sessão",
     "description": "Compartilhe sessões ao vivo por link ou com outro usuário, e apresente sessões para um grupo em salas de reunião."
+  },
+  "card": {
+    "title": "Compartilhamento",
+    "loading": "Carregando..."
   }
 }

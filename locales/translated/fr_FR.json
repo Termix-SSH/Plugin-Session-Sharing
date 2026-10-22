@@ -186,5 +186,9 @@
   "plugin": {
     "name": "Partage de sessions",
     "description": "Partagez des sessions en direct par lien ou avec un autre utilisateur, et présentez des sessions à un groupe dans des salles de réunion."
+  },
+  "card": {
+    "title": "Partage",
+    "loading": "Chargement..."
   }
 }

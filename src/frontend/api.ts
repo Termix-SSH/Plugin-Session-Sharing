@@ -163,6 +163,16 @@ export function getActiveSessionShares(
   );
 }
 
+/** Every active share the caller made, on any host. */
+export function getAllActiveSessionShares(): Promise<{
+  shares: SessionShareRecord[];
+}> {
+  return call(
+    () => api().get<{ shares: SessionShareRecord[] }>("/active"),
+    "Failed to fetch active session shares",
+  );
+}
+
 export function revokeSessionShare(
   shareId: string,
   origin?: SessionOrigin,

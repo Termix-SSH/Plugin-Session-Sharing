@@ -182,5 +182,9 @@
   "plugin": {
     "name": "Perkongsian Sesi",
     "description": "Kongsi sesi langsung melalui pautan atau dengan pengguna lain, dan persembahkan sesi kepada kumpulan di ruang mesyuarat."
+  },
+  "card": {
+    "title": "Kongsi",
+    "loading": "Memuatkan..."
   }
 }

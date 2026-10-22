@@ -188,5 +188,9 @@
   "plugin": {
     "name": "Deljenje sej",
     "description": "Delite žive seje s povezavo ali z drugim uporabnikom ter predstavljajte seje skupini v konferenčnih sobah."
+  },
+  "card": {
+    "title": "Deljenje",
+    "loading": "Nalaganje ..."
   }
 }

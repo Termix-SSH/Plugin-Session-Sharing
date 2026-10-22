@@ -184,5 +184,9 @@
   "plugin": {
     "name": "Delning av sessioner",
     "description": "Dela live-sessioner via länk eller med en annan användare, och visa sessioner för en grupp i mötesrum."
+  },
+  "card": {
+    "title": "Delning",
+    "loading": "Laddar..."
   }
 }

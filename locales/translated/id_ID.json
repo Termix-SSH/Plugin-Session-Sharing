@@ -182,5 +182,9 @@
   "plugin": {
     "name": "Berbagi Sesi",
     "description": "Bagikan sesi langsung melalui tautan atau dengan pengguna lain, dan presentasikan sesi kepada sekelompok orang di ruang rapat."
+  },
+  "card": {
+    "title": "Berbagi",
+    "loading": "Memuat..."
   }
 }

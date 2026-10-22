@@ -185,6 +185,22 @@ export function createShareRepository(db: PluginDatabase, tables: Tables) {
         );
     },
 
+    /** Every active share this user made, newest first. */
+    async findActiveSharesForOwner(
+      ownerUserId: string,
+      now = nowIso(),
+    ): Promise<ShareRecord[]> {
+      const rows: ShareRecord[] = await (
+        await client()
+      )
+        .select()
+        .from(shares)
+        .where(
+          and(eq(shares.ownerUserId, ownerUserId), activeShare(shares, now)),
+        );
+      return rows.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+    },
+
     /** Active user shares aimed at this user. */
     async findSharesTargetingUser(
       userId: string,

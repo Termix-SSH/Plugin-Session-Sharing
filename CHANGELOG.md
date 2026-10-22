@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+### Added
+
+- Sharing dashboard card: your live shares on every host with revoke, and your meeting rooms
+
 ## 1.0.2
 
 ### Added

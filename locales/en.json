@@ -184,5 +184,9 @@
   "plugin": {
     "name": "Session Sharing",
     "description": "Share live sessions by link or with another user, and present sessions to a group in meeting rooms."
+  },
+  "card": {
+    "title": "Sharing",
+    "loading": "Loading..."
   }
 }

@@ -188,5 +188,9 @@
   "plugin": {
     "name": "Sdílení relací",
     "description": "Sdílejte živé relace pomocí odkazu nebo s jiným uživatelem a prezentujte relace skupině v konferenčních místnostech."
+  },
+  "card": {
+    "title": "Sdílení",
+    "loading": "Načítání..."
   }
 }

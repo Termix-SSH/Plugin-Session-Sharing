@@ -184,5 +184,9 @@
   "plugin": {
     "name": "Seansside jagamine",
     "description": "Jaga otseülesid lingi kaudu või teise kasutajaga ning esita sessioone grupile koosolekuruumides."
+  },
+  "card": {
+    "title": "Jagamine",
+    "loading": "Laadimine..."
   }
 }

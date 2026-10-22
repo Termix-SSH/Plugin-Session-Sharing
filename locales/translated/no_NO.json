@@ -184,5 +184,9 @@
   "plugin": {
     "name": "Deling av økter",
     "description": "Del live-sesjoner via lenke eller med en annen bruker, og presentér sesjoner for en gruppe i møterom."
+  },
+  "card": {
+    "title": "Deling",
+    "loading": "Laster inn..."
   }
 }

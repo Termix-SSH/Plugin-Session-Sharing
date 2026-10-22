@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import {
   useCurrentUser,
   usePermission,
+  type DashboardCardProps,
   type PanelProps,
   type StandaloneViewProps,
   type TabProps,
@@ -21,6 +22,7 @@ import { bindApi } from "./api";
 import { SharedWithMeSection } from "./SharedWithMeSection";
 import CollabGuestView from "./CollabGuestView";
 import { CollabPanel } from "./CollabPanel";
+import { SharingCard } from "./SharingCard";
 import { CollabRoomTab } from "./CollabRoomTab";
 import SharedSessionView from "./SharedSessionView";
 import { ParticipantsOverlay } from "./ParticipantsOverlay";
@@ -123,6 +125,26 @@ function CollabRoomTabView({ tab, isVisible }: TabProps) {
           roomId={typeof roomId === "string" ? roomId : undefined}
           isVisible={isVisible}
           backend={backend}
+        />
+      )}
+    </MeetingScope>
+  );
+}
+
+function SharingCardView({ isVisible, shell }: DashboardCardProps) {
+  return (
+    <MeetingScope>
+      {(backend) => (
+        <SharingCard
+          isVisible={isVisible}
+          backend={backend}
+          onOpenRoom={(room) =>
+            shell.openTab(null, COLLAB, {
+              label: room.name,
+              forceNewTab: true,
+              data: { roomId: room.id, meetingServerKey: backend.key },
+            })
+          }
         />
       )}
     </MeetingScope>
@@ -266,6 +288,14 @@ export function activate(app: TermixApp): void {
     permission: "use",
   });
   app.registerPanel(COLLAB, CollabPanelView);
+  app.registerDashboardCard({
+    id: "session-sharing",
+    titleKey: "card.title",
+    defaultPanel: "side",
+    defaultHeight: 240,
+    frame: "framed",
+    component: SharingCardView,
+  });
   app.registerTab(COLLAB, CollabRoomTabView, {
     icon: Presentation,
     titleKey: "nav.collab",

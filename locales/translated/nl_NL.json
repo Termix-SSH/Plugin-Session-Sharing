@@ -184,5 +184,9 @@
   "plugin": {
     "name": "Sessiedeling",
     "description": "Deel live-sessies via een link of met een andere gebruiker, en presenteer sessies aan een groep in vergaderzalen."
+  },
+  "card": {
+    "title": "Delen",
+    "loading": "Laden..."
   }
 }

@@ -186,5 +186,9 @@
   "plugin": {
     "name": "Sesiju kopīgošana",
     "description": "Kopīgojiet tiešraides sesijas ar saiti vai citu lietotāju, kā arī prezentējiet sesijas grupai sanāksmju telpās."
+  },
+  "card": {
+    "title": "Koplietošana",
+    "loading": "Ielādē..."
   }
 }

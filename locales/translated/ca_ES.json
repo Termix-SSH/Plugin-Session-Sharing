@@ -186,5 +186,9 @@
   "plugin": {
     "name": "Compartició de sessions",
     "description": "Comparteix sessions en directe mitjançant un enllaç o amb un altre usuari, i presenta sessions a un grup en sales de reunions."
+  },
+  "card": {
+    "title": "Compartició",
+    "loading": "S'està carregant..."
   }
 }

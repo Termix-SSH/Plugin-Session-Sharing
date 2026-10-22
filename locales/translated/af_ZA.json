@@ -184,5 +184,9 @@
   "plugin": {
     "name": "Sessiedeling",
     "description": "Deel live-sessies deur ’n skakel of met ’n ander gebruiker, en toon sessies aan ’n groep in vergaderingsale."
+  },
+  "card": {
+    "title": "Deel",
+    "loading": "Laai tans..."
   }
 }

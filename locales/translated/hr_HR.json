@@ -186,5 +186,9 @@
   "plugin": {
     "name": "Dijeljenje sesija",
     "description": "Dijelite užive sesije putem poveznice ili s drugim korisnikom te ih prikazujte grupama u konferencijskim sobama."
+  },
+  "card": {
+    "title": "Dijeljenje",
+    "loading": "Učitavanje..."
   }
 }

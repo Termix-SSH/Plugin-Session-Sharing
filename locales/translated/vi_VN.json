@@ -182,5 +182,9 @@
   "plugin": {
     "name": "Chia sẻ phiên",
     "description": "Chia sẻ phiên làm việc trực tiếp qua liên kết hoặc với người dùng khác, và trình chiếu phiên làm việc cho nhóm trong phòng họp."
+  },
+  "card": {
+    "title": "Chia sẻ",
+    "loading": "Đang tải..."
   }
 }

@@ -188,5 +188,9 @@
   "plugin": {
     "name": "Zdieľanie relácií",
     "description": "Zdieľajte živé relácie pomocou odkazu alebo s iným používateľom a prezentujte relácie skupine v konferenčných miestnostiach."
+  },
+  "card": {
+    "title": "Zdieľanie",
+    "loading": "Načítava sa..."
   }
 }
