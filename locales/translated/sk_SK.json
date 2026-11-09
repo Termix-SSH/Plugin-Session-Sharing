@@ -192,5 +192,26 @@
   "card": {
     "title": "Zdieľanie",
     "loading": "Načítava sa..."
+  },
+  "operations": {
+    "list": {
+      "title": "Zoznam aktívnych zdieľaní"
+    },
+    "revoke": {
+      "title": "Zrušiť zdieľanie"
+    },
+    "share": "Zdieľať",
+    "active": {
+      "title": "Aktívne zdieľania"
+    },
+    "hostShares": {
+      "title": "Zdieľania tohto hostiteľa"
+    },
+    "resource": {
+      "title": "Aktívne zdieľania",
+      "type": "Typ",
+      "access": "Prístup",
+      "expires": "Vyprší"
+    }
   }
 }

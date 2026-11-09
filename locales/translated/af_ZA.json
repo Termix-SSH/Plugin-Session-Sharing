@@ -188,5 +188,26 @@
   "card": {
     "title": "Deel",
     "loading": "Laai tans..."
+  },
+  "operations": {
+    "list": {
+      "title": "Lys aktiewe deelings"
+    },
+    "revoke": {
+      "title": "Herroep deling"
+    },
+    "share": "Deel",
+    "active": {
+      "title": "Aktiewe deelings"
+    },
+    "hostShares": {
+      "title": "Deelings van hierdie gasheer"
+    },
+    "resource": {
+      "title": "Aktiewe deelings",
+      "type": "Tipe",
+      "access": "Toegang",
+      "expires": "Verval"
+    }
   }
 }

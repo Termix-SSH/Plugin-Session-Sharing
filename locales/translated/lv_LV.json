@@ -190,5 +190,26 @@
   "card": {
     "title": "Koplietošana",
     "loading": "Ielādē..."
+  },
+  "operations": {
+    "list": {
+      "title": "Aktīvo koplietojumu saraksts"
+    },
+    "revoke": {
+      "title": "Atsaukt koplietojumu"
+    },
+    "share": "Koplietot",
+    "active": {
+      "title": "Aktīvie koplietojumi"
+    },
+    "hostShares": {
+      "title": "Šī resursdatora koplietojumi"
+    },
+    "resource": {
+      "title": "Aktīvie koplietojumi",
+      "type": "Tips",
+      "access": "Piekļuve",
+      "expires": "Beidzas"
+    }
   }
 }

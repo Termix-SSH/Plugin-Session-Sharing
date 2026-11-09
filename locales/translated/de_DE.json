@@ -188,5 +188,26 @@
   "card": {
     "title": "Freigabe",
     "loading": "Wird geladen..."
+  },
+  "operations": {
+    "list": {
+      "title": "Aktive Freigaben auflisten"
+    },
+    "revoke": {
+      "title": "Freigabe widerrufen"
+    },
+    "share": "Freigeben",
+    "active": {
+      "title": "Aktive Freigaben"
+    },
+    "hostShares": {
+      "title": "Freigaben dieses Hosts"
+    },
+    "resource": {
+      "title": "Aktive Freigaben",
+      "type": "Typ",
+      "access": "Zugriff",
+      "expires": "Läuft ab"
+    }
   }
 }

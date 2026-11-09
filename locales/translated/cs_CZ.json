@@ -192,5 +192,26 @@
   "card": {
     "title": "Sdílení",
     "loading": "Načítání..."
+  },
+  "operations": {
+    "list": {
+      "title": "Seznam aktivních sdílení"
+    },
+    "revoke": {
+      "title": "Zrušit sdílení"
+    },
+    "share": "Sdílet",
+    "active": {
+      "title": "Aktivní sdílení"
+    },
+    "hostShares": {
+      "title": "Sdílení tohoto hostitele"
+    },
+    "resource": {
+      "title": "Aktivní sdílení",
+      "type": "Typ",
+      "access": "Přístup",
+      "expires": "Vyprší"
+    }
   }
 }

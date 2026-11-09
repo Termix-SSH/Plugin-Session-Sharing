@@ -480,41 +480,19 @@ export function registerShareRoutes(router: Router, deps: SharingDeps): void {
     requireUse,
     async (req: Request, res: Response) => {
       try {
-        const userId = actorOf(ctx);
-        const shareId = String(req.params.shareId);
-        const share = await shares.findById(shareId);
-        if (!share) {
+        const outcome = await revokeShare(
+          deps,
+          String(req.params.shareId),
+          actorOf(ctx),
+        );
+        if (outcome === "missing") {
           return res.status(404).json({ error: "Share not found" });
         }
-
-        let revoked = await shares.revoke(shareId, userId);
-        if (!revoked && (await directory.isAdmin(userId))) {
-          revoked = await shares.revokeAny(shareId);
-        }
-        if (!revoked) {
+        if (outcome === "denied") {
           return res
             .status(403)
             .json({ error: "Not authorized to revoke this share" });
         }
-
-        if (share.protocol === "ssh") {
-          await live.ownerEndSession(
-            "ssh",
-            share.sessionId,
-            "Session share revoked by owner",
-            share.ownerUserId,
-          );
-        } else {
-          // Remote desktop closes only the viewers of this share.
-          await live.disconnectParticipants(
-            share.protocol,
-            share.sessionId,
-            share.id,
-            { reason: "Session share revoked by owner" },
-            share.ownerUserId,
-          );
-        }
-
         res.json({ success: true });
       } catch (error) {
         ctx.log.error(
@@ -594,4 +572,40 @@ export function normalizePublicUrl(raw: unknown): string | null {
   } catch {
     return null;
   }
+}
+
+/** Revokes a share and closes its viewers. Admins may revoke any share. */
+export async function revokeShare(
+  deps: Pick<SharingDeps, "shares" | "directory" | "live">,
+  shareId: string,
+  userId: string,
+): Promise<"revoked" | "missing" | "denied"> {
+  const { shares, directory, live } = deps;
+  const share = await shares.findById(shareId);
+  if (!share) return "missing";
+
+  let revoked = await shares.revoke(shareId, userId);
+  if (!revoked && (await directory.isAdmin(userId))) {
+    revoked = await shares.revokeAny(shareId);
+  }
+  if (!revoked) return "denied";
+
+  if (share.protocol === "ssh") {
+    await live.ownerEndSession(
+      "ssh",
+      share.sessionId,
+      "Session share revoked by owner",
+      share.ownerUserId,
+    );
+  } else {
+    // Remote desktop closes only the viewers of this share.
+    await live.disconnectParticipants(
+      share.protocol,
+      share.sessionId,
+      share.id,
+      { reason: "Session share revoked by owner" },
+      share.ownerUserId,
+    );
+  }
+  return "revoked";
 }

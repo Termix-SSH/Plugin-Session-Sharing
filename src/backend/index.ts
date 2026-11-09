@@ -19,6 +19,7 @@ import {
   createSessionSharingService,
 } from "./services.js";
 import { registerShareRoutes } from "./share-routes.js";
+import { registerOperations } from "./operations.js";
 import { roomMembers, rooms, shareParticipants, shares } from "./tables.js";
 
 export async function activate(ctx: PluginContext) {
@@ -67,6 +68,7 @@ export async function activate(ctx: PluginContext) {
     public: ["/resolve/:linkToken", "/guest/:token"],
   });
   registerShareRoutes(router, deps);
+  registerOperations(deps);
   registerRoomRoutes(router, deps, actions);
 
   ctx.services.provide("sessions.sharing", createSessionSharingService(deps));

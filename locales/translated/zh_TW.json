@@ -186,5 +186,26 @@
   "card": {
     "title": "分享",
     "loading": "載入中..."
+  },
+  "operations": {
+    "list": {
+      "title": "列出活躍的分享"
+    },
+    "revoke": {
+      "title": "撤銷分享"
+    },
+    "share": "分享",
+    "active": {
+      "title": "活躍的分享"
+    },
+    "hostShares": {
+      "title": "此主機的分享"
+    },
+    "resource": {
+      "title": "活躍的分享",
+      "type": "類型",
+      "access": "存取權限",
+      "expires": "過期時間"
+    }
   }
 }

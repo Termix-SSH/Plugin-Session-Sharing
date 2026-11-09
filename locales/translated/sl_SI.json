@@ -192,5 +192,26 @@
   "card": {
     "title": "Deljenje",
     "loading": "Nalaganje ..."
+  },
+  "operations": {
+    "list": {
+      "title": "Prikaži aktivne povezave za skupno rabo"
+    },
+    "revoke": {
+      "title": "Prekliči povezavo za skupno rabo"
+    },
+    "share": "Skupna raba",
+    "active": {
+      "title": "Aktivne povezave za skupno rabo"
+    },
+    "hostShares": {
+      "title": "Povezave za skupno rabo tega gostitelja"
+    },
+    "resource": {
+      "title": "Aktivne povezave za skupno rabo",
+      "type": "Vrsta",
+      "access": "Dostop",
+      "expires": "Poteka"
+    }
   }
 }

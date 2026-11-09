@@ -1,7 +1,7 @@
 {
   "id": "session-sharing",
   "name": "Session Sharing",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Share live sessions by link or with another user, and present sessions to a group in meeting rooms.",
   "author": {
     "name": "Termix"
@@ -33,7 +33,7 @@
     }
   ],
   "engine": {
-    "termix": ">=26.10.0",
+    "termix": ">=26.11.1-0",
     "api": "^1.2"
   },
   "capabilities": [
@@ -42,7 +42,8 @@
     "network:serve",
     "ui:surface",
     "users:impersonate",
-    "db:core-refs"
+    "db:core-refs",
+    "operations:provide"
   ],
   "dependencies": {
     "ssh-terminal": "^1.0.0"
@@ -145,7 +146,94 @@
         "titleKey": "card.title",
         "icon": "Share2"
       }
-    ]
+    ],
+    "operations": {
+      "actions": [
+        {
+          "id": "session-sharing.list-shares",
+          "titleKey": "operations.list.title",
+          "scope": "server",
+          "risk": "read",
+          "permission": "use",
+          "surfaces": {
+            "assistant": true,
+            "mcp": true,
+            "palette": false
+          }
+        },
+        {
+          "id": "session-sharing.host-shares",
+          "titleKey": "operations.hostShares.title",
+          "icon": "Share2",
+          "scope": "host",
+          "risk": "read",
+          "permission": "use",
+          "hostAccess": "connect",
+          "surfaces": {
+            "assistant": true,
+            "mcp": true,
+            "palette": false
+          }
+        },
+        {
+          "id": "session-sharing.revoke-share",
+          "titleKey": "operations.revoke.title",
+          "icon": "Ban",
+          "scope": "server",
+          "risk": "change",
+          "permission": "use",
+          "dryRun": "describe",
+          "idempotent": true,
+          "inputs": [
+            {
+              "key": "share",
+              "type": "string",
+              "labelKey": "operations.share",
+              "required": true,
+              "optionsFrom": "session-sharing.list-shares"
+            }
+          ],
+          "surfaces": {
+            "assistant": true,
+            "mcp": true
+          }
+        }
+      ],
+      "signals": [
+        {
+          "id": "session-sharing.active",
+          "titleKey": "operations.active.title",
+          "read": "session-sharing.list-shares",
+          "scope": "server",
+          "kind": "count",
+          "refreshSec": 300
+        }
+      ],
+      "resources": [
+        {
+          "id": "session-sharing.share",
+          "titleKey": "operations.resource.title",
+          "icon": "Share2",
+          "list": "session-sharing.host-shares",
+          "key": "id",
+          "name": "name",
+          "columns": [
+            {
+              "key": "type",
+              "titleKey": "operations.resource.type"
+            },
+            {
+              "key": "access",
+              "titleKey": "operations.resource.access"
+            },
+            {
+              "key": "expires",
+              "titleKey": "operations.resource.expires"
+            }
+          ]
+        }
+      ]
+    }
   },
   "locales": "locales",
   "platforms": ["linux", "win32", "darwin"]

@@ -188,5 +188,26 @@
   "card": {
     "title": "Deling",
     "loading": "Laster inn..."
+  },
+  "operations": {
+    "list": {
+      "title": "Vis aktive delinger"
+    },
+    "revoke": {
+      "title": "Opphev deling"
+    },
+    "share": "Del",
+    "active": {
+      "title": "Aktive delinger"
+    },
+    "hostShares": {
+      "title": "Delinger for denne verten"
+    },
+    "resource": {
+      "title": "Aktive delinger",
+      "type": "Type",
+      "access": "Tilgang",
+      "expires": "Utløper"
+    }
   }
 }

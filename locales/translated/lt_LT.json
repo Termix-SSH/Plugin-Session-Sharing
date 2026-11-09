@@ -192,5 +192,26 @@
   "card": {
     "title": "Dalijimasis",
     "loading": "Kraunama..."
+  },
+  "operations": {
+    "list": {
+      "title": "Rodyti aktyvias dalijimosi nuorodas"
+    },
+    "revoke": {
+      "title": "Atšaukti dalijimąsi"
+    },
+    "share": "Dalintis",
+    "active": {
+      "title": "Aktyvios dalijimosi nuorodos"
+    },
+    "hostShares": {
+      "title": "Šio serverio dalijimosi nuorodos"
+    },
+    "resource": {
+      "title": "Aktyvios dalijimosi nuorodos",
+      "type": "Tipas",
+      "access": "Prieiga",
+      "expires": "Galioja iki"
+    }
   }
 }

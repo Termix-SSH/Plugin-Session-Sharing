@@ -188,5 +188,26 @@
   "card": {
     "title": "Deling",
     "loading": "Indlæser..."
+  },
+  "operations": {
+    "list": {
+      "title": "Vis aktive delinger"
+    },
+    "revoke": {
+      "title": "Ophæv deling"
+    },
+    "share": "Del",
+    "active": {
+      "title": "Aktive delinger"
+    },
+    "hostShares": {
+      "title": "Delinger for denne vært"
+    },
+    "resource": {
+      "title": "Aktive delinger",
+      "type": "Type",
+      "access": "Adgang",
+      "expires": "Udløber"
+    }
   }
 }

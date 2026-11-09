@@ -190,5 +190,26 @@
   "card": {
     "title": "שיתוף",
     "loading": "טוען..."
+  },
+  "operations": {
+    "list": {
+      "title": "רשימת שיתופים פעילים"
+    },
+    "revoke": {
+      "title": "ביטול שיתוף"
+    },
+    "share": "שיתוף",
+    "active": {
+      "title": "שיתופים פעילים"
+    },
+    "hostShares": {
+      "title": "שיתופים של מארח זה"
+    },
+    "resource": {
+      "title": "שיתופים פעילים",
+      "type": "סוג",
+      "access": "גישה",
+      "expires": "תפוגה"
+    }
   }
 }

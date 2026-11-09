@@ -10,7 +10,6 @@ import {
   AlertCircle,
   Hand,
   Link2,
-  Loader2,
   MonitorUp,
   Presentation,
   Square,
@@ -24,6 +23,8 @@ import {
   PluginComponent,
   useConfirm,
   FormFooter,
+  ToolbarBand,
+  LoadingState,
 } from "@termix-ssh/plugin-sdk/ui";
 import { CollabMembersSidebar } from "./CollabMembersSidebar";
 import {
@@ -588,7 +589,7 @@ export function CollabRoomTab({
         </div>
       )}
       {/* Header: room identity + primary controls */}
-      <div className="flex items-center gap-2 px-3 py-2 border-b border-border flex-wrap">
+      <ToolbarBand>
         <Presentation className="size-4 text-muted-foreground shrink-0" />
         <span className="text-sm font-semibold truncate">
           {detail?.room.name}
@@ -697,10 +698,10 @@ export function CollabRoomTab({
             </Button>
           )}
         </div>
-      </div>
+      </ToolbarBand>
 
       {isHost && (
-        <div className="flex items-center gap-2 px-3 py-1.5 border-b border-border text-xs text-muted-foreground">
+        <ToolbarBand className="text-xs text-muted-foreground">
           <Link2 className="size-3.5" />
           <span className="flex-1 truncate">
             {detail?.room.guestLinkEnabled
@@ -742,7 +743,7 @@ export function CollabRoomTab({
             {t("collab.guestLink")}:{" "}
             {detail?.room.guestLinkEnabled ? "ON" : "OFF"}
           </Button>
-        </div>
+        </ToolbarBand>
       )}
 
       <div className="relative flex flex-1 min-h-0">
@@ -817,7 +818,7 @@ export function CollabRoomTab({
                   isVisible={isVisible}
                 />
               ) : (
-                <CenteredNote text={t("collab.stageLoading")} />
+                <LoadingState label={t("collab.stageLoading")} />
               )}
             </>
           ) : iAmPresenter && !draft ? (
@@ -853,11 +854,7 @@ export function CollabRoomTab({
           onChange={(event) => setHostSearch(event.target.value)}
         />
         <div className="flex flex-col gap-1">
-          {presentLoading && (
-            <div className="flex justify-center py-4">
-              <Loader2 className="size-4 animate-spin text-muted-foreground" />
-            </div>
-          )}
+          {presentLoading && <LoadingState />}
           {!presentLoading && filteredHosts.length === 0 && (
             <CenteredNote text={t("collab.noHostsFound")} />
           )}

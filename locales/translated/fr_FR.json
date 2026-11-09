@@ -190,5 +190,26 @@
   "card": {
     "title": "Partage",
     "loading": "Chargement..."
+  },
+  "operations": {
+    "list": {
+      "title": "Lister les partages actifs"
+    },
+    "revoke": {
+      "title": "Révoquer le partage"
+    },
+    "share": "Partager",
+    "active": {
+      "title": "Partages actifs"
+    },
+    "hostShares": {
+      "title": "Partages de cet hôte"
+    },
+    "resource": {
+      "title": "Partages actifs",
+      "type": "Type",
+      "access": "Accès",
+      "expires": "Expire"
+    }
   }
 }

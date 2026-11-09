@@ -188,5 +188,26 @@
   "card": {
     "title": "Paylaşım",
     "loading": "Yükleniyor..."
+  },
+  "operations": {
+    "list": {
+      "title": "Aktif paylaşımları listele"
+    },
+    "revoke": {
+      "title": "Paylaşımı iptal et"
+    },
+    "share": "Paylaş",
+    "active": {
+      "title": "Aktif paylaşımlar"
+    },
+    "hostShares": {
+      "title": "Bu sunucunun paylaşımları"
+    },
+    "resource": {
+      "title": "Aktif paylaşımlar",
+      "type": "Tür",
+      "access": "Erişim",
+      "expires": "Son kullanma"
+    }
   }
 }

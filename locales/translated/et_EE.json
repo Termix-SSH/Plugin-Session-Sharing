@@ -188,5 +188,26 @@
   "card": {
     "title": "Jagamine",
     "loading": "Laadimine..."
+  },
+  "operations": {
+    "list": {
+      "title": "Näita aktiivseid jagamisi"
+    },
+    "revoke": {
+      "title": "Tühista jagamine"
+    },
+    "share": "Jaga",
+    "active": {
+      "title": "Aktiivsed jagamised"
+    },
+    "hostShares": {
+      "title": "Selle hosti jagamised"
+    },
+    "resource": {
+      "title": "Aktiivsed jagamised",
+      "type": "Tüüp",
+      "access": "Juurdepääs",
+      "expires": "Aegub"
+    }
   }
 }

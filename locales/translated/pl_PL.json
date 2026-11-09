@@ -192,5 +192,26 @@
   "card": {
     "title": "Udostępnianie",
     "loading": "Ładowanie..."
+  },
+  "operations": {
+    "list": {
+      "title": "Lista aktywnych udostępnień"
+    },
+    "revoke": {
+      "title": "Cofnij udostępnienie"
+    },
+    "share": "Udostępnij",
+    "active": {
+      "title": "Aktywne udostępnienia"
+    },
+    "hostShares": {
+      "title": "Udostępnienia tego hosta"
+    },
+    "resource": {
+      "title": "Aktywne udostępnienia",
+      "type": "Typ",
+      "access": "Dostęp",
+      "expires": "Wygaśnięcie"
+    }
   }
 }

@@ -190,5 +190,26 @@
   "card": {
     "title": "Condivisione",
     "loading": "Caricamento..."
+  },
+  "operations": {
+    "list": {
+      "title": "Elenco condivisioni attive"
+    },
+    "revoke": {
+      "title": "Revoca condivisione"
+    },
+    "share": "Condividi",
+    "active": {
+      "title": "Condivisioni attive"
+    },
+    "hostShares": {
+      "title": "Condivisioni di questo host"
+    },
+    "resource": {
+      "title": "Condivisioni attive",
+      "type": "Tipo",
+      "access": "Accesso",
+      "expires": "Scade"
+    }
   }
 }

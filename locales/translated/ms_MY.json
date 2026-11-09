@@ -186,5 +186,26 @@
   "card": {
     "title": "Kongsi",
     "loading": "Memuatkan..."
+  },
+  "operations": {
+    "list": {
+      "title": "Senaraikan kongsi aktif"
+    },
+    "revoke": {
+      "title": "Cabut kongsi"
+    },
+    "share": "Kongsi",
+    "active": {
+      "title": "Kongsi aktif"
+    },
+    "hostShares": {
+      "title": "Kongsi hos ini"
+    },
+    "resource": {
+      "title": "Kongsi aktif",
+      "type": "Jenis",
+      "access": "Akses",
+      "expires": "Tamat tempoh"
+    }
   }
 }

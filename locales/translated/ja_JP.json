@@ -186,5 +186,26 @@
   "card": {
     "title": "共有",
     "loading": "読み込み中..."
+  },
+  "operations": {
+    "list": {
+      "title": "アクティブな共有の一覧"
+    },
+    "revoke": {
+      "title": "共有の取り消し"
+    },
+    "share": "共有",
+    "active": {
+      "title": "アクティブな共有"
+    },
+    "hostShares": {
+      "title": "このホストの共有"
+    },
+    "resource": {
+      "title": "アクティブな共有",
+      "type": "種類",
+      "access": "アクセス",
+      "expires": "有効期限"
+    }
   }
 }

@@ -186,5 +186,26 @@
   "card": {
     "title": "공유",
     "loading": "로딩 중..."
+  },
+  "operations": {
+    "list": {
+      "title": "활성 공유 목록"
+    },
+    "revoke": {
+      "title": "공유 취소"
+    },
+    "share": "공유",
+    "active": {
+      "title": "활성 공유"
+    },
+    "hostShares": {
+      "title": "이 호스트의 공유"
+    },
+    "resource": {
+      "title": "활성 공유",
+      "type": "유형",
+      "access": "접근 권한",
+      "expires": "만료"
+    }
   }
 }

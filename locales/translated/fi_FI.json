@@ -188,5 +188,26 @@
   "card": {
     "title": "Jakaminen",
     "loading": "Ladataan..."
+  },
+  "operations": {
+    "list": {
+      "title": "Näytä aktiiviset jakoyhteydet"
+    },
+    "revoke": {
+      "title": "Peruuta jakoyhteys"
+    },
+    "share": "Jaa",
+    "active": {
+      "title": "Aktiiviset jakoyhteydet"
+    },
+    "hostShares": {
+      "title": "Tämän isäntälaitteen jakoyhteydet"
+    },
+    "resource": {
+      "title": "Aktiiviset jakoyhteydet",
+      "type": "Tyyppi",
+      "access": "Pääsy",
+      "expires": "Vanhenee"
+    }
   }
 }

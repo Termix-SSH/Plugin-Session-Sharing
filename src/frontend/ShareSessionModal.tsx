@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
-import { Check, Copy, Link2, Search, Shield, User, Users } from "lucide-react";
+import { Check, Copy, Link2, Shield, User, Users } from "lucide-react";
 import { toast } from "sonner";
 import {
   Button,

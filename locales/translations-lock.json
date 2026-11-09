@@ -144,5 +144,14 @@
   "plugin.name": "4911ed90d065",
   "plugin.description": "0572dfa41db5",
   "card.title": "78779badeac1",
-  "card.loading": "b04ba49f8486"
+  "card.loading": "b04ba49f8486",
+  "operations.list.title": "3230edbf4f4b",
+  "operations.revoke.title": "1d9e95fda5e8",
+  "operations.share": "09ca55ca52d2",
+  "operations.active.title": "8d41b35dfffa",
+  "operations.hostShares.title": "e9c8d3c72fc5",
+  "operations.resource.title": "8d41b35dfffa",
+  "operations.resource.type": "3deb74565196",
+  "operations.resource.access": "2f81a22de0af",
+  "operations.resource.expires": "a99be3da0c9d"
 }

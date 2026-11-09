@@ -188,5 +188,26 @@
   "card": {
     "title": "Megosztás",
     "loading": "Betöltés..."
+  },
+  "operations": {
+    "list": {
+      "title": "Aktív megosztások listázása"
+    },
+    "revoke": {
+      "title": "Megosztás visszavonása"
+    },
+    "share": "Megosztás",
+    "active": {
+      "title": "Aktív megosztások"
+    },
+    "hostShares": {
+      "title": "Ennek a hostnak a megosztásai"
+    },
+    "resource": {
+      "title": "Aktív megosztások",
+      "type": "Típus",
+      "access": "Hozzáférés",
+      "expires": "Lejárat"
+    }
   }
 }

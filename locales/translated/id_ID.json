@@ -186,5 +186,26 @@
   "card": {
     "title": "Berbagi",
     "loading": "Memuat..."
+  },
+  "operations": {
+    "list": {
+      "title": "Daftar berbagi aktif"
+    },
+    "revoke": {
+      "title": "Cabut berbagi"
+    },
+    "share": "Bagikan",
+    "active": {
+      "title": "Berbagi aktif"
+    },
+    "hostShares": {
+      "title": "Berbagi dari host ini"
+    },
+    "resource": {
+      "title": "Berbagi aktif",
+      "type": "Tipe",
+      "access": "Akses",
+      "expires": "Kadaluarsa"
+    }
   }
 }

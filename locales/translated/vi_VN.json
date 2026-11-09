@@ -186,5 +186,26 @@
   "card": {
     "title": "Chia sẻ",
     "loading": "Đang tải..."
+  },
+  "operations": {
+    "list": {
+      "title": "Danh sách chia sẻ đang hoạt động"
+    },
+    "revoke": {
+      "title": "Thu hồi chia sẻ"
+    },
+    "share": "Chia sẻ",
+    "active": {
+      "title": "Chia sẻ đang hoạt động"
+    },
+    "hostShares": {
+      "title": "Chia sẻ của máy chủ này"
+    },
+    "resource": {
+      "title": "Chia sẻ đang hoạt động",
+      "type": "Loại",
+      "access": "Quyền truy cập",
+      "expires": "Hết hạn"
+    }
   }
 }

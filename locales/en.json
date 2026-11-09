@@ -188,5 +188,26 @@
   "card": {
     "title": "Sharing",
     "loading": "Loading..."
+  },
+  "operations": {
+    "list": {
+      "title": "List active shares"
+    },
+    "revoke": {
+      "title": "Revoke share"
+    },
+    "share": "Share",
+    "active": {
+      "title": "Active shares"
+    },
+    "hostShares": {
+      "title": "Shares of this host"
+    },
+    "resource": {
+      "title": "Active shares",
+      "type": "Type",
+      "access": "Access",
+      "expires": "Expires"
+    }
   }
 }

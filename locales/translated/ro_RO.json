@@ -190,5 +190,26 @@
   "card": {
     "title": "Partajare",
     "loading": "Se încarcă..."
+  },
+  "operations": {
+    "list": {
+      "title": "Listă partajări active"
+    },
+    "revoke": {
+      "title": "Revocă partajarea"
+    },
+    "share": "Partajează",
+    "active": {
+      "title": "Partajări active"
+    },
+    "hostShares": {
+      "title": "Partajări ale acestui gazdă"
+    },
+    "resource": {
+      "title": "Partajări active",
+      "type": "Tip",
+      "access": "Acces",
+      "expires": "Expiră"
+    }
   }
 }

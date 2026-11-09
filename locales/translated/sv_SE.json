@@ -188,5 +188,26 @@
   "card": {
     "title": "Delning",
     "loading": "Laddar..."
+  },
+  "operations": {
+    "list": {
+      "title": "Lista aktiva delningar"
+    },
+    "revoke": {
+      "title": "Återkalla delning"
+    },
+    "share": "Dela",
+    "active": {
+      "title": "Aktiva delningar"
+    },
+    "hostShares": {
+      "title": "Delningar för denna värd"
+    },
+    "resource": {
+      "title": "Aktiva delningar",
+      "type": "Typ",
+      "access": "Åtkomst",
+      "expires": "Utlöper"
+    }
   }
 }

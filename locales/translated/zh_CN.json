@@ -186,5 +186,26 @@
   "card": {
     "title": "共享",
     "loading": "加载中..."
+  },
+  "operations": {
+    "list": {
+      "title": "列出活跃共享"
+    },
+    "revoke": {
+      "title": "撤销共享"
+    },
+    "share": "共享",
+    "active": {
+      "title": "活跃共享"
+    },
+    "hostShares": {
+      "title": "此主机的共享"
+    },
+    "resource": {
+      "title": "活跃共享",
+      "type": "类型",
+      "access": "访问权限",
+      "expires": "过期时间"
+    }
   }
 }

@@ -190,5 +190,26 @@
   "card": {
     "title": "Compartició",
     "loading": "S'està carregant..."
+  },
+  "operations": {
+    "list": {
+      "title": "Llista les comparticions actives"
+    },
+    "revoke": {
+      "title": "Revocar la compartició"
+    },
+    "share": "Compartir",
+    "active": {
+      "title": "Comparticions actives"
+    },
+    "hostShares": {
+      "title": "Comparticions d'aquest host"
+    },
+    "resource": {
+      "title": "Comparticions actives",
+      "type": "Tipus",
+      "access": "Accés",
+      "expires": "Caduca"
+    }
   }
 }

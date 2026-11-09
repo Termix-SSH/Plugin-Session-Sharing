@@ -32,6 +32,7 @@ Read the [docs](https://docs.termix.site/plugins/session-sharing) to set it up a
 - Links that expire or can be revoked
 - Meeting rooms where a presenter shows a session and can hand over control
 - Guest links for people without an account
+- List and revoke shares through Termix actions, and a host's shares on the host page
 
 <br />
 

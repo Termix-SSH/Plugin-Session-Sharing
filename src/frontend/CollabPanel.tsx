@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { toast } from "sonner";
-import { Loader2, Presentation, RefreshCw } from "lucide-react";
+import { Presentation, RefreshCw } from "lucide-react";
 import {
   AddButton,
   Button,
@@ -13,6 +13,8 @@ import {
   ListRow,
   PanelList,
   TextField,
+  ToolbarBand,
+  LoadingState,
 } from "@termix-ssh/plugin-sdk/ui";
 import type { CollabRoom } from "./api";
 import type { MeetingBackend } from "./meeting-backend";
@@ -71,7 +73,7 @@ export function CollabPanel({
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
-      <div className="flex shrink-0 items-center gap-2 border-b border-border px-3 py-2">
+      <ToolbarBand>
         <span className="min-w-0 flex-1 truncate text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
           {t("collab.roomCount", { count: rooms.length })}
         </span>
@@ -88,14 +90,12 @@ export function CollabPanel({
           label={t("collab.createRoom")}
           onClick={() => setCreateOpen(true)}
         />
-      </div>
+      </ToolbarBand>
 
       <PanelList
         empty={
           loading ? (
-            <div className="flex justify-center py-6">
-              <Loader2 className="size-4 animate-spin text-muted-foreground" />
-            </div>
+            <LoadingState />
           ) : (
             <EmptyState icon={Presentation} title={t("collab.noRooms")} />
           )

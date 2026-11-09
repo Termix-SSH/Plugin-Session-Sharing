@@ -190,5 +190,26 @@
   "card": {
     "title": "Partilha",
     "loading": "A carregar..."
+  },
+  "operations": {
+    "list": {
+      "title": "Listar partilhas ativas"
+    },
+    "revoke": {
+      "title": "Revogar partilha"
+    },
+    "share": "Partilhar",
+    "active": {
+      "title": "Partilhas ativas"
+    },
+    "hostShares": {
+      "title": "Partilhas deste host"
+    },
+    "resource": {
+      "title": "Partilhas ativas",
+      "type": "Tipo",
+      "access": "Acesso",
+      "expires": "Expira"
+    }
   }
 }

@@ -190,5 +190,26 @@
   "card": {
     "title": "Dijeljenje",
     "loading": "Učitavanje..."
+  },
+  "operations": {
+    "list": {
+      "title": "Popis aktivnih dijeljenja"
+    },
+    "revoke": {
+      "title": "Poništi dijeljenje"
+    },
+    "share": "Dijeli",
+    "active": {
+      "title": "Aktivna dijeljenja"
+    },
+    "hostShares": {
+      "title": "Dijeljenja ovog hosta"
+    },
+    "resource": {
+      "title": "Aktivna dijeljenja",
+      "type": "Vrsta",
+      "access": "Pristup",
+      "expires": "Istječe"
+    }
   }
 }

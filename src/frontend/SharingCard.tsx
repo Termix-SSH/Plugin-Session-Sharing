@@ -7,6 +7,7 @@ import {
   ListRow,
   ListRowAction,
   PanelList,
+  LoadingState,
 } from "@termix-ssh/plugin-sdk/ui";
 import {
   getAllActiveSessionShares,
@@ -64,9 +65,7 @@ export function SharingCard({
   };
 
   if (!shares) {
-    return (
-      <p className="p-3 text-xs text-muted-foreground">{t("card.loading")}</p>
-    );
+    return <LoadingState compact label={t("card.loading")} />;
   }
 
   const hostName = (id: number) => {
@@ -80,6 +79,7 @@ export function SharingCard({
         {t("sessionSharing.activeShares")}
       </span>
       <PanelList
+        className="flex-none overflow-visible"
         empty={
           <p className="px-3 py-2 text-xs text-muted-foreground">
             {t("sessionSharing.noActiveShares")}
@@ -131,6 +131,7 @@ export function SharingCard({
         {t("nav.collab")}
       </span>
       <PanelList
+        className="flex-none overflow-visible"
         empty={
           <p className="px-3 py-2 text-xs text-muted-foreground">
             {t("collab.noRooms")}
