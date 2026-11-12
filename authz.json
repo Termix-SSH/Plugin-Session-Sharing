@@ -1,0 +1,270 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Termix-SSH/Termix/main/scripts/authz/authz.schema.json",
+  "seed": [
+    {
+      "as": "owner",
+      "method": "POST",
+      "path": "/plugin-api/session-sharing/rooms",
+      "body": {
+        "name": "authz-own-name"
+      },
+      "capture": {
+        "session-sharing.rooms": "room.id"
+      }
+    }
+  ],
+  "routes": {
+    "DELETE /plugin-api/session-sharing/:shareId": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.item"
+      },
+      "params": {
+        "shareId": "=authz-none"
+      },
+      "destructive": true,
+      "allowed": "any",
+      "note": "No item in the test data (needs a live terminal share); only session, permission and unknown id refusals are checked"
+    },
+    "POST /plugin-api/session-sharing/:shareId/end": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.item"
+      },
+      "params": {
+        "shareId": "=authz-none"
+      },
+      "allowed": "any",
+      "note": "No item in the test data (needs a live terminal share); only session, permission and unknown id refusals are checked"
+    },
+    "GET /plugin-api/session-sharing/active": {
+      "access": "user",
+      "permission": "session-sharing.use"
+    },
+    "POST /plugin-api/session-sharing/create": {
+      "access": "user",
+      "resource": {
+        "kind": "host",
+        "min": "connect",
+        "key": "hostId"
+      },
+      "body": {
+        "hostId": "{{host}}",
+        "sessionId": "authz-x",
+        "protocol": "ssh",
+        "shareType": "link",
+        "permissionLevel": "read-only"
+      }
+    },
+    "GET /plugin-api/session-sharing/directory": {
+      "access": "user",
+      "permission": "session-sharing.use"
+    },
+    "GET /plugin-api/session-sharing/guest/:token": {
+      "access": "public"
+    },
+    "GET /plugin-api/session-sharing/host/:hostId/active": {
+      "access": "user",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      },
+      "filtered": true,
+      "note": "Lists only shares the caller made"
+    },
+    "GET /plugin-api/session-sharing/meeting-host/:syncId": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.meeting-host"
+      },
+      "params": {
+        "syncId": "=authz-none"
+      },
+      "allowed": "any",
+      "note": "No meeting-host in the test data (needs a linked desktop); only session, permission and unknown id refusals are checked"
+    },
+    "GET /plugin-api/session-sharing/public-url": {
+      "access": "user",
+      "permission": "session-sharing.use"
+    },
+    "GET /plugin-api/session-sharing/resolve/:linkToken": {
+      "access": "public",
+      "params": {
+        "linkToken": "shareLink"
+      }
+    },
+    "GET /plugin-api/session-sharing/rooms": {
+      "access": "user",
+      "permission": "session-sharing.use"
+    },
+    "POST /plugin-api/session-sharing/rooms": {
+      "access": "user"
+    },
+    "DELETE /plugin-api/session-sharing/rooms/:id": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      },
+      "destructive": true
+    },
+    "GET /plugin-api/session-sharing/rooms/:id": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      }
+    },
+    "POST /plugin-api/session-sharing/rooms/:id/control": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      },
+      "body": {
+        "userId": null
+      }
+    },
+    "POST /plugin-api/session-sharing/rooms/:id/control/request": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      }
+    },
+    "GET /plugin-api/session-sharing/rooms/:id/control/requests": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      }
+    },
+    "DELETE /plugin-api/session-sharing/rooms/:id/control/requests/:userId": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      },
+      "destructive": true
+    },
+    "POST /plugin-api/session-sharing/rooms/:id/end": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      }
+    },
+    "POST /plugin-api/session-sharing/rooms/:id/guest-link": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      },
+      "body": {
+        "enabled": false
+      }
+    },
+    "POST /plugin-api/session-sharing/rooms/:id/guests/remove": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      },
+      "destructive": true
+    },
+    "POST /plugin-api/session-sharing/rooms/:id/members": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      },
+      "body": {
+        "userIds": ["{{user:other}}"]
+      }
+    },
+    "DELETE /plugin-api/session-sharing/rooms/:id/members/:userId": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      },
+      "destructive": true
+    },
+    "POST /plugin-api/session-sharing/rooms/:id/present": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      },
+      "body": {
+        "protocol": "ssh",
+        "sessionId": "authz-x",
+        "hostId": "{{host}}"
+      }
+    },
+    "GET /plugin-api/session-sharing/rooms/:id/stage": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      }
+    },
+    "POST /plugin-api/session-sharing/rooms/:id/stop": {
+      "access": "user",
+      "resource": {
+        "kind": "own",
+        "fixture": "session-sharing.rooms"
+      },
+      "params": {
+        "id": "session-sharing.rooms"
+      },
+      "destructive": true
+    },
+    "GET /plugin-api/session-sharing/shared-with-me": {
+      "access": "user",
+      "permission": "session-sharing.use"
+    }
+  }
+}
