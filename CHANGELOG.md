@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1
+
+### Fixed
+
+- Share and guest links are stored as hashes, never as the link itself. Existing links keep working
+
 ## 1.2.0
 
 ### Added

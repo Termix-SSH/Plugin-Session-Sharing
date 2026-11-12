@@ -1,4 +1,5 @@
-import { and, desc, eq, gt, inArray, isNull } from "drizzle-orm";
+import { createHash } from "node:crypto";
+import { and, desc, eq, gt, inArray, isNotNull, isNull } from "drizzle-orm";
 import type { PluginDatabase } from "@termix-ssh/plugin-sdk/backend";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -7,6 +8,18 @@ import type { PluginDatabase } from "@termix-ssh/plugin-sdk/backend";
 type Table = any;
 type Drizzle = any;
 /* eslint-enable @typescript-eslint/no-explicit-any */
+
+const TOKEN_PREFIX = "sha256:";
+
+/** Link tokens are stored hashed, like session tokens in core. */
+export function hashToken(token: string): string {
+  return TOKEN_PREFIX + createHash("sha256").update(token).digest("hex");
+}
+
+/** The stored token is a hash, so lists leave it out. The link shows once. */
+function withoutToken(share: ShareRecord): ShareRecord {
+  return { ...share, linkToken: null };
+}
 
 type ShareType = "link" | "user" | "room";
 export type PermissionLevel = "read-only" | "read-write";
@@ -122,6 +135,26 @@ export function createShareRepository(db: PluginDatabase, tables: Tables) {
   return {
     findById,
 
+    /** Hashes link tokens saved before they were stored hashed. */
+    async hashStoredTokens(): Promise<number> {
+      const drizzle = await client();
+      const rows: { id: string; token: string }[] = await drizzle
+        .select({ id: shares.id, token: shares.linkToken })
+        .from(shares)
+        .where(isNotNull(shares.linkToken));
+      let changed = 0;
+      for (const row of rows) {
+        if (row.token.startsWith(TOKEN_PREFIX)) continue;
+        await drizzle
+          .update(shares)
+          .set({ linkToken: hashToken(row.token) })
+          .where(eq(shares.id, row.id));
+        changed++;
+      }
+      if (changed) await db.persist();
+      return changed;
+    },
+
     async create(input: ShareCreateInput): Promise<ShareRecord> {
       await (await client()).insert(shares).values({
         id: input.id,
@@ -132,7 +165,7 @@ export function createShareRepository(db: PluginDatabase, tables: Tables) {
         tabInstanceId: input.tabInstanceId ?? null,
         shareType: input.shareType,
         targetUserId: input.targetUserId ?? null,
-        linkToken: input.linkToken ?? null,
+        linkToken: input.linkToken ? hashToken(input.linkToken) : null,
         permissionLevel: input.permissionLevel,
         expiresAt: input.expiresAt,
       });
@@ -163,7 +196,12 @@ export function createShareRepository(db: PluginDatabase, tables: Tables) {
       )
         .select()
         .from(shares)
-        .where(and(eq(shares.linkToken, linkToken), activeShare(shares, now)))
+        .where(
+          and(
+            eq(shares.linkToken, hashToken(linkToken)),
+            activeShare(shares, now),
+          ),
+        )
         .limit(1);
       return rows[0] ?? null;
     },
@@ -173,7 +211,9 @@ export function createShareRepository(db: PluginDatabase, tables: Tables) {
       ownerUserId: string,
       now = nowIso(),
     ): Promise<ShareRecord[]> {
-      return (await client())
+      const rows: ShareRecord[] = await (
+        await client()
+      )
         .select()
         .from(shares)
         .where(
@@ -183,6 +223,7 @@ export function createShareRepository(db: PluginDatabase, tables: Tables) {
             activeShare(shares, now),
           ),
         );
+      return rows.map(withoutToken);
     },
 
     /** Every active share this user made, newest first. */
@@ -198,7 +239,9 @@ export function createShareRepository(db: PluginDatabase, tables: Tables) {
         .where(
           and(eq(shares.ownerUserId, ownerUserId), activeShare(shares, now)),
         );
-      return rows.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+      return rows
+        .map(withoutToken)
+        .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
     },
 
     /** Active user shares aimed at this user. */
@@ -315,6 +358,25 @@ export function createRoomRepository(
   }
 
   return {
+    /** Hashes link tokens saved before they were stored hashed. */
+    async hashStoredTokens(): Promise<number> {
+      const drizzle = await client();
+      const rows: { id: string; token: string }[] = await drizzle
+        .select({ id: rooms.id, token: rooms.guestLinkToken })
+        .from(rooms)
+        .where(isNotNull(rooms.guestLinkToken));
+      let changed = 0;
+      for (const row of rows) {
+        if (row.token.startsWith(TOKEN_PREFIX)) continue;
+        await drizzle
+          .update(rooms)
+          .set({ guestLinkToken: hashToken(row.token) })
+          .where(eq(rooms.id, row.id));
+        changed++;
+      }
+      if (changed) await db.persist();
+      return changed;
+    },
     findById,
     findMember,
     updateStage,
@@ -348,7 +410,12 @@ export function createRoomRepository(
       )
         .select()
         .from(rooms)
-        .where(and(eq(rooms.guestLinkToken, token), isNull(rooms.endedAt)))
+        .where(
+          and(
+            eq(rooms.guestLinkToken, hashToken(token)),
+            isNull(rooms.endedAt),
+          ),
+        )
         .limit(1);
       return rows[0] ?? null;
     },
@@ -358,7 +425,7 @@ export function createRoomRepository(
         await client()
       )
         .update(rooms)
-        .set({ guestLinkToken: token })
+        .set({ guestLinkToken: token ? hashToken(token) : null })
         .where(eq(rooms.id, roomId));
       await db.persist();
     },

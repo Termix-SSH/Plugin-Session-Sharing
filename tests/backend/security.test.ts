@@ -6,6 +6,7 @@
 
 import { afterEach, describe, expect, it } from "vitest";
 import { asUser, expireShare, startServer, type TestServer } from "./helpers";
+import { hashToken } from "../../src/backend/repositories.js";
 
 let server: TestServer | null = null;
 
@@ -324,6 +325,15 @@ describe("member joins", () => {
 });
 
 describe("room guest links", () => {
+  it("stores only a hash of the guest link", async () => {
+    server = await startServer();
+    const { token } = await roomOnStage(server);
+    const rows = server.db.sqlite
+      .prepare("SELECT guest_link_token AS token FROM p_session_sharing_rooms")
+      .all() as { token: string }[];
+    expect(rows).toEqual([{ token: hashToken(token) }]);
+  });
+
   it("resolves the stage for a guest without host details", async () => {
     server = await startServer();
     const { token } = await roomOnStage(server);
