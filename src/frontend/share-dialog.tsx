@@ -3,6 +3,7 @@ import type { TermixApp } from "@termix-ssh/plugin-sdk/frontend";
 import { ShareSessionModal } from "./ShareSessionModal";
 import type { SessionShareProtocol } from "./api";
 import { sessionPublicUrl } from "./meeting-backend";
+import { appPageUrl } from "./app-url";
 
 let shareApp: TermixApp | null = null;
 
@@ -13,7 +14,7 @@ export function bindShareApp(app: TermixApp | null): void {
 function resolveShareBase(
   origin: "local" | "remote" | undefined,
 ): Promise<string | null> {
-  if (!shareApp) return Promise.resolve(window.location.href);
+  if (!shareApp) return Promise.resolve(appPageUrl());
   return sessionPublicUrl(shareApp, origin);
 }
 

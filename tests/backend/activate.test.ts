@@ -34,6 +34,7 @@ describe("session-sharing activate", () => {
     async (capability) => {
       db = await createTestDb(pluginDir);
       const mock = createMockCtx({
+        sandbox: true,
         pluginId: manifest.id,
         manifest,
         capabilities: manifest.capabilities.filter((c) => c !== capability),
@@ -53,6 +54,7 @@ describe("session-sharing activate", () => {
       "INSERT INTO users (id, username) VALUES ('alice', 'alice'), ('bob', 'bob'); INSERT INTO ssh_data (id) VALUES (1)",
     );
     const mock = createMockCtx({
+      sandbox: true,
       pluginId: manifest.id,
       manifest,
       capabilities: manifest.capabilities.filter((c) => c !== "hosts:read"),

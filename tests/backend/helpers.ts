@@ -117,6 +117,7 @@ export async function startServer(
   const live = createFakeLive();
   let router: Router | null = null;
   const mock = createMockCtx({
+    sandbox: true,
     pluginId: manifest.id,
     manifest,
     capabilities: manifest.capabilities,
@@ -161,9 +162,9 @@ export async function startServer(
     mock,
     live,
     sharing: mock.services.get("sessions.sharing") as SessionSharingV1,
-    guests: mock.ctx.registry.consume<SessionGuestsV1>(
+    guests: (await mock.ctx.registry.consume<SessionGuestsV1>(
       "session-sharing.guests",
-    )!,
+    ))!,
     async request(method, path, { user = "alice", body: given } = {}) {
       const body = method === "GET" ? undefined : given;
       const response = await fetch(`http://127.0.0.1:${port}${path}`, {

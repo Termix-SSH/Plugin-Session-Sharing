@@ -69,8 +69,10 @@ export function createLiveSessions(ctx: PluginContext) {
     return fn();
   }
 
-  function provider(protocol: string): Async<LiveSessionProvider> | null {
-    const handle = ctx.services.get<Async<LiveSessionProvider>>(
+  async function provider(
+    protocol: string,
+  ): Promise<Async<LiveSessionProvider> | null> {
+    const handle = await ctx.services.get<Async<LiveSessionProvider>>(
       LIVE_SESSIONS_SERVICE,
       { provider: protocol },
     );
@@ -82,7 +84,7 @@ export function createLiveSessions(ctx: PluginContext) {
     sessionId: string,
     asUser?: string,
   ): Promise<LiveSessionInfo | null> {
-    const live = provider(protocol);
+    const live = await provider(protocol);
     if (!live) return null;
     try {
       return (await run(asUser, () => live.getSession(sessionId))) ?? null;
@@ -119,7 +121,7 @@ export function createLiveSessions(ctx: PluginContext) {
       shareId: string,
       asUser?: string,
     ): Promise<{ label: string | null }[]> {
-      const live = provider(protocol);
+      const live = await provider(protocol);
       if (!live || !("listGuests" in live)) return [];
       try {
         return (
@@ -137,7 +139,7 @@ export function createLiveSessions(ctx: PluginContext) {
       reason: string,
       asUser?: string,
     ): Promise<void> {
-      const live = provider(protocol);
+      const live = await provider(protocol);
       if (!live || !("ownerEndSession" in live)) return;
       await run(asUser, () => live.ownerEndSession(sessionId, reason)).catch(
         () => {},
@@ -151,7 +153,7 @@ export function createLiveSessions(ctx: PluginContext) {
       options: { reason: string; userId?: string | null },
       asUser?: string,
     ): Promise<void> {
-      const live = provider(protocol);
+      const live = await provider(protocol);
       if (!live || !("disconnectParticipants" in live)) return;
       await run(asUser, () =>
         live.disconnectParticipants(sessionId, shareId, options),
@@ -165,7 +167,7 @@ export function createLiveSessions(ctx: PluginContext) {
       controllerUserId: string | null,
       asUser?: string,
     ): Promise<void> {
-      const live = provider(protocol);
+      const live = await provider(protocol);
       if (!live || !("setRoomShareControl" in live)) return;
       await run(asUser, () =>
         live.setRoomShareControl(sessionId, shareId, controllerUserId),
@@ -180,7 +182,7 @@ export function createLiveSessions(ctx: PluginContext) {
       asUser?: string,
       shareId?: string,
     ): Promise<string> {
-      const live = provider(protocol);
+      const live = await provider(protocol);
       if (!live || !("createViewerToken" in live)) {
         throw new Error(`No ${protocol} session provider is running`);
       }
