@@ -1,4 +1,4 @@
-import type { WebSocket } from "ws";
+import type { RoomSocket } from "./room-hub.js";
 import type { SharingDeps } from "./deps.js";
 import type { ShareRecord } from "./repositories.js";
 
@@ -96,7 +96,7 @@ export function createSessionSharingService(
       if (!room || room.endedAt) return false;
       if (!(await rooms.findMember(roomId, userId))) return false;
       hub.subscribe(roomId, {
-        ws: socket as WebSocket,
+        ws: socket as RoomSocket,
         userId,
         username: await directory.username(userId),
       });
@@ -104,7 +104,7 @@ export function createSessionSharingService(
     },
 
     async unsubscribeRoom(socket, roomId) {
-      hub.unsubscribe(socket as WebSocket, roomId);
+      hub.unsubscribe(socket as RoomSocket, roomId);
     },
   };
 }
