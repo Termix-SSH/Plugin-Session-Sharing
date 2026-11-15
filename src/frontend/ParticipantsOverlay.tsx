@@ -5,10 +5,11 @@ import {
   type SessionParticipantInfo,
 } from "./SharedSessionView";
 
-interface ParticipantsOverlayProps {
+export interface ParticipantsOverlayProps {
+  // In a frame this call crosses to the shell, so it answers with a Promise.
   subscribe: (
     listener: (message: { type: string; [key: string]: unknown }) => void,
-  ) => () => void;
+  ) => (() => void) | Promise<() => void>;
 }
 
 export function ParticipantsOverlay({ subscribe }: ParticipantsOverlayProps) {
@@ -17,20 +18,29 @@ export function ParticipantsOverlay({ subscribe }: ParticipantsOverlayProps) {
     [],
   );
 
-  useEffect(
-    () =>
-      subscribe((message) => {
-        if (
-          message.type === "participants" &&
-          Array.isArray(message.participants)
-        ) {
-          setParticipants(message.participants as SessionParticipantInfo[]);
-        } else if (message.type === "session_closed") {
-          setParticipants([]);
-        }
-      }),
-    [subscribe],
-  );
+  useEffect(() => {
+    const subscribed = subscribe((message) => {
+      if (
+        message.type === "participants" &&
+        Array.isArray(message.participants)
+      ) {
+        setParticipants(message.participants as SessionParticipantInfo[]);
+      } else if (message.type === "session_closed") {
+        setParticipants([]);
+      }
+    });
+    return () => {
+      if (typeof subscribed === "function") {
+        subscribed();
+        return;
+      }
+      void Promise.resolve(subscribed)
+        .then((unsubscribe) => {
+          if (typeof unsubscribe === "function") unsubscribe();
+        })
+        .catch(() => {});
+    };
+  }, [subscribe]);
 
   return (
     <ParticipantsBadge
