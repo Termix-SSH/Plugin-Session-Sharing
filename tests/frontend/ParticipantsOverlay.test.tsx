@@ -9,15 +9,14 @@ vi.mock("@termix-ssh/plugin-sdk/frontend", async (importOriginal) => ({
 import { ParticipantsOverlay } from "../../src/frontend/ParticipantsOverlay";
 
 describe("ParticipantsOverlay", () => {
-  it("unsubscribes when subscribe answers right away", () => {
+  it("unsubscribes when subscribe answers right away", async () => {
     const unsubscribe = vi.fn();
     const { unmount } = render(
       <ParticipantsOverlay subscribe={() => unsubscribe} />,
     );
     unmount();
-    return act(async () => {}).then(() =>
-      expect(unsubscribe).toHaveBeenCalledTimes(1),
-    );
+    await act(async () => {});
+    expect(unsubscribe).toHaveBeenCalledTimes(1);
   });
 
   it("unsubscribes when subscribe answers with a Promise, as it does in a frame", async () => {
