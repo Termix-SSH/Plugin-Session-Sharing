@@ -3,8 +3,25 @@ import type { CollabRuntimeStore } from "./runtime-store.js";
 
 const PRESENCE_HEARTBEAT_MS = 15_000;
 
+/**
+ * A terminal socket, or a handle for one from another plugin process: a
+ * stable key and a send function. A handle is copied on every call, so it is
+ * matched by its key, not by identity.
+ */
+export type RoomSocket =
+  WebSocket | { termixSocketKey: string; send: (data: string) => unknown };
+
+function sameSocket(a: RoomSocket, b: RoomSocket): boolean {
+  if (a === b) return true;
+  const keyA = (a as { termixSocketKey?: unknown }).termixSocketKey;
+  return (
+    typeof keyA === "string" &&
+    keyA === (b as { termixSocketKey?: unknown }).termixSocketKey
+  );
+}
+
 export interface CollabRoomClient {
-  ws: WebSocket;
+  ws: RoomSocket;
   userId: string;
   username: string;
 }
@@ -42,19 +59,19 @@ export class CollabRoomHub {
       this.rooms.set(roomId, clients);
     }
     for (const existing of clients) {
-      if (existing.ws === client.ws) return;
+      if (sameSocket(existing.ws, client.ws)) return;
     }
     clients.add(client);
     void this.refreshPresence(roomId);
   }
 
   /** Drops the socket from one room, or from every room when roomId is omitted. */
-  unsubscribe(ws: WebSocket, roomId?: string): void {
+  unsubscribe(ws: RoomSocket, roomId?: string): void {
     for (const [id, clients] of this.rooms) {
       if (roomId && id !== roomId) continue;
       let removed = false;
       for (const client of clients) {
-        if (client.ws === ws) {
+        if (sameSocket(client.ws, ws)) {
           clients.delete(client);
           removed = true;
         }
@@ -85,9 +102,14 @@ export class CollabRoomHub {
     if (!clients) return;
     const payload = JSON.stringify(message);
     for (const client of clients) {
-      if (client.ws.readyState !== client.ws.OPEN) continue;
+      const ws = client.ws as Partial<WebSocket> & {
+        send: (data: string) => unknown;
+      };
+      // A handle has no readyState; its owner drops sends after a close.
+      if (ws.readyState !== undefined && ws.readyState !== ws.OPEN) continue;
       try {
-        client.ws.send(payload);
+        const sent = ws.send(payload);
+        if (sent instanceof Promise) sent.catch(() => {});
       } catch {
         /* keep broadcasting to the rest */
       }

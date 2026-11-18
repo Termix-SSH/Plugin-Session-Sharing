@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.2.1
+
+### Changed
+
+- The participants list over a terminal only loads while someone else is watching, which saves memory with many terminals open
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- The shared terminal and remote desktop draw in their own frames (needs Termix 26.11.2)
+
+### Fixed
+
+- Share and guest links are stored as hashes, never as the link itself. Existing links keep working
+
 ## 1.2.0
 
 ### Added

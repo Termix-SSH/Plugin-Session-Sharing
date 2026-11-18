@@ -33,6 +33,7 @@ import {
   type SessionOrigin,
 } from "./api";
 import { guestViewUrl } from "./meeting-backend";
+import { appPageUrl } from "./app-url";
 
 const EXPIRY_PRESETS = [
   { key: "oneHour", hours: 1 },
@@ -142,7 +143,7 @@ export function ShareSessionModal({
         mode === "link"
           ? resolvePublicUrl
             ? await resolvePublicUrl(origin)
-            : window.location.href
+            : appPageUrl()
           : null;
       if (mode === "link" && !guestViewUrl(base, "shared", "check")) {
         toast.error(t("sessionSharing.linkNeedsServer"));

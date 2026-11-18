@@ -236,6 +236,10 @@ export function registerShareRoutes(router: Router, deps: SharingDeps): void {
         }
       }
 
+      const linkToken =
+        shareType === "link"
+          ? crypto.randomBytes(24).toString("base64url")
+          : null;
       const created = await shares.create({
         id: crypto.randomUUID(),
         hostId: numericHostId,
@@ -245,17 +249,14 @@ export function registerShareRoutes(router: Router, deps: SharingDeps): void {
         tabInstanceId: tabInstanceId ?? null,
         shareType,
         targetUserId: shareType === "user" ? String(targetUserId) : null,
-        linkToken:
-          shareType === "link"
-            ? crypto.randomBytes(24).toString("base64url")
-            : null,
+        linkToken,
         permissionLevel,
         expiresAt: computeExpiresAt(expiryHours),
       });
 
       res.json({
         shareId: created.id,
-        linkToken: created.linkToken,
+        linkToken,
         expiresAt: created.expiresAt,
       });
     } catch (error) {

@@ -60,6 +60,9 @@ export async function activate(ctx: PluginContext) {
       isSharingEnabledForHost(ctx, directory.hostExists, hostId),
   };
 
+  await deps.shares.hashStoredTokens();
+  await deps.rooms.hashStoredTokens();
+
   const actions = createRoomActions(deps);
   store.onEvent(actions.onRuntimeEvent);
 

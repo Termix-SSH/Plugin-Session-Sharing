@@ -1,5 +1,6 @@
 import type { TermixApp } from "@termix-ssh/plugin-sdk/frontend";
 import { createMeetingApi } from "./meeting-api";
+import { appPageUrl } from "./app-url";
 
 export type MeetingBackend = Awaited<ReturnType<typeof connectMeetings>>;
 
@@ -13,7 +14,7 @@ export async function connectMeetings(app: TermixApp) {
   const publicUrl =
     (await configuredPublicUrl(app, origin)) ||
     remoteUrl ||
-    (!app.desktop.available ? window.location.href : null);
+    (!app.desktop.available ? appPageUrl() : null);
   const assertCurrent = async () => {
     const current = app.desktop.available
       ? await app.desktop.remoteServerUrl()
@@ -75,7 +76,7 @@ export async function sessionPublicUrl(
   origin: "local" | "remote" | undefined,
 ): Promise<string | null> {
   if (!app.desktop.available) {
-    return (await configuredPublicUrl(app, origin)) || window.location.href;
+    return (await configuredPublicUrl(app, origin)) || appPageUrl();
   }
   if (origin !== "remote") return null;
   return (

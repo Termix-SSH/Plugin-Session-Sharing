@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it } from "vitest";
+import { hashToken } from "../../src/backend/repositories.js";
 import { startServer, type TestServer } from "./helpers";
 
 let server: TestServer | null = null;
@@ -275,5 +276,54 @@ describe("share routes", () => {
       const res = await server.request(method, path, { body: {} });
       expect([method, path, res.status]).toEqual([method, path, 403]);
     }
+  });
+});
+
+describe("stored link tokens", () => {
+  const stored = (server: TestServer) =>
+    server.db.sqlite
+      .prepare("SELECT link_token AS token FROM p_session_sharing_shares")
+      .all() as { token: string }[];
+
+  it("keeps only a hash and still resolves the link", async () => {
+    server = await startServer();
+    server.live.addSession("sess-1", "alice");
+    const created = await server.request("POST", "/create", {
+      body: linkShare(),
+    });
+    const token = created.body.linkToken as string;
+
+    expect(stored(server)).toEqual([
+      { token: expect.stringMatching(/^sha256:[0-9a-f]{64}$/) },
+    ]);
+    expect(JSON.stringify(stored(server))).not.toContain(token);
+
+    const resolved = await server.request("GET", `/resolve/${token}`, {
+      user: null,
+    });
+    expect(resolved.status).toBe(200);
+
+    for (const path of ["/active", "/host/1/active"]) {
+      const list = await server.request("GET", path);
+      expect(list.body.shares[0].linkToken).toBeNull();
+    }
+  });
+
+  it("hashes tokens saved before they were hashed", async () => {
+    server = await startServer();
+    server.live.addSession("sess-1", "alice");
+    await server.request("POST", "/create", { body: linkShare() });
+    server.db.sqlite
+      .prepare("UPDATE p_session_sharing_shares SET link_token = ?")
+      .run("old-plain-token");
+
+    // A restart hashes what was saved in plain text.
+    const { activate } = await import("../../src/backend/index.js");
+    await activate(server.mock.ctx);
+    expect(stored(server)).toEqual([{ token: hashToken("old-plain-token") }]);
+    const resolved = await server.request("GET", "/resolve/old-plain-token", {
+      user: null,
+    });
+    expect(resolved.status).toBe(200);
   });
 });

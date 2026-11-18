@@ -265,7 +265,11 @@ export function activate(app: TermixApp): void {
   });
 
   // Rooms and share links draw remote desktop streams through this slot.
-  app.declareActionSlot({ id: REMOTE_DISPLAY_SLOT, accepts: ["component"] });
+  app.declareActionSlot({
+    id: REMOTE_DISPLAY_SLOT,
+    accepts: ["component"],
+    fit: "fill",
+  });
 
   // Guest pages open the tab type's standalone view by ?view= name.
   const guestViews = {
@@ -365,6 +369,9 @@ export function activate(app: TermixApp): void {
     actionId: "session-sharing.participants",
     titleKey: "collab.members",
     kind: "component",
+    // Only while others watch; terminals older than ssh-terminal 1.4.1 do
+    // not say, so they keep it on.
+    when: (context) => context.shared !== false,
     component: ParticipantsOverlay as unknown as ComponentType<
       Record<string, unknown>
     >,
