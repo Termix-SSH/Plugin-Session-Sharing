@@ -9,6 +9,7 @@
       "ownerLabel": "Proprietário do host"
     },
     "modalTitle": "Compartilhar sessão",
+    "close": "Fechar",
     "shareButton": "Compartilhar",
     "notReadyToShare": "A sessão ainda não está pronta para ser compartilhada",
     "modeTab": {

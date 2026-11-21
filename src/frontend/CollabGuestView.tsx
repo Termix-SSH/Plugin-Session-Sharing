@@ -5,6 +5,7 @@ import { Eye, Presentation } from "lucide-react";
 import { RemoteDisplay } from "./shared";
 import { GuestTerminalView } from "./SharedSessionView";
 import { resolveCollabGuestStage, type CollabGuestStage } from "./api";
+import { linkToken } from "./link-token";
 
 const POLL_MS = 5000;
 
@@ -13,9 +14,13 @@ const POLL_MS = 5000;
  * Guests have no account and no event channel, so they poll the public
  * resolve endpoint and remount the viewer whenever the stage share changes.
  */
-export default function CollabGuestView() {
+export default function CollabGuestView({
+  params,
+}: {
+  params?: URLSearchParams;
+}) {
   const { t } = useTranslation();
-  const token = new URLSearchParams(window.location.search).get("token");
+  const token = linkToken(params);
   const [roomName, setRoomName] = useState<string | null>(null);
   const [stage, setStage] = useState<CollabGuestStage | null>(null);
   const [error, setError] = useState<string | null>(null);

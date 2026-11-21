@@ -9,6 +9,7 @@
       "ownerLabel": "Власник хоста"
     },
     "modalTitle": "Спільний доступ до сесії",
+    "close": "Закрити",
     "shareButton": "Поділитися",
     "notReadyToShare": "Сесія ще не готова для спільного доступу",
     "modeTab": {

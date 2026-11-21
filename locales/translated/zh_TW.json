@@ -9,6 +9,7 @@
       "ownerLabel": "主機擁有者"
     },
     "modalTitle": "共用工作階段",
+    "close": "關閉",
     "shareButton": "共用",
     "notReadyToShare": "工作階段尚未準備好共用",
     "modeTab": {

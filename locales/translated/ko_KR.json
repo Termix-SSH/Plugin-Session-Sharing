@@ -9,6 +9,7 @@
       "ownerLabel": "호스트 소유자"
     },
     "modalTitle": "세션 공유",
+    "close": "닫기",
     "shareButton": "공유",
     "notReadyToShare": "아직 세션을 공유할 준비가 되지 않았습니다.",
     "modeTab": {

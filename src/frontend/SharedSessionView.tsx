@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { useXTerm } from "react-xtermjs";
 import { FitAddon } from "@xterm/addon-fit";
@@ -8,8 +8,14 @@ import {
   type ResolvedShareLink,
   type ShareLinkErrorKind,
 } from "./api";
-import { Loader, RemoteDisplay, wsUrlForPath } from "./shared";
+import {
+  Loader,
+  RemoteDisplay,
+  useTerminalViewProvider,
+  wsUrlForPath,
+} from "./shared";
 import { ConnectionScreen } from "@termix-ssh/plugin-sdk/ui";
+import { linkToken as readLinkToken } from "./link-token";
 
 const PING_INTERVAL_MS = 30000;
 
@@ -83,19 +89,159 @@ function CenteredMessage({ message }: { message: string }) {
   return <ConnectionScreen status="error" unavailable={{ title: message }} />;
 }
 
-export function GuestTerminalView({
-  share,
-  wsPath,
-  hideBadges = false,
-  onParticipantsChange,
-}: {
+interface GuestTerminalProps {
   share: Pick<ResolvedShareLink, "permissionLevel">;
   /** The socket path the backend handed out, query string included. */
   wsPath: string;
   /** Suppress the built-in overlay badges when the host page renders its own. */
   hideBadges?: boolean;
   onParticipantsChange?: (participants: SessionParticipantInfo[]) => void;
+}
+
+/**
+ * The terminal plugin draws the shared terminal when it offers to: a view in
+ * a frame can't open another plugin's socket. Older ones leave it to us.
+ */
+export function GuestTerminalView(props: GuestTerminalProps) {
+  const Provider = useTerminalViewProvider();
+  return Provider ? (
+    <ProvidedGuestTerminal {...props} Provider={Provider} />
+  ) : (
+    <OwnGuestTerminal {...props} />
+  );
+}
+
+function GuestTerminalChrome({
+  share,
+  hideBadges,
+  participants,
+  ended,
+  bar = false,
+  children,
+}: {
+  share: Pick<ResolvedShareLink, "permissionLevel">;
+  hideBadges: boolean;
+  participants: SessionParticipantInfo[];
+  ended: string | null;
+  /** Badges in a row above, for a terminal another plugin draws on top. */
+  bar?: boolean;
+  children: React.ReactNode;
 }) {
+  const { t } = useTranslation();
+  if (bar) {
+    const names = participants
+      .map((participant) =>
+        participant.isOwner
+          ? t("sessionSharing.guestView.ownerLabel")
+          : (participant.label ?? "?"),
+      )
+      .join(", ");
+    const showBar =
+      !hideBadges &&
+      (participants.length > 1 || share.permissionLevel === "read-only");
+    return (
+      <div className="flex w-full h-full flex-col">
+        {showBar && (
+          <div className="flex shrink-0 items-center justify-end gap-3 border-b border-border px-3 py-1 text-xs text-muted-foreground">
+            {participants.length > 1 && (
+              <span className="flex items-center gap-1.5" title={names}>
+                <Users className="size-3.5" />
+                {participants.length}
+              </span>
+            )}
+            {share.permissionLevel === "read-only" && (
+              <span className="flex items-center gap-1.5">
+                <Eye className="size-3.5" />
+                {t("sessionSharing.guestView.readOnlyBadge")}
+              </span>
+            )}
+          </div>
+        )}
+        <div className="relative min-h-0 flex-1">
+          {ended ? <CenteredMessage message={ended} /> : children}
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="relative w-full h-full">
+      {!hideBadges && (
+        <>
+          <ParticipantsBadge
+            participants={participants}
+            ownerLabel={t("sessionSharing.guestView.ownerLabel")}
+          />
+          {share.permissionLevel === "read-only" && (
+            <ReadOnlyBadge
+              label={t("sessionSharing.guestView.readOnlyBadge")}
+            />
+          )}
+        </>
+      )}
+      {ended && (
+        <div
+          className="absolute inset-0 z-30 flex items-center justify-center"
+          style={{ backgroundColor: "var(--bg-base)" }}
+        >
+          <CenteredMessage message={ended} />
+        </div>
+      )}
+      {children}
+    </div>
+  );
+}
+
+function ProvidedGuestTerminal({
+  share,
+  wsPath,
+  hideBadges = false,
+  onParticipantsChange,
+  Provider,
+}: GuestTerminalProps & {
+  Provider: React.ComponentType<Record<string, unknown>>;
+}) {
+  const { t } = useTranslation();
+  const [ended, setEnded] = useState<string | null>(null);
+  const [participants, setParticipants] = useState<SessionParticipantInfo[]>(
+    [],
+  );
+  const onParticipantsChangeRef = useRef(onParticipantsChange);
+  onParticipantsChangeRef.current = onParticipantsChange;
+  const onParticipants = useCallback((list: unknown) => {
+    if (!Array.isArray(list)) return;
+    const next = list as SessionParticipantInfo[];
+    setParticipants(next);
+    onParticipantsChangeRef.current?.(next);
+  }, []);
+  const onEnded = useCallback(
+    () =>
+      setEnded((prev) => prev ?? t("sessionSharing.guestView.sessionEnded")),
+    [t],
+  );
+  return (
+    <GuestTerminalChrome
+      share={share}
+      hideBadges={hideBadges}
+      participants={participants}
+      ended={ended}
+      bar
+    >
+      <Provider
+        query={wsPath.split("?", 2)[1] ?? ""}
+        readWrite={share.permissionLevel === "read-write"}
+        onParticipants={onParticipants}
+        onEnded={onEnded}
+      />
+    </GuestTerminalChrome>
+  );
+}
+
+function OwnGuestTerminal({
+  share,
+  wsPath,
+  hideBadges = false,
+  onParticipantsChange,
+}: GuestTerminalProps) {
   const { t } = useTranslation();
   const { instance: terminal, ref: xtermRef } = useXTerm();
   const [ended, setEnded] = useState<string | null>(null);
@@ -127,75 +273,81 @@ export function GuestTerminalView({
     let cancelled = false;
     let ws: WebSocket | null = null;
 
-    resolveTerminalWsUrl(wsPath).then((url) => {
-      if (cancelled) return;
-      ws = new WebSocket(url);
-      wsRef.current = ws;
+    // In a frame this fails: only the terminal plugin may open its socket,
+    // and its view takes over once its part arrives.
+    void resolveTerminalWsUrl(wsPath)
+      .catch(() => null)
+      .then((url) => {
+        if (cancelled || !url) return;
+        ws = new WebSocket(url);
+        wsRef.current = ws;
 
-      ws.onopen = () => {
-        pingIntervalRef.current = setInterval(() => {
-          if (ws && ws.readyState === WebSocket.OPEN) {
-            ws.send(JSON.stringify({ type: "ping" }));
-          }
-        }, PING_INTERVAL_MS);
-      };
-
-      ws.onmessage = (event) => {
-        let msg: TerminalWsMessage;
-        try {
-          msg = JSON.parse(event.data);
-        } catch {
-          return;
-        }
-
-        switch (msg.type) {
-          case "resized": {
-            const { cols, rows } = msg;
-            if (
-              typeof cols === "number" &&
-              typeof rows === "number" &&
-              Number.isInteger(cols) &&
-              Number.isInteger(rows) &&
-              cols > 0 &&
-              rows > 0
-            ) {
-              sharedSize = { cols, rows };
-              terminal.resize(cols, rows);
+        ws.onopen = () => {
+          pingIntervalRef.current = setInterval(() => {
+            if (ws && ws.readyState === WebSocket.OPEN) {
+              ws.send(JSON.stringify({ type: "ping" }));
             }
-            break;
+          }, PING_INTERVAL_MS);
+        };
+
+        ws.onmessage = (event) => {
+          let msg: TerminalWsMessage;
+          try {
+            msg = JSON.parse(event.data);
+          } catch {
+            return;
           }
-          case "data":
-            if (typeof msg.data === "string") terminal.write(msg.data);
-            break;
-          case "participants":
-            if (Array.isArray(msg.participants)) {
-              const next = msg.participants as SessionParticipantInfo[];
-              setParticipants(next);
-              onParticipantsChangeRef.current?.(next);
+
+          switch (msg.type) {
+            case "resized": {
+              const { cols, rows } = msg;
+              if (
+                typeof cols === "number" &&
+                typeof rows === "number" &&
+                Number.isInteger(cols) &&
+                Number.isInteger(rows) &&
+                cols > 0 &&
+                rows > 0
+              ) {
+                sharedSize = { cols, rows };
+                terminal.resize(cols, rows);
+              }
+              break;
             }
-            break;
-          case "sessionExpired":
-          case "sessionTerminatedByOwner":
-          case "session_ended":
-            setEnded(t("sessionSharing.guestView.sessionEnded"));
-            break;
-          default:
-            break;
-        }
-      };
-
-      ws.onclose = () => {
-        setEnded((prev) => prev ?? t("sessionSharing.guestView.sessionEnded"));
-      };
-
-      if (share.permissionLevel === "read-write") {
-        terminal.onData((data) => {
-          if (ws && ws.readyState === WebSocket.OPEN) {
-            ws.send(JSON.stringify({ type: "input", data }));
+            case "data":
+              if (typeof msg.data === "string") terminal.write(msg.data);
+              break;
+            case "participants":
+              if (Array.isArray(msg.participants)) {
+                const next = msg.participants as SessionParticipantInfo[];
+                setParticipants(next);
+                onParticipantsChangeRef.current?.(next);
+              }
+              break;
+            case "sessionExpired":
+            case "sessionTerminatedByOwner":
+            case "session_ended":
+              setEnded(t("sessionSharing.guestView.sessionEnded"));
+              break;
+            default:
+              break;
           }
-        });
-      }
-    });
+        };
+
+        ws.onclose = () => {
+          setEnded(
+            (prev) => prev ?? t("sessionSharing.guestView.sessionEnded"),
+          );
+        };
+
+        if (share.permissionLevel === "read-write") {
+          terminal.onData((data) => {
+            if (ws && ws.readyState === WebSocket.OPEN) {
+              ws.send(JSON.stringify({ type: "input", data }));
+            }
+          });
+        }
+      });
 
     return () => {
       cancelled = true;
@@ -209,30 +361,14 @@ export function GuestTerminalView({
   }, [terminal, wsPath]);
 
   return (
-    <div className="relative w-full h-full">
-      {!hideBadges && (
-        <>
-          <ParticipantsBadge
-            participants={participants}
-            ownerLabel={t("sessionSharing.guestView.ownerLabel")}
-          />
-          {share.permissionLevel === "read-only" && (
-            <ReadOnlyBadge
-              label={t("sessionSharing.guestView.readOnlyBadge")}
-            />
-          )}
-        </>
-      )}
-      {ended && (
-        <div
-          className="absolute inset-0 z-30 flex items-center justify-center"
-          style={{ backgroundColor: "var(--bg-base)" }}
-        >
-          <CenteredMessage message={ended} />
-        </div>
-      )}
+    <GuestTerminalChrome
+      share={share}
+      hideBadges={hideBadges}
+      participants={participants}
+      ended={ended}
+    >
       <div ref={xtermRef} className="w-full h-full" />
-    </div>
+    </GuestTerminalChrome>
   );
 }
 
@@ -269,16 +405,19 @@ function GuestGuacamoleView({ share }: { share: ResolvedShareLink }) {
   );
 }
 
-export default function SharedSessionView() {
+export default function SharedSessionView({
+  params,
+}: {
+  params?: URLSearchParams;
+}) {
   const { t } = useTranslation();
   const [share, setShare] = useState<ResolvedShareLink | null>(null);
   const [linkToken, setLinkToken] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const token = readLinkToken(params);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const token = params.get("token");
     if (!token) {
       setError(t("sessionSharing.guestView.linkInvalid"));
       setLoading(false);
@@ -297,7 +436,7 @@ export default function SharedSessionView() {
         }
       })
       .finally(() => setLoading(false));
-  }, [t]);
+  }, [t, token]);
 
   return (
     <div

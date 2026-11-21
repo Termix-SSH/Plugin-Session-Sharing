@@ -32,6 +32,8 @@ vi.mock("../../src/frontend/shared", () => ({
   wsUrlForPath: async () => "ws://termix.test/terminal",
   RemoteDisplay: () => null,
   Loader: () => null,
+  // No terminal plugin draws it, so the view opens its own socket.
+  useTerminalViewProvider: () => undefined,
 }));
 class Socket {
   static OPEN = 1;

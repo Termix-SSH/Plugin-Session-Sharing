@@ -157,6 +157,52 @@ describe("session-sharing activate", () => {
     await waitFor(() => expect(api.get).toHaveBeenCalledWith("/host/4/active"));
   });
 
+  it("docks the share panel beside the session when it can", async () => {
+    const api = stubApi();
+    rendered = await renderWithApp(plugin, { manifest, locales, api });
+    rendered.renderSlot("shell.overlay");
+    const openSidePanel = vi.fn();
+    const target = { hostId: 3, sessionId: "sess-3", protocol: "ssh" };
+    await act(() =>
+      invokeAction("session-sharing.share", {
+        getShareTarget: () => target,
+        openSidePanel,
+      }),
+    );
+    expect(openSidePanel).toHaveBeenCalledWith(
+      "session-sharing.sharePanel",
+      target,
+    );
+    expect(screen.queryByText(locales.sessionSharing.modalTitle)).toBeNull();
+  });
+
+  it("waits for the share target when it comes from another frame", async () => {
+    const api = stubApi();
+    rendered = await renderWithApp(plugin, { manifest, locales, api });
+    rendered.renderSlot("shell.overlay");
+    await act(() =>
+      invokeAction("session-sharing.share", {
+        getShareTarget: async () => ({
+          hostId: 2,
+          sessionId: "sess-2",
+          protocol: "ssh",
+        }),
+      }),
+    );
+
+    fireEvent.click(
+      await screen.findByRole("button", {
+        name: locales.sessionSharing.createLinkButton,
+      }),
+    );
+    await waitFor(() =>
+      expect(api.post).toHaveBeenCalledWith(
+        "/create",
+        expect.objectContaining({ hostId: 2, sessionId: "sess-2" }),
+      ),
+    );
+  });
+
   it("opens the dialog for a remote desktop session once it is up", async () => {
     rendered = await renderWithApp(plugin, {
       manifest,

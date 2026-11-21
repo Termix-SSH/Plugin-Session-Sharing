@@ -9,6 +9,7 @@
       "ownerLabel": "Værtsejer"
     },
     "modalTitle": "Del session",
+    "close": "Luk",
     "shareButton": "Del",
     "notReadyToShare": "Sessionen er ikke klar til deling endnu",
     "modeTab": {

@@ -9,6 +9,7 @@
       "ownerLabel": "ホスト所有者"
     },
     "modalTitle": "セッションの共有",
+    "close": "閉じる",
     "shareButton": "共有",
     "notReadyToShare": "セッションはまだ共有できません",
     "modeTab": {

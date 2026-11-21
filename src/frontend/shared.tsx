@@ -14,6 +14,26 @@ import { pluginWsUrl } from "@termix-ssh/plugin-sdk/ui";
  * action below.
  */
 export const REMOTE_DISPLAY_SLOT = "session.remoteDisplay";
+
+/**
+ * A shared terminal for a guest, drawn by the terminal plugin: only it may
+ * open its socket from a frame. Props: query (the guest token part of the
+ * socket path), readWrite, onParticipants and onEnded.
+ */
+export const TERMINAL_VIEW_SLOT = "session.terminalView";
+
+/** The component a terminal plugin gave the slot, if any. */
+export function useTerminalViewProvider() {
+  const contributions = useSlotContributions(TERMINAL_VIEW_SLOT);
+  return useMemo(
+    () =>
+      contributions.find(
+        (contribution) =>
+          contribution.kind === "component" && contribution.component,
+      )?.component,
+    [contributions],
+  );
+}
 const REMOTE_SESSION_TOKEN_ACTION = "session.remoteDisplay.token";
 
 export interface RemoteDisplayProps {

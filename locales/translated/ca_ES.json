@@ -9,6 +9,7 @@
       "ownerLabel": "Propietari de l'amfitrió"
     },
     "modalTitle": "Compartir sessió",
+    "close": "Tanca",
     "shareButton": "Compartir",
     "notReadyToShare": "La sessió encara no està llesta per compartir-se",
     "modeTab": {

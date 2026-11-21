@@ -9,6 +9,7 @@
       "ownerLabel": "Владелец хоста"
     },
     "modalTitle": "Поделиться сессией",
+    "close": "Закрыть",
     "shareButton": "Поделиться",
     "notReadyToShare": "Сессия еще не готова для общего доступа",
     "modeTab": {

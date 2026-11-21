@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.2
+
+### Changed
+
+- Sharing opens as a panel beside the terminal or remote desktop instead of a window over the whole screen (needs SSH Terminal 1.4.2 or Remote Desktop 1.4.3)
+
+### Fixed
+
+- Sharing a terminal works again: the Create link button no longer stays greyed out
+- Share links open again, and people without an account see the shared terminal (needs Termix 26.11.3 and SSH Terminal 1.4.2)
+
 ## 1.2.1
 
 ### Changed

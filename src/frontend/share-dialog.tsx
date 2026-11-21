@@ -51,6 +51,41 @@ function subscribe(listener: () => void): () => void {
   return () => listeners.delete(listener);
 }
 
+/**
+ * The share panel docked beside a terminal or remote desktop. The session's
+ * side panel slot hands it the share target as panelProps.
+ */
+export function SharePanel({
+  panelProps,
+  onClose,
+}: {
+  panelProps?: Partial<ShareTarget>;
+  onClose: () => void;
+}) {
+  const target = panelProps;
+  if (
+    !target ||
+    typeof target.hostId !== "number" ||
+    typeof target.sessionId !== "string" ||
+    !target.protocol
+  ) {
+    return null;
+  }
+  return (
+    <ShareSessionModal
+      variant="panel"
+      open
+      onClose={onClose}
+      hostId={target.hostId}
+      sessionId={target.sessionId}
+      protocol={target.protocol}
+      tabInstanceId={target.tabInstanceId}
+      origin={target.origin}
+      resolvePublicUrl={resolveShareBase}
+    />
+  );
+}
+
 /** Rendered once in "shell.overlay"; shows the dialog when a toolbar asks. */
 export function ShareDialogHost() {
   const target = useSyncExternalStore(subscribe, () => current);

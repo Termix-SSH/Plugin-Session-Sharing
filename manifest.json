@@ -1,7 +1,7 @@
 {
   "id": "session-sharing",
   "name": "Session Sharing",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Share live sessions by link or with another user, and present sessions to a group in meeting rooms.",
   "author": {
     "name": "Termix"
@@ -96,6 +96,10 @@
       {
         "id": "session.remoteDisplay",
         "accepts": ["component"]
+      },
+      {
+        "id": "session.terminalView",
+        "accepts": ["component"]
       }
     ],
     "permissions": [
@@ -142,6 +146,8 @@
       "session.remoteDisplay.token",
       "terminal.open",
       "terminal.overlay",
+      "remote-desktop.sidePanel",
+      "terminal.sidePanel",
       "terminal.view"
     ],
     "dashboardCards": [

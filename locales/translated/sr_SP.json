@@ -9,6 +9,7 @@
       "ownerLabel": "Власник хоста"
     },
     "modalTitle": "Дељење сесије",
+    "close": "Затвори",
     "shareButton": "Дељење",
     "notReadyToShare": "Сесија још није спремна за дељење",
     "modeTab": {

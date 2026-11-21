@@ -9,6 +9,7 @@
       "ownerLabel": "Host owner"
     },
     "modalTitle": "Share session",
+    "close": "Close",
     "shareButton": "Share",
     "notReadyToShare": "Session is not ready to share yet",
     "modeTab": {

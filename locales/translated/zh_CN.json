@@ -9,6 +9,7 @@
       "ownerLabel": "主机所有者"
     },
     "modalTitle": "共享会话",
+    "close": "关闭",
     "shareButton": "共享",
     "notReadyToShare": "会话尚未准备好共享",
     "modeTab": {

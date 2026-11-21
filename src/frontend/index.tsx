@@ -31,9 +31,10 @@ import {
   bindShareApp,
   closeShareDialog,
   openShareDialog,
+  SharePanel,
   type ShareTarget,
 } from "./share-dialog";
-import { REMOTE_DISPLAY_SLOT } from "./shared";
+import { REMOTE_DISPLAY_SLOT, TERMINAL_VIEW_SLOT } from "./shared";
 
 import { connectMeetings, type MeetingBackend } from "./meeting-backend";
 
@@ -104,12 +105,18 @@ function MeetingScope({
 
 const COLLAB = "collab";
 const SHARE_ACTION = "session-sharing.share";
+/** The share panel a terminal or remote desktop docks beside the session. */
+const SHARE_PANEL = "session-sharing.sharePanel";
 const SEEN_ROOMS_KEY = "termix:collab-rooms-seen";
 const INVITE_POLL_MS = 60_000;
 
 /** `?view=shared` and `?view=collab-guest`, the two anonymous guest links. */
-function GuestView({ view }: StandaloneViewProps) {
-  return view === "shared" ? <SharedSessionView /> : <CollabGuestView />;
+function GuestView({ view, params }: StandaloneViewProps) {
+  return view === "shared" ? (
+    <SharedSessionView params={params} />
+  ) : (
+    <CollabGuestView params={params} />
+  );
 }
 
 function CollabRoomTabView({ tab, isVisible }: TabProps) {
@@ -231,7 +238,7 @@ function createInviteWatcher(app: TermixApp): ComponentType {
 
 /** A terminal toolbar action is invoked with the terminal's slot API. */
 interface TerminalSlotApi {
-  getShareTarget?: () => ShareTarget | null;
+  getShareTarget?: () => ShareTarget | null | Promise<ShareTarget | null>;
 }
 
 /** A remote desktop toolbar action is invoked with the session it shows. */
@@ -267,6 +274,11 @@ export function activate(app: TermixApp): void {
   // Rooms and share links draw remote desktop streams through this slot.
   app.declareActionSlot({
     id: REMOTE_DISPLAY_SLOT,
+    accepts: ["component"],
+    fit: "fill",
+  });
+  app.declareActionSlot({
+    id: TERMINAL_VIEW_SLOT,
     accepts: ["component"],
     fit: "fill",
   });
@@ -310,7 +322,7 @@ export function activate(app: TermixApp): void {
 
   app.registerAction(
     SHARE_ACTION,
-    (context: unknown) => {
+    async (context: unknown) => {
       let target: ShareTarget | null = null;
       if (isRemoteDesktopContext(context)) {
         target = context.sessionId
@@ -323,13 +335,45 @@ export function activate(app: TermixApp): void {
             }
           : null;
       } else {
-        target = (context as TerminalSlotApi)?.getShareTarget?.() ?? null;
+        // From another frame the call comes back as a Promise.
+        target =
+          (await (context as TerminalSlotApi)?.getShareTarget?.()) ?? null;
       }
-      if (target) openShareDialog(target);
-      else toast.error(app.t("sessionSharing.notReadyToShare"));
+      if (!target) {
+        toast.error(app.t("sessionSharing.notReadyToShare"));
+        return;
+      }
+      // The terminal or remote desktop docks the panel beside the session;
+      // an older one without a side panel gets the dialog.
+      const openSidePanel = (
+        context as { openSidePanel?: unknown } | null | undefined
+      )?.openSidePanel;
+      if (typeof openSidePanel === "function") {
+        try {
+          await (openSidePanel as (id: string, props: unknown) => unknown)(
+            SHARE_PANEL,
+            target,
+          );
+          return;
+        } catch {
+          // Falls back to the dialog below.
+        }
+      }
+      openShareDialog(target);
     },
     { permission: "use" },
   );
+  for (const slot of ["terminal.sidePanel", "remote-desktop.sidePanel"]) {
+    app.registerSlotContribution(slot, {
+      actionId: SHARE_PANEL,
+      titleKey: "sessionSharing.modalTitle",
+      icon: Share2,
+      kind: "component",
+      component: SharePanel as unknown as ComponentType<
+        Record<string, unknown>
+      >,
+    });
+  }
   for (const slot of ["terminal.toolbar", "remote-desktop.toolbar"]) {
     app.registerSlotContribution(slot, {
       actionId: SHARE_ACTION,

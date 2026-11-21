@@ -9,6 +9,7 @@
       "ownerLabel": "Värdägare"
     },
     "modalTitle": "Dela session",
+    "close": "Stäng",
     "shareButton": "Dela",
     "notReadyToShare": "Sessionen är inte redo att delas än",
     "modeTab": {
